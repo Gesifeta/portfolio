@@ -48,7 +48,11 @@ function Portfolio() {
                 open account, transfer funds, deposit , enquiry balances .
                 Authentication and autherization is also implemented.
               </Typography>
-              <a href="https://gemechugesifeta.herokuapp.com/" target="_blank" rel="noreferrer">
+              <a
+                href="https://gemechugesifeta.herokuapp.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 See the project?
               </a>
             </Grid>
@@ -71,6 +75,7 @@ function Portfolio() {
                 <li>Typescript</li>
                 <li>ReactJS</li>
                 <li>NodeJS/express</li>
+                <li>REST API</li>
                 <li>MongoDB Compass</li>
                 <li>Docker for containerization, and heroku for deployment</li>
               </ul>
@@ -110,7 +115,11 @@ function Portfolio() {
                   <li>React-Redux</li>
                   <li>Public API from https://restcountries.com </li>
                 </ul>
-                <a href="https://gemechucountryinfo.netlify.app/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://gemechucountryinfo.netlify.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   See the project?
                 </a>
               </Grid>
@@ -140,7 +149,13 @@ function Portfolio() {
                     <li>ReactJS</li>
                     <li>Public API from https://randomsuser.me </li>
                   </ul>
-                  <a href="https://randomsuser.netlify.app/" target="_blank" rel="noreferrer">See the project?</a>
+                  <a
+                    href="https://randomsuser.netlify.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    See the project?
+                  </a>
                 </Grid>
               </Grid>
             </Grid>
@@ -169,7 +184,13 @@ function Portfolio() {
                   <li>Javascript</li>
                   <li>ReactJS</li>
                 </ul>
-                <a href="https://todoitemapplication.netlify.app/" target="_blank" rel="noreferrer">See the project?</a>
+                <a
+                  href="https://todoitemapplication.netlify.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  See the project?
+                </a>
               </Grid>
             </Grid>
           </Grid>
