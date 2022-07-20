@@ -75,11 +75,6 @@ function Portfolio() {
                 <li>Typescript</li>
                 <li>ReactJS</li>
                 <li>NodeJS/express</li>
-<<<<<<< HEAD
-                <li>REST API</li>
-=======
- <li>REST API</li>
->>>>>>> d8662943d64641b53bdf3c2605dbe90c14cf7b6c
                 <li>MongoDB Compass</li>
                 <li>Docker for containerization, and heroku for deployment</li>
               </ul>
