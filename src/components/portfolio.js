@@ -117,7 +117,7 @@ function Portfolio() {
                   <li>Public API from https://restcountries.com </li>
                 </ul>
                 <a
-                  href="https://gemechucountryinfo.netlify.app/"
+                  href="https://gemechulocationsapp.netlify.app/"
                   target="_blank"
                   rel="noreferrer"
                 >
