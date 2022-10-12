@@ -92,8 +92,9 @@ function Portfolio() {
                 <div className="countryInfo">Country Information</div>
               </Grid>
               <h5>
+              
                 Users can search of country, and look for basic informations
-                like region, population size, and languages
+                like current location, region, population size, and languages. It also integrates Google Map and the user can see where the specific country is located.
               </h5>
               <Grid item xs={12} md={12}>
                 <Typography
