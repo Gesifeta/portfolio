@@ -1,0 +1,9 @@
+footer{
+    background-color: var(--color-charcoal-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    min-height: 6rem;
+    padding: 1rem ;
+}
