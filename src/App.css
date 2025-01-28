@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-around;
   margin: auto;
-  min-height: 80vh;
+  min-height: 90vh;
   max-width: 1200px;
 }
 .container-introduction {
@@ -15,6 +15,13 @@
 }
 .container p {
   color: rgb(202, 202, 198);
+}
+.introduction {
+  font-size: 1.15rem;
+  line-height: 1.75rem;
+}
+.introduction b {
+  color: var(--color-teal);
 }
 .container-introduction p.small {
   font-weight: 500;
@@ -29,6 +36,7 @@
     green,
     rgb(240, 7, 170)
   );
+ 
   background-clip: text;
   padding: 0.5rem 0.25rem;
   color: transparent;

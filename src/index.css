@@ -26,12 +26,12 @@ body {
 /* main section */
 main {
   margin: auto;
-  max-width: 1200px;
+  max-width: 1400px;
 }
 /* Sections */
 section {
   padding: 2rem;
-  margin: 2.5rem;
+  margin: 0 2.5rem;
   min-height: 100vh;
 }
 /* Buttons */

@@ -1,0 +1,145 @@
+.home {
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header header "
+    "about about"
+    "sidebar-left task-area ";
+  justify-content: stretch;
+  position: relative;
+}
+.home > div {
+  padding: 1rem;
+}
+/* For Home elements as per the grid structure */
+.header {
+  grid-area: header;
+  min-height: 100px;
+}
+.sidebar-left {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  left: 5rem;
+  bottom: 1rem;
+  grid-area: sidebar-left;
+}
+.task-area {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 0;
+  width: 100%;
+  grid-area: task-area;
+}
+.task-area > div {
+  background-color: var(--color-charcoal-gray);
+  border-radius: 5px;
+  min-height: 100vh;
+  width: 100%;
+}
+.about {
+  display: none;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  gap: 1rem;
+  grid-area: about;
+}
+.about p {
+  color: gray;
+  font-weight: 500;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+.info-detail p{
+ line-height: .5;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.sidebar-left-header {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-left: 40%;
+  transform: translate(-50%);
+}
+.sidebar-left-header h2 {
+  color: var(--color-teal);
+  font-size: 2rem;
+}
+.sidebar-left-header p {
+  margin-top: 1rem;
+  max-width: 80%;
+}
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 1.5rem;
+  list-style: none;
+}
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  gap: 0.5rem;
+}
+.sidebar a {
+  color: unset;
+}
+.slide-right {
+  color: gray;
+  transform: translateX(3rem);
+  animation: slide-right 0.3s ease-in-out;
+  padding: 0.25rem 0;
+}
+.sidebar ul li span {
+  display: flex;
+  align-items: center;
+}
+.sidebar ul li span.icon {
+  color: var(--color-teal);
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(0.5rem);
+  }
+  10% {
+    transform: translateX(1rem);
+  }
+  40% {
+    transform: translateX(1.5rem);
+  }
+  60% {
+    transform: translateX(1.75rem);
+  }
+  80% {
+    transform: translateX(2rem);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sidebar-left {
+    display: none;
+  }
+  .about {
+    display: flex;
+  }
+}
