@@ -35,33 +35,45 @@
   width: 100%;
   grid-area: task-area;
 }
+
 .task-area > div {
-  background-color: var(--color-charcoal-gray);
   border-radius: 5px;
   min-height: 100vh;
+  padding: 1rem;
   width: 100%;
 }
 .about {
   display: none;
   flex-direction: column;
   width: 80%;
-  margin: auto;
+  align-items: center;
   gap: 1rem;
   grid-area: about;
+}
+.about .sidebar-left-header {
+  margin-left: 0;
 }
 .about p {
   color: gray;
   font-weight: 500;
 }
-.info{
+.info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-bottom: 1rem;
+  justify-content: space-between;
+  gap: 0.25rem;
 }
-.info-detail p{
- line-height: .5;
+.info-detail {
+  margin-top: 1rem;
 }
+.info-detail p {
+  display: flex;
+  align-items: center;
+  color: gray;
+  gap: 1rem;
+  line-height: 0.5;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -141,5 +153,12 @@
   }
   .about {
     display: flex;
+  }
+  .about h2 {
+    font-size: 2rem;
+  }
+  .info {
+    align-items: center;
+    margin-bottom: 2rem;
   }
 }

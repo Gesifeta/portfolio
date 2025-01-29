@@ -14,7 +14,7 @@ function App() {
   // To play the audio when button clicked
   const sayName = () => {
     // To hold audio
-    const audio = new Audio("/media.mp4");
+    const audio = new Audio("/Name.m4a");
     setAudioLoaded(true);
     return (audio.onloadedmetadata = () => {
       audio.play();
@@ -43,19 +43,22 @@ function App() {
               </b>
             </h2>
             <h1 style={{ fontSize: "3rem", marginTop: "1rem" }}>
-              End-to-End  Web Developer, with special interest in Amazon Web
+              End-to-End Web Developer, with special interest in Amazon Web
               Services.
             </h1>
           </span>
           <p className="introduction">
-            I am a freelance web developer based in Addis Ababa, Ethiopia. I  believe in bridging innovation and technology to solve real-world
+            I am a freelance web developer based in Addis Ababa, Ethiopia. I
+            believe in bridging innovation and technology to solve real-world
             challenges. My work is driven by a commitment to write clean,
             maintainable code and deliver impactful projects that delight users.{" "}
             <b>Feel free</b> to explore my portfolio to see my projects,
             certifications, and the journey that has shaped me into the
-            developer I am today. <br  />
+            developer I am today. <br />
             <br />
-           <h3 style={{textAlign:"right",color:"teal"}}>Let's create something amazing together!</h3> 
+            <h3 style={{ textAlign: "right", color: "teal" }}>
+              Let's create something amazing together!
+            </h3>
           </p>
         </div>
         <div className="container-cta">

@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 
 import "./Home.css";
+import MyInfo from "../info/MyInfo.jsx";
+import ProjectCard from "../card/ProjectCard.jsx";
+import { projects } from "../../data/project.js";
 
 const Home = () => {
   // To make the list item slide right
@@ -79,6 +82,7 @@ const Home = () => {
       <div className="home">
         <div className="header"></div>
         <div id="about" className="about">
+          <MyInfo />
           <h2>About Me</h2>
           <p>
             I am a skilled Full Stack Developer with expertise in building
@@ -96,26 +100,7 @@ const Home = () => {
           </p>
         </div>
         <div className="sidebar-left">
-          <div className="sidebar-left-header">
-            <div className="info">
-              <h2>Gemechu Gesifeta </h2>
-              <p style={{ color: "gray", fontSize: "1.5rem" }}>
-                Fullstack Web Developer
-              </p>
-              <div className="info-detail">
-                <p>email: adamgemechu@gmail.com</p>
-                <p>Addis Ababa, Ethiopia</p>
-              </div>
-            </div>
-            <hr
-              style={{ border: "1px solid gray", width: "60%", margin: "auto" }}
-            />
-            <p style={{ color: "white" ,width:"100%"}}>
-            I specialize in creating visually appealing, responsive, and
-            user-friendly websites optimized for all devices. 
-            </p>
-          </div>
-
+          <MyInfo />
           <div className="sidebar">
             <ul className="sidebar-list">
               {listitems.map((item, index) => (
@@ -133,7 +118,7 @@ const Home = () => {
             </ul>
           </div>
         </div>
-        <section
+        <div
           className="task-area"
           onMouseOver={(e) => {
             if (e.target.tagName === "DIV")
@@ -146,7 +131,14 @@ const Home = () => {
           }}
         >
           <div id="projects" className="container-projects">
-            <h2>Projects</h2>
+            <h3 style={{fontSize:"1.75rem"}}>Projects</h3>
+            <div className="projects">
+              {projects.map((project, index) => (
+                <ProjectCard key={index} project={project} title={project.title} 
+                image={project.image}
+                description={project.description} stacks={project.stacks} projectlink={project.projectlink}  projectdemo={project?.projectdemo}/>
+              ))}
+            </div>
           </div>
           <div id="skills" className="container-skills">
             <h2>Skills</h2>
@@ -163,10 +155,10 @@ const Home = () => {
           <div id="experiences" className="container-experiences">
             <h2>Experiences</h2>
           </div>
-          <div id="contacts" className="container-contacts">
+          <div id="contacts" className="contact">
             <h2>Contacts</h2>
           </div>
-        </section>
+        </div>
       </div>
     </main>
   );
