@@ -6,7 +6,7 @@ import { badges } from "../../../data/badges.js";
 const Bagde = () => {
   console.log(badges);
   return (
-    <section className="container-badge">
+    <section className="container-badge" id="badges">
       <h2>Badges</h2>
       <div className="badges">
         {badges.map((badge, index) => (

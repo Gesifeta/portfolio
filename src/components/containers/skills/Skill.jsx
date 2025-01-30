@@ -41,7 +41,7 @@ const Skill = () => {
   return (
     <>
       {/* Skill categories */}
-      <section className="container-skills">
+      <section className="container-skills" id="skills">
         <h2>Skills</h2>
 
         <div className="skill-category" onClick={showSkills}>
@@ -68,7 +68,8 @@ const Skill = () => {
               {skill.name === "AWS" ? (
                 <div className="skillSets">
                   {skill.skillSets.map((skillSet, index) => (
-                    <span className="skillSet-name"
+                    <span
+                      className="skillSet-name"
                       key={`${skillSet.name}-${index}`}
                     >
                       {skillSet.name}
