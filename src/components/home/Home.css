@@ -6,7 +6,6 @@
     "header header "
     "about about"
     "sidebar-left task-area ";
-  justify-content: stretch;
   position: relative;
 }
 .home > div {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { projects } from "./../data/project.js";
-import ProjectCard from "./card/ProjectCard.jsx";
+import { projects } from "../../../data/project.js";
+import ProjectCard from "../../card/ProjectCard.jsx";
 const Projects = () => {
   // Filter projects to show. only show required projects
   const [filteredProjects, setFilteredProjects] = useState([]);
@@ -16,7 +16,7 @@ const Projects = () => {
     let actionType = e.target.textContent;
     if (actionType === "Show Less") {
       setShowAll(false);
-     handleFilterProjects();
+      handleFilterProjects();
       return;
     }
     setShowAll(true);

@@ -73,7 +73,7 @@ const Experience = ({ idName }) => {
         " Checking loan interest rates and advising clients on ways to reduce interest expenses on outstanding balances",
         "Collecting deposits from business account holders to manage cash flow",
         "Communicating with high-value customers regarding account management and other matters relating to loans or deposits",
-        "Analysing, understanding and implementing banking guidelines, regulations and laws to help ensure compliance with the regulations of the National Bank of Ethiopia"
+        "Analysing, understanding and implementing banking guidelines, regulations and laws to help ensure compliance with the regulations of the National Bank of Ethiopia",
       ],
     },
     {
@@ -94,10 +94,10 @@ const Experience = ({ idName }) => {
         "Implementing security measure",
         "Monitoring security certificates and company compliance of requirements",
         "Offering technical support to company staff and troubleshooting computer problems",
-        "Installing and updating company software and hardware as needed and anticipate and report the cost of replacing or updating computer items"
+        "Installing and updating company software and hardware as needed and anticipate and report the cost of replacing or updating computer items",
       ],
     },
-   
+
     {
       id: 1,
       position: "ICT Teacher",
@@ -118,12 +118,13 @@ const Experience = ({ idName }) => {
         " Student Support: Provide guidance and support to students in exploring and pursuing ICT-related interests and career paths. Foster a positive and inclusive classroom culture that encourages creativity, collaboration, and respect",
       ],
     },
-    
   ];
 
   return (
     <motion.div className="app__experience">
-      <p className="heading" style={{textAlign:"center"}}>Professional Experiences</p>
+      <p className="heading" style={{ textAlign: "center" }}>
+        Professional Experiences
+      </p>
       {experiences.map((experience, index) => (
         <div
           id={idName}
@@ -147,10 +148,7 @@ const Experience = ({ idName }) => {
           >
             <div className="app__experience-tenure">
               <span className="app__experience-tenure--spot"></span>
-              <span className="year">
-                {experience.start}
-              </span>{" "}
-              -
+              <span className="year">{experience.start}</span> -
               <span className="year">{experience.end}</span>
             </div>
             <motion.div className="app_expriencecard-container">
@@ -158,9 +156,7 @@ const Experience = ({ idName }) => {
                 image={experience.image}
                 position={experience.position}
                 companyName={experience.companyName}
-                responsibilities={
-                  experience.responsibilities
-                }
+                responsibilities={experience.responsibilities}
                 companyAddress={experience.companyAddress}
               />
             </motion.div>
