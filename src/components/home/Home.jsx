@@ -14,6 +14,7 @@ import "./Home.css";
 import MyInfo from "../info/MyInfo.jsx";
 import Projects from "../containers/projects/Projects.jsx";
 import Skill from "../containers/skills/Skill.jsx";
+import Badge from "../containers/badges/Badge.jsx";
 
 const Home = () => {
   // To make the list item slide right
@@ -132,9 +133,7 @@ const Home = () => {
         >
           <Projects />
           <Skill />
-          <div id="badges" className="container-badges">
-            <h2>Badges</h2>
-          </div>
+          <Badge/>
           <div id="certifications" className="container-certifications">
             <h2>Certifications</h2>
           </div>

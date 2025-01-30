@@ -1,0 +1,30 @@
+.badge{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid gray;
+    padding: .5rem 1rem;
+}
+.container-badge-detail
+{
+    display: flex;
+   align-items: center;
+    gap: 2rem;
+}
+.badge-detail{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.badge-skills{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .25rem;
+}
+.badge-skills span{
+    background-color: var(--color-charcoal-gray);
+    border-radius: 1rem;
+    font-size: 12px;
+    padding: .25rem .5rem;
+
+}
