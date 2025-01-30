@@ -12,8 +12,7 @@ import {
 
 import "./Home.css";
 import MyInfo from "../info/MyInfo.jsx";
-import ProjectCard from "../card/ProjectCard.jsx";
-import { projects } from "../../data/project.js";
+import Projects from "./../Projects.jsx";
 
 const Home = () => {
   // To make the list item slide right
@@ -130,16 +129,7 @@ const Home = () => {
               );
           }}
         >
-          <div id="projects" className="container-projects">
-            <h3 style={{fontSize:"1.75rem"}}>Projects</h3>
-            <div className="projects">
-              {projects.map((project, index) => (
-                <ProjectCard key={index} project={project} title={project.title} 
-                image={project.image}
-                description={project.description} stacks={project.stacks} projectlink={project.projectlink}  projectdemo={project?.projectdemo}/>
-              ))}
-            </div>
-          </div>
+        <Projects/>
           <div id="skills" className="container-skills">
             <h2>Skills</h2>
           </div>
