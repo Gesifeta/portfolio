@@ -20,7 +20,6 @@ const BadgeCard = ({
         <div className="badge-detail">
           <div className="detail">
           <h3>{title}</h3>
-         
           <p className="description">{description}</p>
           </div><h3>Skills covered:</h3>
           <div className="badge-skills">

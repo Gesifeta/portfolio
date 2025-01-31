@@ -6,9 +6,10 @@
   margin: auto;
   min-height: 90vh;
   max-width: 1200px;
+  row-gap: 4rem;
+  padding: 3rem;
 }
 .container-introduction {
-  width: 70%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -16,9 +17,21 @@
 .container p {
   color: rgb(202, 202, 198);
 }
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+.hero img {
+  width: 60%;
+  margin-top: -4rem;
+  margin-right: -6rem;
+}
 .introduction {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   line-height: 1.75rem;
+  margin-bottom: 2rem;
 }
 .introduction b {
   color: var(--color-teal);
@@ -36,11 +49,10 @@
     green,
     rgb(240, 7, 170)
   );
- 
   background-clip: text;
   padding: 0.5rem 0.25rem;
   color: transparent;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 .speak {
   cursor: pointer;
@@ -74,7 +86,7 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-.card .title{
+.card .title {
   font-size: 1.5rem;
 }
 .card:hover {
@@ -95,6 +107,15 @@
   .name {
     padding: 0.25rem;
     font-size: 3rem;
+  }
+  .hero {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .hero img {
+    margin-right: 50%;
+    transform: translateX(50%);
   }
 }
 @keyframes slide-left {

@@ -5,21 +5,29 @@
   padding: 0.5rem 1rem;
 }
 .badge-image {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    min-width: 300px;
-    max-width: 300px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 300px;
+  max-width: 300px;
+}
 .container-badge-detail {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
+.awarded-by{
+  color: goldenrod;
+  text-align: center;
+}
 .badge-detail {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+.detail p{
+  color: gray;
+  margin-top: 1rem;
 }
 .badge-skills {
   display: flex;
@@ -33,7 +41,7 @@
   font-size: 12px;
   padding: 0.25rem 0.5rem;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1100px) {
   .container-badge-detail {
     flex-direction: column;
   }
