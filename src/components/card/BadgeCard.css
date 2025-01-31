@@ -41,6 +41,13 @@
   font-size: 12px;
   padding: 0.25rem 0.5rem;
 }
+.badge-link{
+  margin:2rem 0;
+}
+.badge-link a{
+  display: flex;
+  gap: .5rem;
+}
 @media only screen and (max-width: 1100px) {
   .container-badge-detail {
     flex-direction: column;

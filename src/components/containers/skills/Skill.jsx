@@ -43,7 +43,6 @@ const Skill = () => {
       {/* Skill categories */}
       <section className="container-skills" id="skills">
         <h2>Skills</h2>
-
         <div className="skill-category" onClick={showSkills}>
           <span className="category">
             All <span className="vertical-connector"></span>

@@ -1,38 +1,32 @@
 import React from "react";
 
+import "./EducationCard.css";
+
 const EducationCard = ({
-  image,
-  institution,
   nameOfAward,
-  companyAddress,
-  awards,
+  institution,
+  address,
+  startDate,
+  endDate,
 }) => {
   return (
-    <section className="app__experiencecard">
-      <div className="app__experiencecard-position">
-        <span className="app__experience-tenure--spot"></span>
-        {nameOfAward}
+    <div className="education">
+      <div className="education-year">
+        <span>{startDate}</span>
+        <span>-</span>
+        <span>{endDate}</span>
       </div>
-      <div className="app__experiencecard-company">
-        <div className="app__experiencecard-company--image">
-          <img src={image} alt="" />
-          <p className="app__experiencecard-campany--name">
-            {institution}
-          </p>
+      <div className="education-details">
+        <div className="education-title">
+          <h3>{nameOfAward}</h3>
+          <h4 style={{ color: "gray" }}>{institution} </h4>
         </div>
-        <div className="app__experiencecard-address">
-          {companyAddress.address?.city},{" "}
-          {companyAddress?.address?.country}
-        </div>
+
+        <p style={{ color: "white" }}>
+          {address.city}, {address.country}
+        </p>
       </div>
-      <div className="app__experiencecard-responsibility">
-        <ul>
-          {awards.map((award, index) => (
-            <li key={`${award}-${index}`}>{award}</li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    </div>
   );
 };
 

@@ -1,0 +1,10 @@
+.container-educations{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.educations{
+    display: flex;
+flex-direction: column;
+    row-gap: 2rem;
+}

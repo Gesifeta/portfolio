@@ -1,0 +1,20 @@
+.education {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.education-details {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--color-charcoal-gray);
+  padding: 2rem;
+  width: 100%;
+}
+.education-year{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    color: gray;
+}

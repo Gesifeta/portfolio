@@ -1,0 +1,45 @@
+.container-certifications {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.container-certifications p{
+    color: var(--color-white-light);
+}
+.certification {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  align-items: center;
+}
+.certification-issued-by{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.container-certifications a {
+  display: flex;
+  gap: 0.5rem;
+}
+.certification-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background-color: var(--color-charcoal-gray);
+  border-radius:10px;
+  padding: 1rem;
+}
+.certification-details span.label{
+    color: gray;
+}
+
+@media only screen and (max-width:950px) {
+  .certification{
+    grid-template-columns: 1fr;
+  }
+  .certification-category
+  {
+    text-align: center;
+  }
+  
+}

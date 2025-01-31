@@ -15,6 +15,8 @@ import MyInfo from "../info/MyInfo.jsx";
 import Projects from "../containers/projects/Projects.jsx";
 import Skill from "../containers/skills/Skill.jsx";
 import Badge from "../containers/badges/Badge.jsx";
+import Certifications from "../containers/certificates/Certifications.jsx";
+import Education from "../containers/educations/Education.jsx";
 
 const Home = () => {
   // To make the list item slide right
@@ -45,10 +47,6 @@ const Home = () => {
   };
   // side bar navigation items
   const listitems = [
-    {
-      title: "About",
-      icon: <NotebookText />,
-    },
     {
       title: "Projects",
       icon: <Kanban color="green" />,
@@ -86,18 +84,18 @@ const Home = () => {
           <MyInfo />
           <h2>About Me</h2>
           <p>
-            I am a skilled Full Stack Developer with expertise in building
-            dynamic, responsive web applications using modern technologies. On
-            the front end, I specialize in HTML5, CSS3, JavaScript, React.js,
-            and responsive frameworks like Tailwind CSS. For back-end
-            development, I am proficient in Node.js, Express.js, RESTful APIs,
-            and databases like MongoDB and PostgreSQL. As an AWS Certified Cloud
-            Practitioner, I bring cloud expertise to ensure scalable, secure
-            deployments and seamless integrations. My end-to-end development
-            skills include creating intuitive user interfaces, managing
-            databases, and optimizing performance. I focus on delivering
-            user-friendly, accessible, and high-performance solutions tailored
-            to your needs.
+            I am a skilled freelance Full Stack Developer with expertise in
+            building dynamic, responsive web applications using modern
+            technologies. On the front end, I specialize in HTML5, CSS3,
+            JavaScript, React.js, and responsive frameworks like Tailwind CSS.
+            For back-end development, I am proficient in Node.js, Express.js,
+            RESTful APIs, and databases like MongoDB and PostgreSQL. As an AWS
+            Certified Cloud Practitioner, I bring cloud expertise to ensure
+            scalable, secure deployments and seamless integrations. My
+            end-to-end development skills include creating intuitive user
+            interfaces, managing databases, and optimizing performance. I focus
+            on delivering user-friendly, accessible, and high-performance
+            solutions tailored to your needs.
           </p>
         </div>
         <div className="sidebar-left">
@@ -126,20 +124,16 @@ const Home = () => {
               slideRight(
                 e,
                 e.target.tagName === "DIV"
-                  ? e.target.textContent.toLocaleLowerCase()
+                  ? e.target.firstElementChild.textContent.toLocaleLowerCase()
                   : null
               );
           }}
         >
           <Projects />
           <Skill />
-          <Badge/>
-          <div id="certifications" className="container-certifications">
-            <h2>Certifications</h2>
-          </div>
-          <div id="educations" className="container-educations">
-            <h2>Educations</h2>
-          </div>
+          <Badge />
+          <Certifications />
+          <Education />
           <div id="experiences" className="container-experiences">
             <h2>Experiences</h2>
           </div>

@@ -29,7 +29,7 @@ const Projects = () => {
 
   return (
     <div id="projects" className="container-projects">
-      <h3 style={{ fontSize: "1.75rem" }}>Projects</h3>
+      <h2 >Projects</h2>
       <div className="projects">
         {filteredProjects.map((project, index) => (
           <ProjectCard
