@@ -24,11 +24,11 @@ function ExperienceCard({
             <h4 style={{ color: "gray" }}>{companyName}</h4>
             <p className="small">{address.city}, {address.country}</p>
           </div>
-          <ul>
+          {/* <ul>
             {responsibilities.map((responsibility, index) => (
               <li key={index}>{responsibility}</li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
   );

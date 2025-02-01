@@ -29,10 +29,13 @@
 .task-area {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
   margin: 0;
   width: 100%;
   grid-area: task-area;
+  gap: 3rem;
+}
+.task-area h2{
+  padding: 2rem;
 }
 
 .task-area > div {
@@ -123,7 +126,9 @@
 .sidebar ul li span.icon {
   color: var(--color-teal);
 }
-
+.contanct{
+  grid-area: contact;
+}
 @keyframes slide-right {
   0% {
     transform: translateX(0.5rem);

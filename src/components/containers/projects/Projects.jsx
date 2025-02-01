@@ -29,7 +29,7 @@ const Projects = () => {
 
   return (
     <div id="projects" className="container-projects">
-      <h2 >Projects</h2>
+      <h2 style={{textAlign:"center"}}>Projects</h2>
       <div className="projects">
         {filteredProjects.map((project, index) => (
           <ProjectCard

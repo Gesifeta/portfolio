@@ -1,0 +1,76 @@
+.skill {
+  border: .25px solid var(--color-teal);
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.skill-name {
+  display: flex;
+  background-color: var(--color-charcoal-gray);
+
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.skillSets {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+.skillSet-name {
+  font-size: 12px;
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--color-light-gray);
+  color: var(--color-charcoal-gray);
+}
+.skill-category {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.skill-category > span {
+  position: relative;
+  background-color: var(--color-light-gray);
+  color: coral;
+  cursor: pointer;
+  border-radius: 1rem;
+  padding: 0.25rem 1rem;
+}
+.skill-category span .vertical-connector {
+  width: 2px;
+  border: 1px dashed gray;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 6rem;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+}
+.vertical-connector::after {
+  content: "";
+  border: 1px solid var(--color-teal);
+  background: radial-gradient(coral, teal);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 0.5rem;
+  font-weight: bold;
+  font-size: 2rem;
+  position: absolute;
+  bottom: -2.1rem;
+  left: -1.1rem;
+  width: 1rem;
+  height: 1rem;
+  z-index: 1;
+}
+.animate-connector {
+  height: 6rem;
+  transition: min-height 2s ease-in 0.5s;
+}

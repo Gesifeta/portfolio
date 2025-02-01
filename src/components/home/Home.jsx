@@ -18,6 +18,7 @@ import Badge from "../containers/badges/Badge.jsx";
 import Certifications from "../containers/certificates/Certifications.jsx";
 import Education from "../containers/educations/Education.jsx";
 import Experiences from "../containers/experiences/Experiences.jsx";
+import ContactMe from "../contact/ContactMe.jsx";
 
 const Home = () => {
   // To make the list item slide right
@@ -136,13 +137,10 @@ const Home = () => {
           <Certifications />
           <Education />
           <Experiences />
-          <div id="contacts" className="contact">
-            <h2>Contacts</h2>
-          </div>
+          <ContactMe />
         </div>
       </div>
     </main>
   );
 };
-
 export default Home;
