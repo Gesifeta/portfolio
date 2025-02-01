@@ -1,0 +1,14 @@
+.experiences {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.container-experiences{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.container-experiences ul{
+    list-style-type:disc;
+    padding: 1rem 2.5rem;
+}
