@@ -1,0 +1,18 @@
+.sales {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 100vh;
+  gap: 3rem;
+  max-width: 60%;
+}
+.sales h2 {
+  text-align: center;
+}
+.sales .info {
+  background-color: var(--color-light-gray);
+  padding: 2rem;
+  border-radius: 10px;
+}

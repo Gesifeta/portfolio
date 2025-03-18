@@ -92,7 +92,7 @@ const Home = () => {
             JavaScript, React.js, and responsive frameworks like Tailwind CSS.
             For back-end development, I am proficient in Node.js, Express.js,
             RESTful APIs, and databases like MongoDB and PostgreSQL. As an AWS
-            Certified Cloud Practitioner, I bring cloud expertise to ensure
+            Certified Solutions Architect, I bring cloud expertise to ensure
             scalable, secure deployments and seamless integrations. My
             end-to-end development skills include creating intuitive user
             interfaces, managing databases, and optimizing performance. I focus

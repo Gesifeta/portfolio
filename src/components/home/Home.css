@@ -35,7 +35,7 @@
   gap: 3rem;
 }
 .task-area h2{
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .task-area > div {
@@ -58,6 +58,7 @@
 .about p {
   color: gray;
   font-weight: 500;
+  line-height: 1.752;
 }
 .info {
   display: flex;
@@ -67,6 +68,9 @@
 }
 .info-detail {
   margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
 }
 .info-detail p {
   display: flex;

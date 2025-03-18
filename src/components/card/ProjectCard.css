@@ -15,7 +15,7 @@
 .projects {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
   background-color: var;
 }
 .card-description {
@@ -45,9 +45,8 @@
   padding: 0.25rem 1rem;
 }
 .card-links {
-    background-color: var(--color-teal);
+  background-color: var(--color-teal);
   display: flex;
   justify-content: space-around;
-  border-radius:8px;
-  
+  border-radius: 8px;
 }

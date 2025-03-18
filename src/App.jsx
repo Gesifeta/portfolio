@@ -30,7 +30,7 @@ function App() {
             <span>
               <p className="small">Hi, there</p>
               <h2 style={{ color: "gray" }}>
-                My name is{" "}
+                My name is
                 <b className="name">
                   Gemechu.
                   <span className="speak">

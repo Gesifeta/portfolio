@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import SkillCard from "../../card/SkillCard.jsx";
 import { skills } from "../../../data/skill.js";
@@ -57,6 +58,8 @@ const Skill = () => {
             key={`${skill.name}-${index}`}
             name={skill.name}
             skillSets={skill.skillSets.length > 0 && skill.skillSets}
+            ic
+            icon={skill.icon}
           />
         ))}
       </div>

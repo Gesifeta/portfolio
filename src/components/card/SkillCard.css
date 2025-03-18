@@ -9,7 +9,6 @@
 .skill-name {
   display: flex;
   background-color: var(--color-charcoal-gray);
-
   gap: 1rem;
   justify-content: center;
   align-items: center;
@@ -32,6 +31,7 @@
 }
 .skill-category {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
@@ -39,6 +39,7 @@
   position: relative;
   background-color: var(--color-light-gray);
   color: coral;
+  text-wrap: nowrap;
   cursor: pointer;
   border-radius: 1rem;
   padding: 0.25rem 1rem;
