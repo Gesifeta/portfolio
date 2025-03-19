@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import  { useEffect, useState } from "react";
+
 
 import SkillCard from "../../card/SkillCard.jsx";
 import { skills } from "../../../data/skill.js";
@@ -40,7 +40,7 @@ const Skill = () => {
     filterSkill(e);
   };
   return (
-    <div className="container-skills" id="container-skills">
+    <div className="container-skills" id="skills">
       <h2 style={{ textAlign: "center" }}>Skills</h2>
       <div className="skill-category" onClick={showSkills}>
         {["All", "Frontend", "Backend", "Cloud Computing", "UX Design"].map(

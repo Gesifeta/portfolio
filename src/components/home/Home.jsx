@@ -6,7 +6,6 @@ import {
   Kanban,
   SquareCheck,
   Award,
-  NotebookText,
   FileBadge,
 } from "lucide-react";
 
@@ -22,16 +21,17 @@ import ContactMe from "../contact/ContactMe.jsx";
 
 const Home = () => {
   // To make the list item slide right
-  let lists, sections;
+  let sections = useRef();
+  let lists = useRef();
   useEffect(() => {
-    sections = document.querySelectorAll("projects");
-    lists = document.querySelectorAll(".item");
+    sections.current = document.querySelectorAll("projects");
+    lists.current = document.querySelectorAll(".item");
   }, []);
 
   const slideRight = (e, title) => {
     let target = e.target;
     if (title) {
-      lists.forEach((item) => {
+      lists.current.forEach((item) => {
         item.classList.remove("slide-right");
         if (item.textContent.toLocaleLowerCase() === title) {
           item.classList.add("slide-right");
