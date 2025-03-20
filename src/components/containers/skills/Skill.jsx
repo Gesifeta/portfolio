@@ -1,9 +1,8 @@
-import  { useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
 
 import SkillCard from "../../card/SkillCard.jsx";
-import { skills } from "../../../data/skill.js";
-import "./Skill.css"
+import { skills } from "../../../data/skills.js";
+import "./Skill.css";
 const Skill = () => {
   const [filteredSkills, setFilteredSkills] = useState([]);
   // Show all skills by default
