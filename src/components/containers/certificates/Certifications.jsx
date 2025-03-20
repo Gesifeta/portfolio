@@ -1,5 +1,5 @@
 
-import { certifications } from "../../../data/certifications.js";
+import { certifications } from "../../../data/certifications";
 import CertificationCard from "../../card/CertificationCard";
 import "./Certifications.css";
 

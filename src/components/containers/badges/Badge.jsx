@@ -1,7 +1,7 @@
 
 import "./Badge.css"
 import BadgeCard from "../../card/BadgeCard.jsx";
-import { badges } from "../../../data/badges.js";
+import { badges } from "../../../data/badges";
 
 const Bagde = () => {
   return (
