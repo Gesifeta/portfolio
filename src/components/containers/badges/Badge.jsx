@@ -1,9 +1,10 @@
 
 import "./Badge.css"
 import BadgeCard from "../../card/BadgeCard.jsx";
-import { badges } from "../../../data/badges";
+import { badges } from "../../../data/badges.js";
 
 const Bagde = () => {
+  console.log(badges);
   return (
     <div className="container-badge" id="badges">
       <h2 style={{textAlign:"center"}}>Badges</h2>

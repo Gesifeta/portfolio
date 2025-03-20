@@ -1,5 +1,5 @@
 import EducationCard from "../../card/EducationCard.jsx";
-import { educations } from "../../../data/educations";
+import { educations } from "../../../data/educations.js";
 
 
 import "./Education.css";
