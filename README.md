@@ -64,7 +64,7 @@ This portfolio is built using:
 
 ### **2. Experience**
 
-- **Full Stack Developer at [Company Name]:**
+- **Full Stack Developer at mezon.dev:**
   - Developed and deployed full-stack applications using the MERN stack.
   - Collaborated with cross-functional teams to deliver scalable solutions.
 
