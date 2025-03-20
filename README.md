@@ -64,26 +64,20 @@ This portfolio is built using:
 
 ### **2. Experience**
 
-- **Full Stack Developer at [Company Name]:**
+- **Full Stack Developer at mezon.dev:**
   - Developed and deployed full-stack applications using the MERN stack.
   - Collaborated with cross-functional teams to deliver scalable solutions.
 
 ### **3. Certifications**
 
 - **AWS Certified Solutions Architect – Associate**
-- **Certified Kubernetes Administrator (CKA)**
+- **AWS Certified Cloud Practitioner**
 - **React Developer Certification**
 
-### **4. Achievements and Badges**
+### **4. Education**
 
-- **AWS Certified Cloud Practitioner Badge**
-- **Hackathon Winner 2024**
-- **GitHub Star for Open Source Contributions**
-
-### **5. Education**
-
-- **Bachelor of Science in Computer Science**
-  - [University Name], Graduated: YYYY
+- **Bachelor degree in Information Technology**
+  - Jimma University
 
 ## **How to Run the Portfolio Locally**
 
@@ -125,7 +119,7 @@ This portfolio is built using:
 
 Feel free to connect with me:
 
-- **Email:** your.email@example.com
+- **Email:** adamgemechu@gmail.com
 - **LinkedIn:** [Your Profile](https://linkedin.com/in/yourprofile)
 - **GitHub:** [Your GitHub](https://github.com/yourusername)
 
