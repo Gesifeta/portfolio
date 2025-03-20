@@ -1,5 +1,5 @@
 import React, { useState } from "react";
- import { projects } from "../../../data/project.js";
+import { projects } from "../../../data/project.";
 import ProjectCard from "../../card/ProjectCard.jsx";
 const Projects = () => {
   // Filter projects to show. only show required projects
