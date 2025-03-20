@@ -1,4 +1,3 @@
-import React from "react";
 
 import { certifications } from "../../../data/certification.js";
 import CertificationCard from "../../card/CertificationCard";
