@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Mail, Linkedin, MapPinHouse } from "lucide-react";
 const MyInfo = () => {
   return (

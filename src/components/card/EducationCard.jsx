@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./EducationCard.css";
 
 const EducationCard = ({

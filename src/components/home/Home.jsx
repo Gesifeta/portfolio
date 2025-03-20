@@ -21,8 +21,8 @@ import ContactMe from "../contact/ContactMe.jsx";
 
 const Home = () => {
   // To make the list item slide right
-  let sections = useRef();
-  let lists = useRef();
+  let sections = useRef([]);
+  let lists = useRef([]);
   useEffect(() => {
     sections.current = document.querySelectorAll("projects");
     lists.current = document.querySelectorAll(".item");

@@ -7,7 +7,7 @@ import Footer from "./components/footer/Footer.jsx";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
 
-function App() {
+export function App() {
   let navigate = useNavigate();
   const [audioLoaded, setAudioLoaded] = useState(false);
 

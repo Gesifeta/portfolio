@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -7,7 +5,7 @@ import { images } from "../../assets/images";
 import "./service.scss";
 import SectionWrapper from "../Wrapper/SectionWrapper";
 
-const Service = ({ idName }) => {
+export const Service = ({ idName }) => {
   const about = [
     {
       id: 1,
@@ -44,9 +42,7 @@ const Service = ({ idName }) => {
       <div className="app__about-service">
         {about.map((data, index) => (
           <NavLink
-            to={`/services/${data?.title
-              .split(" ")
-              .join("-")}`}
+            to={`/services/${data?.title.split(" ").join("-")}`}
             key={`data-${index}`}
           >
             <motion.div className="service">
@@ -54,9 +50,7 @@ const Service = ({ idName }) => {
                 <img src={data.image} alt={data.title} />
               </div>
               <p className="title">{data.title}</p>
-              <p className="description">
-                {data.description}
-              </p>
+              <p className="description">{data.description}</p>
             </motion.div>{" "}
           </NavLink>
         ))}

@@ -1,6 +1,5 @@
-import React from 'react';
 
-const TermsOfUse = () => {
+export const TermsOfUse = () => {
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Terms of Use</h1>
