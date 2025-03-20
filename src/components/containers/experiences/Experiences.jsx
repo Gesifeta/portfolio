@@ -1,5 +1,5 @@
 import "./Experiences.css";
-import { experiences } from "../../../data/experience.js";
+import { experiences } from "../../../data/experiences.js";
 import ExperienceCard from "../../card/ExperienceCard.jsx";
 
 function Experiences() {
