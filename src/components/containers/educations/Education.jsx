@@ -1,7 +1,7 @@
-import React from "react";
-
 import EducationCard from "../../card/EducationCard.jsx";
 import { educations } from "../../../data/educations.js";
+
+
 import "./Education.css";
 const Education = () => {
   return (
