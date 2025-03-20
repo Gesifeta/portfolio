@@ -77,7 +77,7 @@ This portfolio is built using:
 ### **4. Education**
 
 - **Bachelor degree in Information Technology**
-  - [Jimma University]
+  - Jimma University
 
 ## **How to Run the Portfolio Locally**
 
