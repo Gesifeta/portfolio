@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import SkillCard from "../../card/SkillCard.jsx";
-import { skills } from "../../../data/skills.js";
+import { skills } from "./../data.js";
 import "./Skill.css";
 const Skill = () => {
   const [filteredSkills, setFilteredSkills] = useState([]);
@@ -56,7 +56,7 @@ const Skill = () => {
           <SkillCard
             key={`${skill.name}-${index}`}
             name={skill.name}
-            skillSets={skill.skillSets.length > 0 && skill.skillSets}
+            skillSets={skill.skillSets?.length > 0 && skill.skillSets}
             ic
             icon={skill.icon}
           />

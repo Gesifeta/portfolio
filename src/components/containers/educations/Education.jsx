@@ -1,6 +1,5 @@
-import EducationCard from "../../card/EducationCard.jsx";
-import { educations } from "../../../data/educations.js";
-
+import { educations } from "./../data.js";
+import EducationCard from "../../card/EducationCard";
 
 import "./Education.css";
 const Education = () => {
@@ -13,7 +12,7 @@ const Education = () => {
             key={`${education.nameOfAward}-${index}`}
             nameOfAward={education.nameOfAward}
             institution={education.institution}
-            address={education.address}
+            address={education.companyAddress.address.city}
             startDate={education.startDate}
             endDate={education.endDate}
           />

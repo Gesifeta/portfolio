@@ -1,32 +1,31 @@
-FROM node:latest
-
-# Create working directory
+# GET THE BASE IMAGE
+FROM node:22.14-slim
 
 WORKDIR /app
 
-# To avert/ mitigate security risks, app need to run as non-root user.
-# create user group called app
-# and Add user called app
-RUN addgroup --system app && adduser --system --group app
 
-
-# To take advantage of caching, need to copy package json before any thing
-USER app
+# TO take advantage of Docker caching copy all json files before any copy.
 
 COPY package*.json .
 
-# Install necessary dependencies for the app
-# But before that give necessary permissions for the app group and user
-USER root
-RUN npm install
-RUN chown -R app:app /app
-RUN chmod -R 755 /app
-# RETURN TO USERhttps://youtu.be/ILPjPIFNsRA
+# every time we build , the application need not download dependencies again and again but only where there is new ones. We need to cache 
+# leads to faster build time
+RUN --mount=type=cache,target=/app/.npm \
+    npm set cache /app/.npm && \
+     npm ci --only=production
+# To mitigate security risk, give appropriate permission to a user to run an app, than leaving to root user.
+RUN addgroup app 
+# add the user to a group
+RUN useradd -g app app
+# change to the user
+RUN chown -R app:app .
 USER app
+# Now during installation the non-root user may be limited and throw EACCESS:permission error Need to change the ownership of the app files
 
-# after installation copy all files to the WORKDIR
-COPY . .
-# expose ports
+COPY --chown=app:app . .
+
+# HEALTHCHECK --interval=5m --timeout=3s --retries=3 CMD curl --fail http://localhost:8080/health || exit 1
+
 EXPOSE 5173
-# FINALLY RUN THE CMD COMMAND
+
 CMD [ "npm","run","dev" ]

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { certifications } from "../../../data/certifications.js";
+import { certifications } from "./../data.js";
 import CertificationCard from "../../card/CertificationCard";
 import "./Certifications.css";
 

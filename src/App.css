@@ -103,6 +103,37 @@
   margin-left: 0;
   animation: slide-left 0.5s ease-out 0.2s;
 }
+.user-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  margin: auto;
+  gap: 1rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.btn-group button {
+  min-width: 200px;
+}
+.container-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: auto;
+  max-width: 70%;
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+  border: 1px solid #999999;
+  border-radius: 5px;
+}
+.container-form p {
+  color: #ffff;
+}
 @media only screen and (max-width: 600px) {
   .name {
     padding: 0.25rem;
@@ -116,6 +147,15 @@
   .hero img {
     margin-right: 50%;
     transform: translateX(50%);
+  }
+  .user-form {
+    min-width: 95%;
+  }
+  .container-form {
+    min-width: 95%;
+  }
+  .btn-group{
+    flex-direction: column;
   }
 }
 @keyframes slide-left {
