@@ -56,7 +56,7 @@ const Register = () => {
         Already have an account? <a href="/login">Login</a>
       </p>
       <form
-        className="user-form"
+        className="registration-form"
         action=""
         method="post"
         onSubmit={handleUserForm}

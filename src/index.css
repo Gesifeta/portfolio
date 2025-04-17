@@ -66,6 +66,7 @@ button:disabled {
 
 /* Input Fields */
 input,
+select,
 textarea {
   background-color: var(--color-light-gray);
   color: var(--color-charcoal-gray);

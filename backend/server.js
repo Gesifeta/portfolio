@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 import { getPool, closePool, ordinaryDatabaseQuery } from "./database/db.js";
 import { userRouter } from "./routes/user.routes.js";
+import { skillRouter } from "./routes/skill.routes.js";
 // Load environment variables
 dotenv.config();
 // function to connect to database
@@ -38,7 +39,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // user router
-app.use("/api/users", userRouter);
+app.use("/api", userRouter);
+app.use("/api", skillRouter);
 // Basic route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the API" });

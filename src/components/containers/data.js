@@ -4,380 +4,146 @@ import { images } from "../../assets/images";
 export const projects = [
   {
     id: 32324234,
-    name: "Backend",
-    description:
-      "These projects aim to develop a robust backend systems that provides scalable and efficient data handling and interaction for a web application or service.I integrated with separately designed frontend.",
-    works: [
-      {
-        id: 32324234,
-        title: "Second-Hand Item Marketplace",
-        description: `This project is a robust backend system for a second-hand item marketplace, designed to facilitate seamless user interactions and transactions. Built using a modern tech stack, it showcases my proficiency in backend development and container orchestration. Technologies Used:`,
-        image: "/assets/secondchance.png",
-        tasks: [
-          {
-            id: 32324234,
-            requirments: [
-              {
-                type: "Functional requirment",
-                title: "ksdf skdfsdf",
-                descritpion: " the first requirment ",
-                services: [
-                  {
-                    name: "S3",
-                    detail: " s3",
-                    icon: "",
-                  },
-                  {
-                    name: "EC2",
-                    detail: " dinamadic acont end",
-                    icon: "",
-                  },
-                ],
-                title: "F",
-              },
-            ],
-          },
-        ],
-        projectdemo: "",
-        projectlink: "https://secondchancewebsite.netlify.app/",
-        stacks: [
-          "Express.js",
-          "Javascript",
-          "Mongodb",
-          "Docker",
-          "Kubernetes",
-          "JWT",
-        ],
-      },
+    title: "Second-Hand Item Marketplace",
+    description: `This project is a robust backend system for a second-hand item marketplace, designed to facilitate seamless user interactions and transactions. Built using a modern tech stack, it showcases my proficiency in backend development and container orchestration. Technologies Used:`,
+    category: "Backend",
+    image_url: "/assets/secondchance.png",
+    github_url: "",
+    live_url: "https://secondchancewebsite.netlify.app/",
+    technologies: [
+      "Express.js.js",
+      "Javascript",
+      "Mongodb",
+      "Docker",
+      "Kubernetes",
+      "JWT",
     ],
   },
   {
     id: 32324234,
-    name: "Full Stacks",
+    title: "E-commerce Project",
     description:
-      "These projects aim to develop a robust frontend and backend systems that provides scalable and efficient data handling and interaction for a web application or service. Among other things, I used REST APIs and GraphQL to deliver flexible and performant data access.",
-    works: [
-      {
-        id: 32324234,
-        title: "E-commerce Project",
-        description:
-          "This project is a comprehensive e-commerce web application developed using the MERN stack (MongoDB, Express, React, Node.js) with responsive front end. The application is built to provide features such as product listings, a shopping cart, user authentication, and checkout functionality. The deployment leverages AWS ECS (Elastic Container Service) and Fargate for a scalable and containerized cloud solution.",
-        image: "/assets/ecommerce.png",
-        tasks: [
-          {
-            id: 32324234,
-            requirments: [
-              {
-                type: "Functional requirment",
-                title: "ksdf skdfsdf",
-                descritpion: " the first requirment ",
-                services: [
-                  {
-                    name: "S3",
-                    detail: " s3",
-                    icon: "",
-                  },
-                  {
-                    name: "EC2",
-                    detail: " dinamadic acont end",
-                    icon: "",
-                  },
-                ],
-                title: "F",
-              },
-            ],
-          },
-        ],
-        projectdemo: "",
-        projectlink: "https://yemez.netlify.app/",
-        stacks: [
-          "HTML",
-          "CSS",
-          "JAVASCRIPT",
-          "React",
-          "Mongodb",
-          "Nodejs",
-          "Redux",
-          "express",
-          "Graphql",
-        ],
-      },
-      {
-        id: 32324234,
-        title: "Photo Gallery Project",
-        description:
-          "This project is a photo gallery web application built using the MERN stack HTML,CSS,Javascript, and React with with Content Mangement Systems- Sanity. The application allows users to upload, view,comment,like and manage their photo collections, offering a sleek and responsive user interface with robust backend support for data handling. Here's an overview of the technologies used:",
-        image: "/assets/photogallery.png",
-        tasks: [
-          {
-            id: 32324234,
-            requirments: [
-              {
-                type: "Functional requirment",
-                title: "ksdf skdfsdf",
-                descritpion: " the first requirment ",
-                services: [
-                  {
-                    name: "S3",
-                    detail: " s3",
-                    icon: "",
-                  },
-                  {
-                    name: "EC2",
-                    detail: " dinamadic acont end",
-                    icon: "",
-                  },
-                ],
-                title: "F",
-              },
-            ],
-          },
-        ],
-        projectdemo: "",
-        projectlink: "https://mormorgallery.netlify.app/",
-        stacks: ["HTML", "CSS", "JAVASCRIPT", "React", "Sanity"],
-      },
-      {
-        id: 32324234,
-        title: "Minibanking Project",
-        description:
-          "This project is a mini-banking application built using the MERN stack (MongoDB, Express, React, Node.js) and styled with Material UI. It provides basic banking features such as user authentication, account creation, deposits, withdrawals, and balance inquiries. Here is a breakdown of the technologies used and their roles:",
-        image: "/assets/minibanking.png",
-        projectdemo: "",
-        projectlink: "https://myminibanking.netlify.app",
-        stacks: ["HTML", "CSS", "JAVASCRIPT", "React", "Material UI", "Redux"],
-      },
-      {
-        id: 32324234,
-        title: "Portfolio Project",
-        description: `This project is a personal portfolio website developed using React for building a dynamic front end, with Sanity as a content management system (CMS). It showcases my skills, projects, and experience, with responsive styling achieved using HTML, CSS, and JavaScript. Here's a breakdown of the technologies used:`,
-        image: "/assets/portfolio1.png",
-        tasks: [
-          {
-            id: 32324234,
-            requirments: [
-              {
-                type: "Functional requirment",
-                title: "ksdf skdfsdf",
-                descritpion: " the first requirment ",
-                services: [
-                  {
-                    name: "S3",
-                    detail: " s3",
-                    icon: "",
-                  },
-                  {
-                    name: "EC2",
-                    detail: " dinamadic acont end",
-                    icon: "",
-                  },
-                ],
-                title: "F",
-              },
-            ],
-          },
-        ],
-        projectdemo: "",
-        projectlink: "https://www.gemechuadam.com/",
-        stacks: ["HTML", "CSS", "React", "JAVASCRIPT", "Sanit", "Netlify"],
-      },
+      "This project is a comprehensive e-commerce web application developed using the MERN stack (MongoDB, Express.js, React.js, Node.js) with responsive front end. The application is built to provide features such as product listings, a shopping cart, user authentication, and checkout functionality. The deployment leverages AWS ECS (Elastic Container Service) and Fargate for a scalable and containerized cloud solution.",
+    category: "Fullstack",
+    image_url: "/assets/ecommerce.png",
+    github_url: "",
+    live_url: "https://yemez.netlify.app/",
+    technologies: [
+      "HTML",
+      "CSS",
+      "JAVASCRIPT",
+      "React.js",
+      "Mongodb",
+      "Node.js",
+      "Redux.js",
+      "Express.js.js",
+      "Graphql",
     ],
   },
   {
     id: 32324234,
-    name: "Frontend",
+    title: "Photo Gallery Project",
     description:
-      "These project aim to create an interactive and visually appealing web application or website.Among otherthings, I leveraged HTML, CSS, and JavaScript to deliver a seamless user experience.",
-    works: [
-      {
-        id: 32324234,
-        title: "Health Booking System",
-        description: `This project is a user-friendly frontend application for a health booking system, allowing users to easily schedule appointments with healthcare providers. The application leverages a clean and responsive design, ensuring an intuitive user experience.`,
-        image: "/assets/health.png,",
-        tasks: [
-          {
-            id: 32324234,
-            requirments: [
-              {
-                type: "Functional requirment",
-                title: "ksdf skdfsdf",
-                descritpion: " the first requirment ",
-                services: [
-                  {
-                    name: "S3",
-                    detail: " s3",
-                    icon: "",
-                  },
-                  {
-                    name: "EC2",
-                    detail: " dinamadic acont end",
-                    icon: "",
-                  },
-                ],
-                title: "F",
-              },
-            ],
-          },
-        ],
-        projectdemo: "",
-        projectlink: "https://myhealthinc.netlify.app/",
-        stacks: [
-          "HTML",
-          "CSS",
-          "Express",
-          "Javascript",
-          "Mongodb",
-          "JWT",
-          "Netlify",
-        ],
-      },
-      {
-        id: 32324234,
-        title: "Portfolio Project",
-        description: `This project is a personal portfolio website developed using React for building a dynamic front end, with Sanity as a content management system (CMS). It showcases my skills, projects, and experience, with responsive styling achieved using HTML, CSS, and JavaScript. Here's a breakdown of the technologies used:`,
-        image: "/assets/portfolio.png",
-        tasks: [
-          {
-            id: 32324234,
-            requirments: [
-              {
-                type: "Functional requirment",
-                title: "ksdf skdfsdf",
-                descritpion: " the first requirment ",
-                services: [
-                  {
-                    name: "S3",
-                    detail: " s3",
-                    icon: "",
-                  },
-                  {
-                    name: "EC2",
-                    detail: " dinamadic acont end",
-                    icon: "",
-                  },
-                ],
-                title: "F",
-              },
-            ],
-          },
-        ],
-        projectdemo: "",
-        projectlink: "https://www.gemechuadam.com/",
-        stacks: ["HTML", "CSS", "React", "JAVASCRIPT", "Sanit", "Netlify"],
-      },
+      "This project is a photo gallery web application built using the MERN stack HTML,CSS,Javascript, and React.js with with Content Mangement Systems- Sanity. The application allows users to upload, view,comment,like and manage their photo collections, offering a sleek and responsive user interface with robust backend support for data handling. Here's an overview of the technologies used:",
+    category: "Fullstack",
+    image_url: "/assets/photogallery.png",
+    github_url: "",
+    live_url: "https://mormorgallery.netlify.app/",
+    technologies: ["HTML", "CSS", "JAVASCRIPT", "React.js", "Sanity"],
+  },
+  {
+    id: 32324234,
+    title: "Minibanking Project",
+    description:
+      "This project is a mini-banking application built using the MERN stack (MongoDB, Express.js, React.js, Node.js) and styled with Material UI. It provides basic banking features such as user authentication, account creation, deposits, withdrawals, and balance inquiries. Here is a breakdown of the technologies used and their roles:",
+    category: "Fullstack",
+    image_url: "/assets/minibanking.png",
+    github_url: "",
+    live_url: "https://myminibanking.netlify.app",
+    technologies: [
+      "HTML",
+      "CSS",
+      "JAVASCRIPT",
+      "React.js",
+      "Material UI",
+      "Redux",
+    ],
+  },
+  {
+    id: 32324234,
+    title: "Portfolio Project",
+    description: `This project is a personal portfolio website developed using React.js for building a dynamic front end, with Sanity as a content management system (CMS). It showcases my skills, projects, and experience, with responsive styling achieved using HTML, CSS, and JavaScript. Here's a breakdown of the technologies used:`,
+    category: "Fullstack",
+    image_url: "/assets/portfolio1.png",
+    github_url: "",
+    live_url: "https://www.gemechuadam.com/",
+    technologies: ["HTML", "CSS", "React.js", "JAVASCRIPT", "Sanit", "Netlify"],
+  },
 
-      {
-        id: 32324234,
-        title: "E-Plant Shopping",
-        description: `This project a simple e-commerce front end for an online plant shop, developed using React for a dynamic user interface, along with CSS, HTML, and JavaScript for styling, layout, and interactivity. The application provides a smooth shopping experience with features such as browsing plants, adding items to a cart, and viewing product details.`,
-        image: "/assets/e-plant.png",
-        tasks: [
-          {
-            id: 32324234,
-            requirments: [
-              {
-                type: "Functional requirment",
-                title: "ksdf skdfsdf",
-                descritpion: " the first requirment ",
-                services: [
-                  {
-                    name: "S3",
-                    detail: " s3",
-                    icon: "",
-                  },
-                  {
-                    name: "EC2",
-                    detail: " dinamadic acont end",
-                    icon: "",
-                  },
-                ],
-                title: "F",
-              },
-            ],
-          },
-        ],
-        projectdemo: "",
-        projectlink: "https://gesifeta.github.io/e-plantShopping/",
-        stacks: ["HTML", "CSS", "JAVASCRIPT", "React", "React Redux Toolkit"],
-      },
-      {
-        id: 32324234,
-        title: "Yelp.com Pixel-Perfect Clone",
-        description: `This project is a pixel-perfect clone of the Yelp.com front end, created using HTML, CSS, and JavaScript. The objective is to replicate Yelp’s complex,responsive layout and interactive features, focusing on meticulous detail to match the original design as closely as possible.`,
-        image: "/assets/yelp.png",
-        tasks: [
-          {
-            id: 32324234,
-            requirments: [
-              {
-                type: "Functional requirment",
-                title: "ksdf skdfsdf",
-                descritpion: " the first requirment ",
-                services: [
-                  {
-                    name: "S3",
-                    detail: " s3",
-                    icon: "",
-                  },
-                  {
-                    name: "EC2",
-                    detail: " dinamadic acont end",
-                    icon: "",
-                  },
-                ],
-                title: "F",
-              },
-            ],
-          },
-        ],
-        projectdemo: "",
-        projectlink: "https://yelp-pixel-perfect-clone.netlify.app",
-        stacks: ["HTML", "CSS", "JAVASCRIPT"],
-      },
-      {
-        id: 32324234,
-        title: "Country information project",
-        description:
-          "  The app provides users with detailed information about various countries alongwith neighbors, including geographical data and location mapping. It integrates with a country API and Google Maps to deliver a comprehensive and interactive experience.",
-        image: "/assets/countryinfo.png",
-        tasks: [
-          {
-            id: 32324234,
-            requirments: [
-              {
-                type: "Functional requirment",
-                title: "ksdf skdfsdf",
-                descritpion: " the first requirment ",
-                services: [
-                  {
-                    name: "S3",
-                    detail: " s3",
-                    icon: "",
-                  },
-                  {
-                    name: "EC2",
-                    detail: " dinamadic acont end",
-                    icon: "",
-                  },
-                ],
-                title: "F",
-              },
-            ],
-          },
-        ],
-        projectdemo: "",
-        projectlink: "https://gemechulocationsapp.netlify.app/",
-        stacks: [
-          "HTML",
-          "CSS",
-          "Typescript",
-          "React",
-          "PUBLIC API",
-          "JAVASCRIPT",
-        ],
-      },
+  {
+    id: 32324234,
+    title: "Health Booking System",
+    description: `This project is a user-friendly frontend application for a health booking system, allowing users to easily schedule appointments with healthcare providers. The application leverages a clean and responsive design, ensuring an intuitive user experience.`,
+    category: "Frontend",
+    image_url: "/assets/health.png,",
+    github_url: "",
+    live_url: "https://myhealthinc.netlify.app/",
+    technologies: [
+      "HTML",
+      "CSS",
+      "Express.js",
+      "Javascript",
+      "Mongodb",
+      "JWT",
+      "Netlify",
     ],
   },
+
+  {
+    id: 32324234,
+    title: "E-Plant Shopping",
+    description: `This project a simple e-commerce front end for an online plant shop, developed using React.js for a dynamic user interface, along with CSS, HTML, and JavaScript for styling, layout, and interactivity. The application provides a smooth shopping experience with features such as browsing plants, adding items to a cart, and viewing product details.`,
+    category: "Frontend",
+    image_url: "/assets/e-plant.png",
+    github_url: "",
+    live_url: "https://gesifeta.github.io/e-plantShopping/",
+    technologies: [
+      "HTML",
+      "CSS",
+      "JAVASCRIPT",
+      "React.js",
+      "React.js Redux Toolkit",
+    ],
+  },
+  {
+    id: 32324234,
+    title: "Yelp.com Pixel-Perfect Clone",
+    description: `This project is a pixel-perfect clone of the Yelp.com front end, created using HTML, CSS, and JavaScript. The objective is to replicate Yelp’s complex,responsive layout and interactive features, focusing on meticulous detail to match the original design as closely as possible.`,
+    category: "Frontend",
+    image_url: "/assets/yelp.png",
+    github_url: "",
+    live_url: "https://yelp-pixel-perfect-clone.netlify.app",
+    technologies: ["HTML", "CSS", "JAVASCRIPT"],
+  },
+  {
+    id: 32324234,
+    title: "Country information project",
+    description:
+      "  The app provides users with detailed information about various countries alongwith neighbors, including geographical data and location mapping. It integrates with a country API and Google Maps to deliver a comprehensive and interactive experience.",
+    category: "Frontend",
+    image_url: "/assets/countryinfo.png",
+    github_url: "",
+    live_url: "https://gemechulocationsapp.netlify.app/",
+    technologies: [
+      "HTML",
+      "CSS",
+      "Typescript",
+      "React.js",
+      "PUBLIC API",
+      "JAVASCRIPT",
+    ],
+  },
+
   {
     id: 32324234,
     name: "cloud",
@@ -388,8 +154,8 @@ export const projects = [
         id: 32324234,
         title: "Portfolio website",
         description:
-          "This project is a portfolio website developed using React and AWS. It showcases my skills, projects, and experience, with responsive styling achieved using HTML, CSS, and JavaScript. Here's a breakdown of the technologies used",
-        image: "/assets/aws-consultant.jpeg",
+          "This project is a portfolio website developed using React.js and AWS. It showcases my skills, projects, and experience, with responsive styling achieved using HTML, CSS, and JavaScript. Here's a breakdown of the technologies used",
+        image_url: "/assets/aws-consultant.jpeg",
         requirements: [
           {
             id: 32324234,
@@ -482,8 +248,8 @@ export const projects = [
         id: 32324234,
         title: "Digital learning management",
         description:
-          " This project is a digital learning management system developed using React and AWS. It provides an efficient and user-friendly interface for managing digital learning content, including courses, modules, and assignments. The system allows users to track progress, access materials, and participate in discussions.",
-        image: "/assets/dynamodb.png",
+          " This project is a digital learning management system developed using React.js and AWS. It provides an efficient and user-friendly interface for managing digital learning content, including courses, modules, and assignments. The system allows users to track progress, access materials, and participate in discussions.",
+        image_url: "/assets/dynamodb.png",
         requirements: [
           {
             id: 32324234,
@@ -576,8 +342,8 @@ export const projects = [
         id: 32324234,
         title: "Health booking systems",
         description:
-          "This project is a health booking system developed using React and AWS. It allows users to schedule appointments with healthcare providers, with features such as online scheduling, appointment management, and patient management. The system provides a user-friendly interface for managing appointments, patient records, and billing.",
-        image: "/assets/aws-240.png",
+          "This project is a health booking system developed using React.js and AWS. It allows users to schedule appointments with healthcare providers, with features such as online scheduling, appointment management, and patient management. The system provides a user-friendly interface for managing appointments, patient records, and billing.",
+        image_url: "/assets/aws-240.png",
         requirements: [
           {
             id: 32324234,
@@ -679,20 +445,20 @@ export const skills = [
       {
         id: 8.3,
         name: "Animations",
-        image: "",
+        image_url: "",
       },
       {
         id: 8.3,
         name: "Responsive Design",
-        image: "",
+        image_url: "",
       },
       {
         id: 8.3,
         name: "SASS",
-        image: "/assets/sass-144.png",
+        image_url: "/assets/sass-144.png",
       },
     ],
-    image: "/assets/css-144.png",
+    image_url: "/assets/css-144.png",
   },
   {
     id: 3,
@@ -700,7 +466,7 @@ export const skills = [
     description:
       "HyperText Markup Language is the standard markup language for document?s designed to be displayed in a web browser. It defines the content and structure of web content. It is often assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScrip",
     skillSets: [""],
-    image: "/assets/html-5-144.png",
+    image_url: "/assets/html-5-144.png",
   },
   {
     id: 10,
@@ -708,7 +474,7 @@ export const skills = [
     description:
       "Node.js is a cross-platform, open-source JavaScript runtime environment that can run on Windows, Linux, Unix, macOS, and more. Node.js runs on the V8 JavaScript engine, and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting.",
     skillSets: [""],
-    image: "/assets/nodejs-144.png",
+    image_url: "/assets/nodejs-144.png",
   },
   {
     id: 3,
@@ -716,7 +482,7 @@ export const skills = [
     description:
       "GraphQL is an open-source data query and manipulation language for APIs and a query runtime engine. GraphQL enables declarative data fetching where a client can specify exactly what data it needs from an API.",
     skillSets: [""],
-    image: "/assets/graphql-144.png",
+    image_url: "/assets/graphql-144.png",
   },
   {
     id: 4,
@@ -724,34 +490,34 @@ export const skills = [
     description:
       "JavaScript, often abbreviated as JS, is a programming language and core technology of the Web, alongside HTML and CSS. 99% of websites use JavaScript on the client side for webpage behavior.",
     skillSets: [""],
-    image: "/assets/javascript-144.png",
+    image_url: "/assets/javascript-144.png",
   },
   {
     id: 5,
-    name: "reactjs",
+    name: "react.jsjs",
     description:
-      "React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies. React can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js",
+      "React.js is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies. React.js can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js",
     skillSets: [
       {
         id: 8.3,
         name: "Redux",
         description:
-          "Redux is an open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React or Angular for building user interfaces. Similar to Facebook's Flux architecture, it was created by Dan Abramov and Andrew Clark",
-        image: "/assets/redux.png",
+          "Redux is an open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React.js or Angular for building user interfaces. Similar to Facebook's Flux architecture, it was created by Dan Abramov and Andrew Clark",
+        image_url: "/assets/redux.png",
       },
       {
         id: 8.5,
-        name: "React Toolkit",
+        name: "React.js Toolkit",
         description:
           "The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:",
-        image: "",
+        image_url: "",
       },
       {
         id: 90,
         name: "NextJS",
         description:
-          "Next.js is an open-source web development framework created by XXXXXX enabling React based web applications with server-side rendering and generating static websites.",
-        image: "/assets/nextjs.png",
+          "Next.js is an open-source web development framework created by XXXXXX enabling React.js based web applications with server-side rendering and generating static websites.",
+        image_url: "/assets/nextjs.png",
       },
       ,
       {
@@ -759,10 +525,10 @@ export const skills = [
         name: "Context",
         description:
           "Context provides a way to pass data through the component tree without having to pass props down manually at every level. ",
-        image: "",
+        image_url: "",
       },
     ],
-    image: "/assets/react-160.png",
+    image_url: "/assets/react.js-160.png",
   },
   {
     id: 6,
@@ -775,12 +541,12 @@ export const skills = [
         name: "Storages",
         description:
           "Millions of customers use AWS storage services to transform their business, increase agility, reduce costs, and accelerate innovation. Choose from a broad portfolio of storage solutions with deep functionality for storing, accessing, protecting, and analyzing your data.",
-        image: "",
+        image_url: "",
       },
       {
         id: 8.3,
         name: "IAM",
-        image:
+        image_url:
           "AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. ",
       },
       {
@@ -788,34 +554,34 @@ export const skills = [
         name: "EC2",
         description:
           "Amazon EC2 provides secure, resizable compute in the cloud, offering the broadest choice of processor, storage, networking, OS, and purchase model.",
-        image: "/assets/ec2.png",
+        image_url: "/assets/ec2.png",
       },
       {
         id: 8.3,
         name: "Well-Architected Framework",
         description:
           "The AWS Well-Architected Framework describes key concepts, design principles, and architectural best practices for designing and running workloads in the cloud.",
-        image: "/assets/wafw.png",
+        image_url: "/assets/wafw.png",
       },
       {
         id: 8.3,
         name: "Networking",
         description:
           "Amazon Elastic Compute Cloud (EC2) Network Interfaces provide an isolated virtual network interface for instances launched in a VPC. They are allocated a private IP address from the IP address range of the VPC and serve as the primary network interface for associated instances.",
-        image: "/assets/vpc.png",
+        image_url: "/assets/vpc.png",
       },
       {
         id: 8.3,
         name: "DynamoDB, RDS",
-        image: "",
+        image_url: "",
       },
       {
         id: 8.3,
         name: "Scaling",
-        image: "",
+        image_url: "",
       },
     ],
-    image: "/assets/aws-144.png",
+    image_url: "/assets/aws-144.png",
   },
   {
     id: 7,
@@ -826,45 +592,45 @@ export const skills = [
       {
         id: 8.1,
         name: "Wireframing",
-        image: "",
+        image_url: "",
       },
       {
         id: 8.2,
         name: "Prototyping",
-        image: "",
+        image_url: "",
       },
       {
         id: 8.3,
         name: "User Research",
-        image: "",
+        image_url: "",
       },
       {
         id: 8.4,
         name: "Usability Study",
-        image: "",
+        image_url: "",
       },
     ],
-    image: "/assets/ux-design.png",
+    image_url: "/assets/ux-design.png",
   },
   {
     id: 8.1,
     name: "MongoDB",
-    image: "/assets/mongodb-144.png",
+    image_url: "/assets/mongodb-144.png",
   },
   {
     id: 8.2,
     name: "SQL",
-    image: "/assets/mysql.png",
+    image_url: "/assets/mysql.png",
   },
 ];
 export const badges = [
   {
     id: uuidv4(),
-    title: "Front-end Development with React V2",
+    title: "Front-end Development with React.js V2",
     awardedBy: "Coursera, authorized by IBM, 2024",
     badgeLink:
       "https://www.credly.com/earner/earned/badge/2d0f975b-a924-4027-afe2-55f9b3e32327",
-    description: `Demonstrated how to use the React web framework to create robust user interfaces for front-end applications. They can manage data in an application with props, states, and hooks. The earner has shown an understanding of Redux concepts, such as using the Redux store, actions, and reducers to manage application states. They know the applications of middleware such as Thunk and Saga to handle asynchronous operations and concepts such as side effects and custom hooks.`,
+    description: `Demonstrated how to use the React.js web framework to create robust user interfaces for front-end applications. They can manage data in an application with props, states, and hooks. The earner has shown an understanding of Redux concepts, such as using the Redux store, actions, and reducers to manage application states. They know the applications of middleware such as Thunk and Saga to handle asynchronous operations and concepts such as side effects and custom hooks.`,
     skills: [
       "Application States",
       "Class Components",
@@ -883,7 +649,7 @@ export const badges = [
       "JavaScript",
       "JSX",
       "Props",
-      "React ToolKit",
+      "React.js ToolKit",
       "Redux",
       "saga",
       "Side Effects",
@@ -894,7 +660,7 @@ export const badges = [
       "Virtual Dom",
       "Vite",
     ],
-    images: images.ibmreactbadge,
+    images: images.ibmreact.jsbadge,
   },
   {
     id: uuidv4(),
@@ -1069,7 +835,7 @@ export const certifications = [
     certificationNumber: "45AEXL6AWT6T",
     certificationLink:
       "https://www.coursera.org/account/accomplishments/specialization/certificate/45AEXL6AWT6T",
-    description: `Holders of this certificate showed their ability to build the backend of a cloud-native application. Learners can develop, deploy, test, run, and manage back-end applications using the utilized tools, technologies, and methodologies including HTML, CSS, JavaScript, Git, GitHub, Node.js, Express, Agile, NoSQL databases, containers, Docker, Kubernetes, OpenShift, DevOps, CI/CD, Microservices, and Serverless computing. They are prepared to take on the challenges of an entrylevel back-end developer role.`,
+    description: `Holders of this certificate showed their ability to build the backend of a cloud-native application. Learners can develop, deploy, test, run, and manage back-end applications using the utilized tools, technologies, and methodologies including HTML, CSS, JavaScript, Git, GitHub, Node.js, Express.js, Agile, NoSQL databases, containers, Docker, Kubernetes, OpenShift, DevOps, CI/CD, Microservices, and Serverless computing. They are prepared to take on the challenges of an entrylevel back-end developer role.`,
     date: "September, 2024",
     images: images.ibmbackend,
     icon: images.ibm,
@@ -1100,7 +866,7 @@ Certificate holder has demonstrated the ability to build web pages
 using HTML, CSS, and JavaScript; apply user interface and user
 experience (UI/UX) best practices and principles; manage code using
 GitHub repositories and branches; create applications using front-end
-frameworks, such as React JS; test and debug applications; deploy
+frameworks, such as React.js JS; test and debug applications; deploy
 applications using automated build tools; and create a fully functional
 front-ends for dynamic apps that interact with external/backend
 services using RESTful APIs. The certificate holder should be ready to
@@ -1152,7 +918,7 @@ export const educations = [
     },
     start: "2021",
     end: "2022",
-    image: images.hkr,
+    image_url: images.hkr,
   },
   {
     fieldOfStudy: "Business and Economics",
@@ -1170,7 +936,7 @@ export const educations = [
     },
     start: "2016",
     end: "2018",
-    image: images.aau,
+    image_url: images.aau,
   },
   {
     id: 13,
@@ -1189,7 +955,7 @@ export const educations = [
     },
     start: "2009",
     end: "2013",
-    image: images.aau,
+    image_url: images.aau,
   },
   {
     id: 12,
@@ -1208,7 +974,7 @@ export const educations = [
     },
     start: "2002",
     end: "2006",
-    image: images.ju,
+    image_url: images.ju,
   },
 ];
 export const experiences = [
@@ -1224,7 +990,7 @@ export const experiences = [
     },
     start: "2019",
     end: "2021",
-    image: images.googlesmall,
+    image_url: images.googlesmall,
     responsibilities: [
       "Conduct prompt investigation of breach of policy and first level investigation on frauds and forgeries including  customer’s complaints in line with investigation guidelines.",
       "Continuously review, evaluate and establish that open items in the Bank’s GL accounts are current, valid and promptly resolved in line GL policies",
@@ -1247,7 +1013,7 @@ export const experiences = [
     },
     start: "2014",
     end: "2021",
-    image: images.googlesmall,
+    image_url: images.googlesmall,
     responsibilities: [
       "Collaborate with other departments and stakeholders to achieve business goals",
       "Oversee and manage daily operations of the bank, including customer service, cash handling, and account management",
@@ -1270,7 +1036,7 @@ export const experiences = [
     },
     start: "2013",
     end: "2014",
-    image: images.googlesmall,
+    image_url: images.googlesmall,
     responsibilities: [
       "Accepting customer deposits or posting deposits to customer accounts",
       "Accepting customer deposits or posting deposits to customer accounts",
@@ -1292,7 +1058,7 @@ export const experiences = [
     },
     start: "2012",
     end: "2013",
-    image: images.awssmall,
+    image_url: images.awssmall,
     responsibilities: [
       "Reviewing diagnostics and assessing the functionality and efficiency of systems",
       "Implementing security measure",
@@ -1314,7 +1080,7 @@ export const experiences = [
     },
     start: "2006",
     end: "2012",
-    image: images.googlesmall,
+    image_url: images.googlesmall,
     responsibilities: [
       "Assessment and Feedback: Develop fair and effective assessment methods to evaluate students' understanding and progress. Provide constructive feedback to students, fostering a growth mindset and continuous improvement.",
       "Technology Management: Oversee the use and maintenance of ICT resources, including computers, software, and peripherals. Stay updated on advancements in technology to recommend and implement improvements to the ICT infrastructure.",
