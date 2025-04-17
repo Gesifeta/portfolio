@@ -1,6 +1,14 @@
 import { v4 as uuidv4 } from "uuid";
 import crypto from "crypto";
 
+
+import {
+  verifyToken,
+  generateSalt,
+  generateToken,
+  hashPassword,
+} from "../auth/authentication.js";
+
 import { ordinaryDatabaseQuery } from "../database/db.js";
 import { doesItExist } from "../validation/search.js";
 
@@ -17,21 +25,26 @@ export const registerUser = async (req, res) => {
       bio,
     } = req.body;
     // check if user is already registered
-    if (await doesItExist('users', email)) {
+    console.log(await doesItExist(email,"users"))
+    if (await doesItExist(email, "users")) {
       return res.json({
         error: "Email is arlead registered",
         message: "If you forget your password please reset.",
       });
     }
-    const queryString = `INSERT INTO users (id, user_name,  first_name, last_name, email, password, salt, profile_image, bio) VALUES ($1, $2, $3, $4,$5, $6, $7, $8, $9)  RETURNING id, first_name, last_name, email, profile_image`;
+    // generate salt
+    const salt = generateSalt();
+    // hash password
+    const hashedPassword = hashPassword(password, salt);
+
+    const queryString = `INSERT INTO users (id, user_name, first_name, last_name, email, password, profile_image, bio) VALUES ($1, $2, $3, $4,$5, $6, $7, $8)  RETURNING id, first_name, last_name, email, profile_image`;
     const params = [
       uuidv4(),
       user_name,
       first_name,
       last_name,
       email,
-      password,
-      crypto.randomBytes(32).toString("hex"),
+      hashedPassword,
       profile_image,
       bio,
     ];
@@ -39,7 +52,27 @@ export const registerUser = async (req, res) => {
     if (result.rows.length === 0) {
       return res.status(400).json({ message: "User not created" });
     }
-    return res.json(result.rows[0]);
+    // generate token
+    const token = generateToken({
+      id: result.rows[0].id,
+      email: result.rows[0].email,
+      first_name: result.rows[0].first_name,
+      last_name: result.rows[0].last_name,
+      profile_image: result.rows[0].profile_image,
+    });
+    // set token in cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 60 * 60 * 24 * 5,
+      sameSite: "none",
+    });
+    // navigate to login
+    
+    return res.json({
+      message: "User created successfully",
+      data: result.rows[0],
+    }) ;
   } catch (error) {
     return res.json({
       error: error.message,

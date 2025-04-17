@@ -10,6 +10,7 @@ export const getAllSkills = async (req, res) => {
         message: "No skills found",
       });
     }
+    // Return the skills
     return res.json(result.rows);
   } catch (error) {
     return res.json({

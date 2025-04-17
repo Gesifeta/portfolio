@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
 
 // Generate token
 export const generateToken = (payload) => {
@@ -15,4 +16,16 @@ export const verifyToken = (token) => {
       return decoded;
     }
   });
+};
+// generate salt
+export const generateSalt = () => {
+  return bcrypt.genSaltSync(10);
+};
+// hash password
+export const hashPassword = (password, salt) => {
+  return bcrypt.hashSync(password, salt);
+};
+// compare password
+export const comparePassword = (password, hash) => {
+  return bcrypt.compareSync(password, hash);
 };

@@ -2,10 +2,13 @@ import { ordinaryDatabaseQuery } from "../database/db.js";
 
 export async function doesItExist(id, entity) {
   try {
-    const queryString = `SELECT * FROM $2 WHERE id = $1`;
-    const params = [id, entity];
+    console.log("Reached does it exist")
+    const queryString = `SELECT * FROM users WHERE email = $1`;
+    const params = [id];
     const result = await ordinaryDatabaseQuery(queryString, params);
+    console.log("result===>",result.rows)
     if (result.rows.length === 0) {
+      console.log(false)
       return false;
     }
     return true;
