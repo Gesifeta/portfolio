@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import crypto from "crypto";
+import { fileStorageEngine } from "../utils/upload.js";
 
 import {
   addNewProject,
@@ -8,7 +8,7 @@ import {
   getProjectById,
   updateProject,
   deleteProject,
-  uploadImage,
+  uploadProjectImage,
 } from "../controllers/project.controller.js";
 
 // project routes
@@ -18,16 +18,13 @@ projectRoutes.post("/projects/new", addNewProject);
 projectRoutes.get("/projects", getAllProjects);
 projectRoutes.get("/projects/:id", getProjectById);
 // upload images using multer
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname );
-  },
-});
-const upload = multer({ storage: storage });
-projectRoutes.post("/projects/upload", upload.single("image"), uploadImage);
+
+const upload = multer({ storage: fileStorageEngine });
+projectRoutes.post(
+  "/projects/upload",
+  upload.single("file"),
+uploadProjectImage
+);
 
 projectRoutes.put("/projects/:id", updateProject);
 projectRoutes.delete("/projects/:id", deleteProject);

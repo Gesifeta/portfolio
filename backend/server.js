@@ -10,7 +10,6 @@ import { getPool, closePool, ordinaryDatabaseQuery } from "./database/db.js";
 import { userRouter } from "./routes/user.routes.js";
 import { skillRouter } from "./routes/skill.routes.js";
 import { projectRoutes } from "./routes/project.routes.js";
-import { uploadImage } from "./controllers/project.controller.js";
 // Load environment variables
 dotenv.config();
 // function to connect to database

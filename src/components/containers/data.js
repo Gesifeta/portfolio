@@ -5,7 +5,7 @@ export const projects = [
   {
     id: 32324234,
     title: "Second-Hand Item Marketplace",
-    description: `This project is a robust backend system for a second-hand item marketplace, designed to facilitate seamless user interactions and transactions. Built using a modern tech stack, it showcases my proficiency in backend development and container orchestration. Technologies Used:`,
+    description: `This project is a robust backend system for a second-hand item marketplace, designed to facilitate seamless user interactions and transactions. Built using a modern tech stack, it showcases my proficiency in backend development and container orchestration.`,
     category: "Backend",
     image_url: "/assets/secondchance.png",
     github_url: "",
@@ -44,7 +44,7 @@ export const projects = [
     id: 32324234,
     title: "Photo Gallery Project",
     description:
-      "This project is a photo gallery web application built using the MERN stack HTML,CSS,Javascript, and React.js with with Content Mangement Systems- Sanity. The application allows users to upload, view,comment,like and manage their photo collections, offering a sleek and responsive user interface with robust backend support for data handling. Here's an overview of the technologies used:",
+      "This project is a photo gallery web application built using the MERN stack HTML,CSS,Javascript, and React.js with with Content Mangement Systems- Sanity. The application allows users to upload, view,comment,like and manage their photo collections, offering a sleek and responsive user interface with robust backend support for data handling. Here's an overview of the",
     category: "Fullstack",
     image_url: "/assets/photogallery.png",
     github_url: "",
@@ -72,7 +72,7 @@ export const projects = [
   {
     id: 32324234,
     title: "Portfolio Project",
-    description: `This project is a personal portfolio website developed using React.js for building a dynamic front end, with Sanity as a content management system (CMS). It showcases my skills, projects, and experience, with responsive styling achieved using HTML, CSS, and JavaScript. Here's a breakdown of the technologies used:`,
+    description: `This project is a personal portfolio website developed using React.js for building a dynamic front end, with Sanity as a content management system (CMS). It showcases my skills, projects, and experience, with responsive styling achieved using HTML, CSS, and JavaScript. Here's a breakdown of the`,
     category: "Fullstack",
     image_url: "/assets/portfolio1.png",
     github_url: "",

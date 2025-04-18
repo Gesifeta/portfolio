@@ -5,6 +5,7 @@ import Home from "../components/home/Home.jsx";
 import Register from "../components/user/Register.jsx";
 import NewProjectRegister from "../components/containers/projects/NewProject.jsx";
 import PageNotFound from "../components/error/PageNotFound.jsx";
+import Modal from "../components/modal/Modal.jsx";
 
 export const routes = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ export const routes = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/projects/register",
+    path: "/projects/register/new",
     element: <NewProjectRegister />,
   },
   {
@@ -32,5 +33,9 @@ export const routes = createBrowserRouter([
   {
     path: "/home",
     element: <Home />,
+  },
+  {
+    path: "/modal",
+    element: <Modal />,
   },
 ]);

@@ -138,11 +138,17 @@ export const updateProject = async (req, res) => {
   }
 };
 //upload image
-export const uploadImage = async (req, res) => {
+export const uploadProjectImage = async (req, res) => {
   try {
-    const { path } = req.file;
+    if (!req.file) {
+      return res.json({
+        message: "No file uploaded",
+      });
+    }
+    
     const { id } = req.body;
-    console.log("ID ==== >", id);
+    const { path } = req.file;
+
     const queryString = `UPDATE projects SET image_url =$1 WHERE id=$2 RETURNING image_url`;
     const params = [path, id];
     const result = await ordinaryDatabaseQuery(queryString, params);

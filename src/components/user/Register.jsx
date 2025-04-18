@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import "./Register.css";
+import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../utils/constants";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     user_name: "",
     first_name: "",
@@ -38,8 +41,12 @@ const Register = () => {
       body: JSON.stringify(user),
     });
     if (response.ok) {
-         setLoading(false);
+      setLoading(false);
       const data = await response.json();
+      if (data.message) {
+        setSuccess(data.message);
+        return navigate("/login", { replace: true });
+      }
       if (data.error) {
         setError({
           error: data.error,
@@ -128,6 +135,7 @@ const Register = () => {
           />
         </div>
         <div className="form-group">
+          <p style={{ color: "green" }}>{success}</p>
           <p style={{ color: "red" }}>{error.error}</p>
           <p style={{ color: "red" }}>{error.message}</p>
         </div>

@@ -1,24 +1,61 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
+import { v4 as uuidv4 } from "uuid";
 
 import "./projects.css";
-import { API_URL } from "../../../utils/constants";
+import { API_URL } from "../../../utils/constants.js";
 import { Minus, Plus } from "lucide-react";
+import Upload from "../../upload/Upload.jsx";
 
 const NewProjectRegister = () => {
+  // To store query string
+  const [queryString, setQuery] = useState("");
+  // To store the selected skills
+  const [selectedSkills, setSelectedSkills] = useState([]);
+  const [technologies, setTechnologies] = useState([]);
+  // To store the project data
+  const [project, setProject] = useState({
+    id: uuidv4(),
+    user_id: "38b3f318-d233-4985-b294-c1423f772853",
+    title: "",
+    description: "",
+    category: "",
+    technologies,
+    github_url: "",
+    live_url: "",
+    image_url: "",
+  });
+  // query
   const { data: skills, isLoading } = useQuery({
     queryKey: ["skills"],
     queryFn: async () => {
-      console.log("fetched");
       return await fetch(`${API_URL}/skills`).then((res) => res.json());
     },
     staleTime: Infinity,
   });
-  // To store query string
-  const [query, setQuery] = useState("");
-  // To store the selected skills
-  const [selectedSkills, setSelectedSkills] = useState([]);
-  const [technologies, setTechnologies] = useState([]);
+  // Mutation
+  const { mutateAsync: addProject } = useMutation({
+    mutationFn: async (data) => {
+      console.log(data);
+      return await fetch(`${API_URL}/projects/new`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+    },
+    onSuccess: (data) => {
+      console.log(data);
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+    onSettled: (data) => {
+      console.log(data);
+    },
+  });
+
   // A function to handle query inputs
   function handleQueryInput(e) {
     const { value } = e.target;
@@ -27,44 +64,57 @@ const NewProjectRegister = () => {
   useEffect(() => {
     setSelectedSkills(
       skills?.filter((skill) =>
-        skill.name.toLowerCase().includes(query.toLowerCase())
+        skill.name.toLowerCase().includes(queryString.toLowerCase())
       )
     );
-  }, [query]);
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    data.technologies = technologies;
-  // send data to server
-    fetch(`${API_URL}/projects/new`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-
-  };
+    setProject((prev) => ({
+      ...prev,
+      technologies: technologies,
+    }));
+  }, [queryString]);
+  // A function to handle project inputs
+  function handleProjectInput(e) {
+    const { name, value } = e.target;
+    setProject((prev) => ({
+      ...prev,
+      [name]: value,
+      technologies: technologies,
+    }));
+  }
   if (isLoading) {
     return <div>Loading...</div>;
   }
   return (
     <div className="container-form">
       <h1>Register Project</h1>
-      <form className="registration-form">
+      <form
+        className="registration-form"
+        method="post"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          try {
+            await addProject(project)
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          } catch (error) {}
+        }}
+      >
         <div className="form-group">
           <label htmlFor="title">Project Title</label>
           <input
             type="text"
             name="title"
+            value={project.title}
             placeholder="Enter project title"
             className="form-control"
             id="title"
             aria-describedby="emailHelp"
+            onChange={handleProjectInput}
           />
         </div>
         <div className="form-group">
@@ -74,12 +124,19 @@ const NewProjectRegister = () => {
             id="projectDescription"
             placeholder="Enter project description"
             name="description"
+            value={project.description}
             rows="3"
+            onChange={handleProjectInput}
           ></textarea>
         </div>
         <div className="form-group">
           <label htmlFor="category">Category</label>
-          <select name="category" id="category">
+          <select
+            name="category"
+            id="category"
+            onChange={handleProjectInput}
+            value={project.category}
+          >
             <option value="select">select</option>
             <option value="frontend">Frontend</option>
             <option value="backend">Backend</option>
@@ -99,7 +156,7 @@ const NewProjectRegister = () => {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      setTechnologies(technologies.filter((id) => id !== tag));
+                      setProject(technologies.filter((id) => id !== tag));
                     }}
                   >
                     <Minus size={16} />
@@ -117,7 +174,7 @@ const NewProjectRegister = () => {
                 onChange={handleQueryInput}
               />
             </div>
-            {query && (
+            {queryString && (
               <div className="container-technology-stack-filter">
                 {selectedSkills?.length > 0 && (
                   <div className="container-selected-tag filter">
@@ -133,7 +190,7 @@ const NewProjectRegister = () => {
                             setTechnologies([...technologies, skill.name]);
                           }}
                         >
-                          <Plus />
+                          <Plus size={16} />
                         </button>
                       </div>
                     ))}
@@ -150,16 +207,30 @@ const NewProjectRegister = () => {
             className="form-control"
             id="live_url"
             name="live_url"
+            placeholder="Enter project link"
+            value={project.live_url}
+            onChange={handleProjectInput}
           />
         </div>
+        {/* Github link  */}
         <div className="form-group">
-          <label htmlFor="projectImage">Project Image</label>
-          <input type="file" className="form-control-file" id="projectImage" />
+          <label htmlFor="github_url">Github Link</label>
+          <input
+            type="text"
+            className="form-control"
+            id="github_url"
+            name="github_url"
+            placeholder="Enter github link"
+            value={project.github_url}
+            onChange={handleProjectInput}
+          />
         </div>
+
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
+      <Upload />
     </div>
   );
 };
