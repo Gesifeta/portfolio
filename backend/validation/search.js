@@ -6,7 +6,6 @@ export async function doesItExist(id, entity) {
     const queryString = `SELECT * FROM users WHERE email = $1`;
     const params = [id];
     const result = await ordinaryDatabaseQuery(queryString, params);
-    console.log("result===>",result.rows)
     if (result.rows.length === 0) {
       console.log(false)
       return false;

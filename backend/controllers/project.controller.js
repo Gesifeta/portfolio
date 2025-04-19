@@ -13,8 +13,8 @@ export const addNewProject = async (req, res) => {
       category,
       technologies,
       live_url,
-      image_url,
       github_url,
+      image_url,
     } = req.body;
     const queryString = `INSERT INTO projects (id, title,user_id, description, category, technologies, live_url, github_url, image_url) VALUES ($1, $2, $3, $4, $5,$6, $7,$8,$9) RETURNING *`;
     const params = [
@@ -145,15 +145,14 @@ export const uploadProjectImage = async (req, res) => {
         message: "No file uploaded",
       });
     }
-    
+
     const { id } = req.body;
     const { path } = req.file;
 
     const queryString = `UPDATE projects SET image_url =$1 WHERE id=$2 RETURNING image_url`;
     const params = [path, id];
     const result = await ordinaryDatabaseQuery(queryString, params);
-
-    return res.json(result);
+    return res.json(path);
   } catch (error) {
     return res.json({
       error: error.message,

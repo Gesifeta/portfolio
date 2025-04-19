@@ -106,7 +106,7 @@
 .registration-form {
   display: flex;
   flex-direction: column;
-  max-width: 80%;
+  max-width: 90%;
   margin: auto;
   gap: 1rem;
 }
@@ -128,7 +128,7 @@
   max-width: 70%;
   margin-top: 2rem;
   padding: 2rem 1rem;
-  border: 1px solid #525151;
+  
   border-radius: 10px;
 }
 .container-form p {

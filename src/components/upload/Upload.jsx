@@ -1,8 +1,11 @@
 import React from "react";
 import { useMutation } from "@tanstack/react-query";
-import { API_URL } from "../../utils/constants.js";
+import { API_URL, IMAGE_URL } from "../../utils/constants.js";
+import { CloudUpload, Loader } from "lucide-react";
 
-const Upload = () => {
+import "./upload.css";
+
+const Upload = ({ data, setData }) => {
   const [file, setFile] = React.useState(null);
 
   //handle file change
@@ -23,40 +26,60 @@ const Upload = () => {
       return await fetch(`${API_URL}/projects/upload`, {
         method: "POST",
         body: data,
-      });
+      })
+        .then((res) => res.json())
+        .then((image_url) => image_url);
     },
-    onSuccess: (data) => {
-      console.log("data === >", data);
+    onSuccess: (image_url) => {
+      setData((prevState) => {
+        return { ...prevState, image_url };
+      });
     },
     onError: (error) => {
       console.log(error);
     },
   });
-  return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        uploadProjectImage(file);
-      }}
-      encType="multipart/form-data"
-      method="post"
-    >
-      <div className="div-group">
-        <label htmlFor="projectImage">Project Image</label>
-        <input
-          type="file"
-          onChange={handleFileChange}
-          className="form-control-file"
-          id="file"
-          name="file"
-        />
-      </div>
-      <div className="btn-group">
-        <button className="btn btn-primary" type="submit">
-          Upload
-        </button>
-      </div>
-    </form>
+  return isPending ? (
+    <Loader />
+  ) : (
+    <div className="container-upload">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          uploadProjectImage(file);
+        }}
+        encType="multipart/form-data"
+        method="post"
+      >
+        <h3>Image upload</h3>
+        <div className="upload">
+          <label className="form-control-file" htmlFor="file">
+            {isPending ? (
+              <Loader />
+            ) : isSuccess ? (
+              <img src={`${IMAGE_URL}/${data.image_url}`} alt="image missing" />
+            ) : (
+              <CloudUpload size={150} color="lightgreen" />
+            )}
+            <input
+              type="file"
+              onChange={handleFileChange}
+              id="file"
+              name="file"
+            />
+          </label>
+        </div>
+        <div className="btn-group">
+          <button
+            className="btn btn-primary"
+            disabled={isPending || isSuccess}
+            type="submit"
+          >
+            {isSuccess ? "Successfuly uploaded" : "Upload"}
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

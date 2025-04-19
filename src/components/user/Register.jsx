@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import "./Register.css";
+import "./user.css";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../utils/constants";
+import Upload from "../upload/Upload";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Register = () => {
     email: "",
     password: "",
     confirm_password: "",
+    image_url: "",
   });
   const [error, setError] = useState({
     error: "",
@@ -33,7 +35,7 @@ const Register = () => {
   const handleUserForm = async (e) => {
     setLoading(true);
     e.preventDefault();
-    const response = await fetch(`${API_URL}/users/register`, {
+    const response = await fetch(`${API_URL}/users/register/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,16 +45,20 @@ const Register = () => {
     if (response.ok) {
       setLoading(false);
       const data = await response.json();
-      if (data.message) {
-        setSuccess(data.message);
-        return navigate("/login", { replace: true });
-      }
       if (data.error) {
         setError({
           error: data.error,
           message: data.message,
         });
       }
+      if (data.success) {
+        setSuccess(data.success);
+        // set local storage
+        localStorage.setItem("user", JSON.stringify(data.user));
+      }
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     }
   };
   return (
@@ -62,88 +68,95 @@ const Register = () => {
       <p>
         Already have an account? <a href="/login">Login</a>
       </p>
-      <form
-        className="registration-form"
-        action=""
-        method="post"
-        onSubmit={handleUserForm}
-      >
-        <div className="form-group">
-          <label htmlFor="user_name">User name</label>
-          <input
-            type="text"
-            value={user.user_name}
-            name="user_name"
-            id="user_name"
-            placeholder="User name"
-            onChange={handleUserInput}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="first_name">First name</label>
-          <input
-            type="text"
-            value={user.first_name}
-            name="first_name"
-            id="first_name"
-            placeholder="First name"
-            onChange={handleUserInput}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="last_name">Last name</label>
-          <input
-            type="text"
-            value={user.last_name}
-            name="last_name"
-            id="last_name"
-            placeholder="Last name"
-            onChange={handleUserInput}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            value={user.email}
-            name="email"
-            id="email"
-            placeholder="Email"
-            onChange={handleUserInput}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            value={user.password}
-            name="password"
-            id="password"
-            placeholder="Password"
-            onChange={handleUserInput}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="confirm_password">Repeat password</label>
-          <input
-            type="password"
-            value={user.confirm_password}
-            name="confirm_password"
-            id="confirm_password"
-            placeholder="Confirm Password"
-            onChange={handleUserInput}
-          />
-        </div>
-        <div className="form-group">
-          <p style={{ color: "green" }}>{success}</p>
-          <p style={{ color: "red" }}>{error.error}</p>
-          <p style={{ color: "red" }}>{error.message}</p>
-        </div>
-        <div className="btn-group">
-          <button type="submit">Register</button>
-          <button type="reset">Reset</button>
-        </div>
-      </form>
+      <fieldset>
+        <form
+          className="registration-form"
+          action=""
+          method="post"
+          onSubmit={handleUserForm}
+        >
+          <div className="form-group">
+            <label htmlFor="user_name">User name</label>
+            <input
+              type="text"
+              value={user.user_name}
+              name="user_name"
+              autoComplete="on"
+              id="user_name"
+              placeholder="User name"
+              onChange={handleUserInput}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="first_name">First name</label>
+            <input
+              type="text"
+              value={user.first_name}
+              name="first_name"
+              id="first_name"
+              placeholder="First name"
+              onChange={handleUserInput}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="last_name">Last name</label>
+            <input
+              type="text"
+              value={user.last_name}
+              name="last_name"
+              id="last_name"
+              placeholder="Last name"
+              onChange={handleUserInput}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              value={user.email}
+              name="email"
+              id="email"
+              autoComplete="email"
+              placeholder="Email"
+              onChange={handleUserInput}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              value={user.password}
+              name="password"
+              autoComplete="new-password"
+              id="password"
+              placeholder="Password"
+              onChange={handleUserInput}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="confirm_password">Repeat password</label>
+            <input
+              type="password"
+              value={user.confirm_password}
+              name="confirm_password"
+              autoComplete="new-password"
+              id="confirm_password"
+              placeholder="Confirm Password"
+              onChange={handleUserInput}
+            />
+          </div>
+          <div className="form-group">
+            <p style={{ color: "green" }}>{success}</p>
+            <p style={{ color: "red" }}>{error.error}</p>
+            <p style={{ color: "red" }}>{error.message}</p>
+          </div>
+          <div className="btn-group">
+            <button type="submit">Register</button>
+            <button type="reset">Reset</button>
+          </div>
+        </form>
+        <Upload data={user} setData={setUser} />
+      </fieldset>
     </div>
   );
 };
