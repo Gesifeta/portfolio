@@ -140,6 +140,7 @@ CREATE TABLE certifications (
 );
 CREATE TABLE educations (
     id UUID PRIMARY KEY,
+     user_id UUID REFERENCES users(id) ON DELETE CASCADE,
     field_of_study VARCHAR(255),
     specialization VARCHAR(255),
     level VARCHAR(100),
@@ -158,6 +159,7 @@ CREATE TABLE experiences (
   id UUID PRIMARY KEY,
     position VARCHAR(255) NOT NULL,
     company_name VARCHAR(255) NOT NULL,
+    user_id UUID REFRENCES users(id) ON DELETE CASCADE
     city VARCHAR(100),
     country VARCHAR(100),
     start_year INTEGER,

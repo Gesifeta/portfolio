@@ -51,7 +51,7 @@ const Upload = ({ data, setData }) => {
         encType="multipart/form-data"
         method="post"
       >
-        <h3>Image upload</h3>
+        <p>Image upload</p>
         <div className="upload">
           <label className="form-control-file" htmlFor="file">
             {isPending ? (

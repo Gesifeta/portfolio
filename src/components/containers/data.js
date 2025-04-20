@@ -148,7 +148,7 @@ export const projects = [
     id: 32324234,
     name: "cloud",
     description:
-      "Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopted cloud, offering over 200 fully featured services from data centers globally. Millions of customers—including the fastest-growing startups, largest enterprises, and leading government agencies—are using AWS to lower costs, become more agile, and innovate faster.",
+      "Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopted cloud, offering over 200 fully featured services from data centers globally. Millions of customers—including the fastest-growing start_dateups, largest enterprises, and leading government agencies—are using AW_dateS to lower costs, become more agile, and innovate faster.",
     works: [
       {
         id: 32324234,
@@ -910,14 +910,11 @@ export const educations = [
     grade: "",
     awards: [],
     institution: "Kristianstad University",
-    companyAddress: {
-      address: {
-        city: "Kristianstad",
-        country: "Sweden",
-      },
-    },
-    start: "2021",
-    end: "2022",
+
+    city: "Kristianstad",
+    country: "Sweden",
+    start_date: "2021",
+    end_date: "2022",
     image_url: images.hkr,
   },
   {
@@ -928,14 +925,11 @@ export const educations = [
     grade: "3.6",
     awards: [],
     institution: "Addis Ababa University",
-    companyAddress: {
-      address: {
-        city: "Addis Ababa",
-        country: "Ethiopia",
-      },
-    },
-    start: "2016",
-    end: "2018",
+
+    city: "Addis Ababa",
+    country: "Ethiopia",
+    start_date: "2016",
+    end_date: "2018",
     image_url: images.aau,
   },
   {
@@ -947,14 +941,11 @@ export const educations = [
     grade: "3.59",
     awards: [],
     institution: "Addis Ababa University",
-    companyAddress: {
-      address: {
-        city: "Addis Ababa",
-        country: "Ethiopia",
-      },
-    },
-    start: "2009",
-    end: "2013",
+
+    city: "Addis Ababa",
+    country: "Ethiopia",
+    start_date: "2009",
+    end_date: "2013",
     image_url: images.aau,
   },
   {
@@ -966,14 +957,11 @@ export const educations = [
     grade: "2.89",
     awards: [],
     institution: "Jimma University",
-    companyAddress: {
-      address: {
-        city: " Jimma",
-        country: "Ethiopia",
-      },
-    },
-    start: "2002",
-    end: "2006",
+
+    city: " Jimma",
+    country: "Ethiopia",
+    start_date: "2002",
+    end_date: "2006",
     image_url: images.ju,
   },
 ];
@@ -981,15 +969,11 @@ export const experiences = [
   {
     id: 14,
     position: "Internal Control Officer",
-    companyName: "Commercial Bank of Ethiopia",
-    companyAddress: {
-      address: {
-        city: "Addis Ababa",
-        country: "Ethiopia",
-      },
-    },
-    start: "2019",
-    end: "2021",
+    company_name: "Commercial Bank of Ethiopia",
+    city: "Addis Ababa",
+    country: "Ethiopia",
+    start_date: "2019",
+    end_date: "2021",
     image_url: images.googlesmall,
     responsibilities: [
       "Conduct prompt investigation of breach of policy and first level investigation on frauds and forgeries including  customer’s complaints in line with investigation guidelines.",
@@ -1004,15 +988,12 @@ export const experiences = [
   {
     id: 16,
     position: "Banking Operation Officer",
-    companyName: "Commercial Bank of Ethiopia",
-    companyAddress: {
-      address: {
-        city: "Addis Ababa",
-        country: "Ethiopia",
-      },
-    },
-    start: "2014",
-    end: "2021",
+    company_name: "Commercial Bank of Ethiopia",
+
+    city: "Addis Ababa",
+    country: "Ethiopia",
+    start_date: "2014",
+    end_date: "2021",
     image_url: images.googlesmall,
     responsibilities: [
       "Collaborate with other departments and stakeholders to achieve business goals",
@@ -1027,15 +1008,12 @@ export const experiences = [
   {
     id: 13,
     position: "Juniour Officer",
-    companyName: "Commercial Bank of Ethiopia",
-    companyAddress: {
-      address: {
-        city: "Addis Ababa",
-        country: "Ethiopia",
-      },
-    },
-    start: "2013",
-    end: "2014",
+    company_name: "Commercial Bank of Ethiopia",
+
+    city: "Addis Ababa",
+    country: "Ethiopia",
+    start_date: "2013",
+    end_date: "2014",
     image_url: images.googlesmall,
     responsibilities: [
       "Accepting customer deposits or posting deposits to customer accounts",
@@ -1049,15 +1027,12 @@ export const experiences = [
   {
     id: 22,
     position: "ICT Expert",
-    companyName: "Oromia Public Procurement Agency",
-    companyAddress: {
-      address: {
-        city: "Addis Ababa",
-        country: "Ethiopia",
-      },
-    },
-    start: "2012",
-    end: "2013",
+    company_name: "Oromia Public Procurement Agency",
+
+    city: "Addis Ababa",
+    country: "Ethiopia",
+    start_date: "2012",
+    end_date: "2013",
     image_url: images.awssmall,
     responsibilities: [
       "Reviewing diagnostics and assessing the functionality and efficiency of systems",
@@ -1071,15 +1046,12 @@ export const experiences = [
   {
     id: 1,
     position: "ICT Teacher",
-    companyName: "Higher 23 Preparatory School",
-    companyAddress: {
-      address: {
-        city: "Addis Ababa",
-        country: "Ethiopia",
-      },
-    },
-    start: "2006",
-    end: "2012",
+    company_name: "Higher 23 Preparatory School",
+
+    city: "Addis Ababa",
+    country: "Ethiopia",
+    start_date: "2006",
+    end_date: "2012",
     image_url: images.googlesmall,
     responsibilities: [
       "Assessment and Feedback: Develop fair and effective assessment methods to evaluate students' understanding and progress. Provide constructive feedback to students, fostering a growth mindset and continuous improvement.",
