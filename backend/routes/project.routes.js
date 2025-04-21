@@ -15,17 +15,17 @@ import {
 // project routes
 export const projectRoutes = express.Router();
 
-projectRoutes.post("/projects/new", addNewProject);
+projectRoutes.post("/projects/new", express.json(), addNewProject);
 projectRoutes.get("/projects", getAllProjects);
 projectRoutes.get("/projects/:id", getProjectById);
 // upload images using multer
 
 const upload = multer({ storage: fileStorageEngine });
 projectRoutes.post(
-  "/projects/upload",
+  "/projects/upload",express.json(), 
   upload.single("file"),
   uploadProjectImage
 );
 
-projectRoutes.put("/projects/:id", updateProject);
+projectRoutes.put("/projects/:id", express.json(), updateProject);
 projectRoutes.delete("/projects/:id", deleteProject);

@@ -11,6 +11,7 @@ import { getPool, closePool } from "./database/db.js";
 import { userRouter } from "./routes/user.routes.js";
 import { skillRouter } from "./routes/skill.routes.js";
 import { projectRoutes } from "./routes/project.routes.js";
+import { experienceRoutes } from "./routes/experience.route.js";
 
 // Load environment variables
 dotenv.config();
@@ -45,7 +46,6 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // set images folder as static
 // In server.js
@@ -59,6 +59,7 @@ app.use("/images", express.static(path.join(__dirname, "uploads")));
 app.use("/api", userRouter);
 app.use("/api", skillRouter);
 app.use("/api", projectRoutes);
+app.use("/api", experienceRoutes);
 // Basic route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the API" });
