@@ -1,0 +1,43 @@
+
+.container-technology-stack {
+  border-radius: 0.5rem;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  background-color: #fff;
+  color: #000;
+  gap: 0.25rem;
+}
+
+.container-selected-tag {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: rgb(240, 240, 240);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+.tag button {
+  padding: 0 0.1rem;
+  display: "flex";
+  align-items: center;
+  justify-content: center;
+}
+.container-technology-stack-filter {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.container-selected-tag.filter {
+  margin-top: 0.5rem;
+  position: absolute;
+  max-height: 200px;
+  background-color: #dad8d8;
+  padding: 1rem;
+  overflow-y: scroll;
+}

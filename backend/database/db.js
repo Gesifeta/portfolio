@@ -36,8 +36,10 @@ const pool = new Pool({
 });
 
 // for ordinary queries
-export const ordinaryDatabaseQuery = async (queryString, params) =>
-  await pool.query(queryString, params);
+export const ordinaryDatabaseQuery = async (queryString, params) =>{
+  return await pool.query(queryString, params);
+}
+  
 // for transactions
 export const transactionDatabaseQuery = async (callback) => {
   const client = await pool.connect();

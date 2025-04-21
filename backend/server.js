@@ -1,13 +1,18 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import { getPool, closePool, ordinaryDatabaseQuery } from "./database/db.js";
+import { getPool, closePool } from "./database/db.js";
 import { userRouter } from "./routes/user.routes.js";
+import { skillRouter } from "./routes/skill.routes.js";
+import { projectRoutes } from "./routes/project.routes.js";
+import { experienceRoutes } from "./routes/experience.route.js";
+
 // Load environment variables
 dotenv.config();
 // function to connect to database
@@ -34,11 +39,27 @@ const app = express();
 const port = process.env.EXPRESS_SERVER_PORT || 5000;
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: [`${process.env.FRONTEND_URL}`],
+    credentials: true,
+  })
+);
 app.use(express.urlencoded({ extended: true }));
+// set images folder as static
+// In server.js
+// Add this after your middleware configurations
+// Create an 'uploads' directory to store images
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+app.use("/images", express.static(path.join(__dirname, "uploads")));
 // user router
-app.use("/api/users", userRouter);
+app.use("/api", userRouter);
+app.use("/api", skillRouter);
+app.use("/api", projectRoutes);
+app.use("/api", experienceRoutes);
 // Basic route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the API" });
@@ -54,7 +75,6 @@ app.use((err, req, res, next) => {
 });
 // set up response headers
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, DELETE, OPTIONS"
@@ -71,7 +91,6 @@ app.use((req, res, next) => {
 let server = app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-console.log("Server is running on port", port);
 // Graceful shutdown handler
 function gracefulShutdown(signal) {
   console.log(`Received ${signal}. Starting graceful shutdown...`);

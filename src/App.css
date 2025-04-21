@@ -103,13 +103,6 @@
   margin-left: 0;
   animation: slide-left 0.5s ease-out 0.2s;
 }
-.user-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 60%;
-  margin: auto;
-  gap: 1rem;
-}
 
 .btn-group {
   display: flex;
@@ -128,12 +121,20 @@
   max-width: 70%;
   margin-top: 2rem;
   padding: 2rem 1rem;
-  border: 1px solid #999999;
-  border-radius: 5px;
+
+  border-radius: 10px;
 }
 .container-form p {
   color: #ffff;
 }
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  margin: auto;
+  gap: 1rem;
+}
+
 @media only screen and (max-width: 600px) {
   .name {
     padding: 0.25rem;
@@ -148,14 +149,18 @@
     margin-right: 50%;
     transform: translateX(50%);
   }
-  .user-form {
+  .registration-form {
     min-width: 95%;
   }
   .container-form {
-    min-width: 95%;
+    min-width: 100%;
   }
-  .btn-group{
+  .btn-group {
     flex-direction: column;
+  }
+  fieldset {
+    min-width: 95%;
+    padding: 0.5rem;
   }
 }
 @keyframes slide-left {

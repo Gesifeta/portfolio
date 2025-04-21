@@ -1,0 +1,12 @@
+.login-form{
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+.login-form p{
+    color: #fff;
+}
