@@ -12,6 +12,7 @@ import { userRouter } from "./routes/user.routes.js";
 import { skillRouter } from "./routes/skill.routes.js";
 import { projectRoutes } from "./routes/project.routes.js";
 import { experienceRoutes } from "./routes/experience.route.js";
+import { educationRoutes } from "./routes/education.route.js";
 
 // Load environment variables
 dotenv.config();
@@ -60,6 +61,7 @@ app.use("/api", userRouter);
 app.use("/api", skillRouter);
 app.use("/api", projectRoutes);
 app.use("/api", experienceRoutes);
+app.use("/api", educationRoutes);
 // Basic route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the API" });
