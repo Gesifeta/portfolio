@@ -25,6 +25,8 @@ const NewBadge = () => {
     user_id: user.id,
     title: "",
     awarded_by: "",
+    awarded_date: "",
+    badge_number: "",
     badge_link: "",
     description: "",
     skills: [],
@@ -49,16 +51,7 @@ const NewBadge = () => {
     onSuccess: (data) => {
       if (data.status === 200) {
         setSuccessMessage("Badge successfuly added.");
-        setSkill({
-          id: "",
-          user_id: user.id,
-          title: "",
-          awarded_by: "",
-          badge_link: "",
-          description: "",
-          skills: [],
-          image_url: "",
-        });
+        
         setTimeout(() => {
           setSuccessMessage(false);
         }, 3000);
@@ -82,7 +75,10 @@ const NewBadge = () => {
     const { name, value } = e.target;
     setSkill((prev) => ({
       ...prev,
-      [name]: name === "skills" ? value.split(",") : value,
+      [name]:
+        name === "skills"
+          ? value.split(",").map((skill) => skill.trim())
+          : value,
       id: uuidv4(),
     }));
   }
@@ -100,102 +96,128 @@ const NewBadge = () => {
   return (
     <div className="container-form">
       {/* Badges */}
-    
-        <fieldset>
-          <legend>New Badge</legend>
-          <form action="" method="post" onSubmit={handleSkillSubmit}>
-            {/* user id */}
-            <div className="form-group">
-              <label htmlFor="user_id">User ID</label>
-              <input
-                type="text"
-                name="user_id"
-                value={skill.user_id}
-                disabled
-                id="user_id"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="title">Title</label>
-              <input
-                type="text"
-                name="title"
-                value={skill.title}
-                onChange={handleSkillInput}
-                id="title"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="awarded_by">Awarded By</label>
-              <input
-                type="text"
-                name="awarded_by"
-                id="awarded_by"
-                value={skill.awarded_by}
-                onChange={handleSkillInput}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="badge_link">Badge Link</label>
-              <input
-                type="text"
-                name="badge_link"
-                value={skill.badge_link}
-                onChange={handleSkillInput}
-                id="badge_link"
-              />
-            </div>{" "}
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <input
-                type="text"
-                name="description"
-                id="description"
-                value={skill.description}
-                onChange={handleSkillInput}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="skills">Skills</label>
-              <input
-                type="text"
-                name="skills"
-                value={skill.skills}
-                onChange={handleSkillInput}
-                id="skills"
-                placeholder="Enter skills comma separated"
-              />
-            </div>
-            {/* image url */}
-            <div className="form-group">
-              <label htmlFor="image_url">Image URL</label>
-              <input
-                type="text"
-                name="image_url"
-                id="image_url"
-                value={skill.image_url}
-                disabled
-              />
-            </div>
-            {/* success and error messages */}
-            {isError && (
-              <div className="error-message">
-                <p style={{ color: "red" }}>{errorMessage?.message}</p>
-                <p style={{ color: "red" }}>{errorMessage?.error}</p>
-              </div>
-            )}
-            {isSuccess && (
-              <div className="success-message">
-                <p>{successMessage}</p>
-              </div>
-            )}
-            <div className="form-group">
-              <button type="submit">Submit</button>
-            </div>
-          </form>
-          <Upload data={skill} setData={setSkill} />
-        </fieldset>
 
+      <fieldset>
+        <legend>New Badge</legend>
+        <form action="" method="post" onSubmit={handleSkillSubmit}>
+          {/* user id */}
+          <div className="form-group">
+            <label htmlFor="user_id">User ID</label>
+            <input
+              type="text"
+              name="user_id"
+              value={skill.user_id}
+              disabled
+              id="user_id"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              value={skill.title}
+              onChange={handleSkillInput}
+              id="title"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="awarded_by">Awarded By</label>
+            <input
+              type="text"
+              name="awarded_by"
+              id="awarded_by"
+              value={skill.awarded_by}
+              onChange={handleSkillInput}
+            />
+          </div>
+          {/* Awarded date */}
+          <div className="form-group">
+            <label htmlFor="awarded_date">Awarded Date</label>
+            <input
+              type="date"
+              value={skill.awarded_date}
+              onChange={handleSkillInput}
+              name="awarded_date"
+              id="awarded_date"
+            />
+          </div>
+          {/* Badge number */}
+          <div className="form-group">
+            <label htmlFor="badge_number">Badge Number</label>
+            <input
+              type="text"
+              name="badge_number"
+              id="badge_number"
+              value={skill.badge_number}
+              onChange={handleSkillInput}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="badge_link">Badge Link</label>
+            <input
+              type="text"
+              name="badge_link"
+              value={skill.badge_link}
+              onChange={handleSkillInput}
+              id="badge_link"
+            />
+          </div>{" "}
+          <div className="form-group">
+            <label htmlFor="description">Description</label>
+            <textarea
+              type="text"
+              name="description"
+              id="description"
+              value={skill.description}
+              onChange={handleSkillInput}
+              cols="30"
+              rows="5"
+              placeholder="Enter description"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="skills">Skills</label>
+            <textarea
+              type="text"
+              name="skills"
+              value={skill.skills}
+              onChange={handleSkillInput}
+              id="skills"
+              placeholder="Enter skills comma separated"
+              cols="30"
+              rows="5"
+            />
+          </div>
+          {/* image url */}
+          <div className="form-group">
+            <label htmlFor="image_url">Image URL</label>
+            <input
+              type="text"
+              name="image_url"
+              id="image_url"
+              value={skill.image_url}
+              disabled
+            />
+          </div>
+          {/* success and error messages */}
+          {isError && (
+            <div className="error-message">
+              <p style={{ color: "red" }}>{errorMessage?.message}</p>
+              <p style={{ color: "red" }}>{errorMessage?.error}</p>
+            </div>
+          )}
+          {isSuccess && (
+            <div className="success-message">
+              <p>{successMessage}</p>
+            </div>
+          )}
+          <div className="form-group">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+        <Upload data={skill} setData={setSkill} />
+      </fieldset>
     </div>
   );
 };

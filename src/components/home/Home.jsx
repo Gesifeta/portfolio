@@ -24,8 +24,7 @@ import { IMAGE_URL } from "../../utils/constants.js";
 
 const Home = () => {
   // get image from local storage
-  const [user] = useState(JSON.parse(localStorage.getItem("user")));
-  console.log(user.image_url);
+  const { user } = useState(JSON.parse(localStorage.getItem("user")));
   const [showSetting, setShowSetting] = useState(false);
   // To make the list item slide right
   let sections = useRef([]);
@@ -40,7 +39,7 @@ const Home = () => {
     if (title) {
       lists.current.forEach((item) => {
         item.classList.remove("slide-right");
-        if (item.textContent.toLocaleLowerCase() === title) {
+        if (item?.textContent.toLocaleLowerCase() === title) {
           item.classList.add("slide-right");
         }
       });
@@ -89,35 +88,64 @@ const Home = () => {
     <main>
       <div className="header">
         <div className="logo">Logo</div>
+
         <div className="nav-header">
-          <div className="profile-setting">
-            <img src={`${IMAGE_URL}/${user.image_url}`} alt="image missing" />
-            <div className="setting">
-              {showSetting ? (
-                <ChevronDown
-                  className="setting-toggler"
-                  color="white"
-                  onClick={() => setShowSetting(!showSetting)}
-                />
-              ) : (
-                <ChevronRight
-                  className="setting-toggler"
-                  color="white"
-                  onClick={() => setShowSetting(!showSetting)}
-                />
-              )}
-              {showSetting ? (
-                <ul
-                  className="setting-list"
-                  onMouseLeave={() => setShowSetting(false)}
-                >
-                  <li>Profile</li>
-                  <li>Settings</li>
-                  <li>Logout</li>
-                </ul>
-              ) : null}
+          <ul className="nav-list">
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#projects">Projects</a>
+            </li>
+            <li>
+              <a href="#skills">Skills</a>
+            </li>
+            <li>
+              <a href="#badges">Badges</a>
+            </li>
+            <li>
+              <a href="#certifications">Certifications</a>
+            </li>
+            <li>
+              <a href="#educations">Educations</a>
+            </li>
+            <li>
+              <a href="#experiences">Experiences</a>
+            </li>
+            <li>
+              <a href="#contacts">Contacts</a>
+            </li>
+          </ul>
+          {user && (
+            <div className="profile-setting">
+              <img src={`${IMAGE_URL}/${user.image_url}`} alt="image missing" />
+              <div className="setting">
+                {showSetting ? (
+                  <ChevronDown
+                    className="setting-toggler"
+                    color="white"
+                    onClick={() => setShowSetting(!showSetting)}
+                  />
+                ) : (
+                  <ChevronRight
+                    className="setting-toggler"
+                    color="white"
+                    onClick={() => setShowSetting(!showSetting)}
+                  />
+                )}
+                {showSetting ? (
+                  <ul
+                    className="setting-list"
+                    onMouseLeave={() => setShowSetting(false)}
+                  >
+                    <li>Profile</li>
+                    <li>Settings</li>
+                    <li>Logout</li>
+                  </ul>
+                ) : null}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
       <div className="home">
@@ -165,7 +193,7 @@ const Home = () => {
               slideRight(
                 e,
                 e.target.tagName === "DIV"
-                  ? e.target.firstElementChild.textContent.toLocaleLowerCase()
+                  ? e.target.firstElementChild?.textContent.toLocaleLowerCase()
                   : null
               );
           }}

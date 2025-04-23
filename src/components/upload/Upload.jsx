@@ -71,13 +71,14 @@ const Upload = ({ data, setData }) => {
             />
           </label>
         </div>
+        {isSuccess}
         <div className="btn-group">
           <button
             className="btn btn-primary"
-            disabled={isPending || isSuccess}
+            disabled={isPending}
             type="submit"
           >
-            {isSuccess ? "Successfuly uploaded" : "Upload"}
+            {isSuccess ? "Successfuly uploaded" :  "Upload"}
           </button>
         </div>
       </form>
