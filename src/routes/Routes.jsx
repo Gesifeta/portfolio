@@ -10,6 +10,8 @@ import Login from "../components/user/Login.jsx";
 import NewSkill from "../components/containers/skills/NewSkill.jsx";
 import NewExperience from "../components/containers/experiences/NewExperience.jsx";
 import NewEducation from "../components/containers/educations/NewEducation.jsx";
+import NewCertification from "../components/containers/certificates/NewCertification.jsx";
+import NewBadge from "../components/containers/badges/NewBadge.jsx";
 
 export const routes = createBrowserRouter([
   {
@@ -55,7 +57,7 @@ export const routes = createBrowserRouter([
 
   {
     path: "/certifications/register/new",
-    element: <Register />,
+    element: <NewCertification />,
   },
   {
     path: "/certifications/edit/:id",
@@ -68,7 +70,7 @@ export const routes = createBrowserRouter([
   // Badges
   {
     path: "/badges/register/new",
-    element: <Register />,
+    element: <NewBadge />,
   },
   {
     path: "/badges/edit/:id",

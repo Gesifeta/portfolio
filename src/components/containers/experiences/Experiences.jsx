@@ -1,23 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 import "./Experiences.css";
 import ExperienceCard from "../../card/ExperienceCard";
-import { experiences } from "./../data.js";
+import { API_URL } from "../../../utils/constants.js";
 
 function Experiences() {
+  // query
+  const {
+    data: experiences,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["experiences"],
+    queryFn: async () => {
+      return await fetch(`${API_URL}/experiences`).then((res) => res.json());
+    },
+    staleTime: Infinity,
+    
+  });
   return (
     <div className="experiences" id="experiences">
       <h2 style={{ textAlign: "center" }}>Experiences</h2>
       <div className="container-experiences">
-        {experiences.map((experience, index) => (
+        {experiences?.map((experience, index) => (
           <ExperienceCard
-            key={`${experience.companyName}-${index}`}
-            companyName={experience.companyName}
-            address={experience.companyAddress.address.city}
+            key={`${experience.company_name}-${index}`}
+            companyName={experience.company_name}
+            city={experience.city}
+            country={experience.country}
             position={experience.position}
             responsibilities={experience.responsibilities}
-            startDate={experience.startDate}
-            endDate={experience.endDate}
+            startDate={new Date(experience.start_year).getFullYear()}
+            endDate={new Date(experience.end_year).getFullYear()}
           />
         ))}
       </div>

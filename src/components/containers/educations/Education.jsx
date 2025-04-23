@@ -12,9 +12,9 @@ const Education = () => {
             key={`${education.nameOfAward}-${index}`}
             nameOfAward={education.nameOfAward}
             institution={education.institution}
-            address={education.companyAddress.address.city}
-            startDate={education.startDate}
-            endDate={education.endDate}
+            address={education.city}
+            startDate={education.start_date}
+            endDate={education.end_date}
           />
         ))}
       </div>

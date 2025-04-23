@@ -3,7 +3,9 @@ import "./ExperienceCard.css";
 function ExperienceCard({
   position,
   companyName,
-  address,
+  city,
+  country,
+  responsibilities,
   startDate,
   endDate,
 }) {
@@ -19,7 +21,7 @@ function ExperienceCard({
           <h3>{position}</h3>
           <h4 style={{ color: "gray" }}>{companyName}</h4>
           <p className="small">
-            {address.city}, {address.country}
+            {city}, {country}
           </p>
         </div>
         {/* <ul>

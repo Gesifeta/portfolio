@@ -1,17 +1,19 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
+import { IMAGE_URL } from "../../utils/constants";
 
 import "./CertificationCard.css";
 
 const CertificationCard = ({
   category,
   title,
-  issuedBy,
-  issueDate,
-  expiryDate,
-  certificationLink,
-  certificationNumber,
-  icon,
+  awarded_by,
+  awarded_date,
+  expiration_date,
+  certification_link,
+  certification_number,
+  image_url,
+  icon_url,
 }) => {
   return (
     <div className="certification">
@@ -24,25 +26,27 @@ const CertificationCard = ({
           </div>
           <div className="certification-issued-by">
             <span>
-              <img src={`${icon}`} alt="" />
+              <img src={`${IMAGE_URL}/${image_url}`} alt="" />
             </span>
-            <span>{issuedBy}</span>
+            <span>{awarded_by}</span>
           </div>
         </div>
         <div>
-        <p style={{ display: "flex", gap: "1rem" }}>
-          <span style={{ fontWeight: 700, opacity: 0.75 }}>
-            Certification Number:
-          </span>
-          <span>{certificationNumber}</span>
-        </p>
-        <div className="certification-issue-date">Issue Date: {issueDate}</div>
-        <div className="certification-expiry-date">
-          Expiry Date: {expiryDate}
-        </div>
+          <p style={{ display: "flex", gap: "1rem" }}>
+            <span style={{ fontWeight: 700, opacity: 0.75 }}>
+              Certification Number:
+            </span>
+            <span>{certification_number}</span>
+          </p>
+          <div className="certification-issue-date">
+            Issue Date: {awarded_date}
+          </div>
+          <div className="certification-expiry-date">
+            Expiry Date: {expiration_date}
+          </div>
         </div>
         <div className="certification-link">
-          <a href={certificationLink} target="_blank" rel="noreferrer">
+          <a href={certification_link} target="_blank" rel="noreferrer">
             <span>View Certificate</span>{" "}
             <span>
               <ExternalLink />

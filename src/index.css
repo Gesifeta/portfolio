@@ -83,8 +83,10 @@ textarea {
 fieldset {
   padding: 2rem;
   border-radius: 10px;
+  width: 70%;
   border: 1px solid #525151;
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
 }
 fieldset form{
@@ -152,6 +154,9 @@ p {
 P.small {
   font-size: 0.85rem;
   line-height: 1.25rem;
+}
+form{
+  min-width: 60%;
 }
 
 @media screen and (max-width: 768px) {

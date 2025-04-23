@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
-import { projects } from "./../data.js";
+//import { projects } from "./../data.js";
 import ProjectCard from "../../card/ProjectCard.jsx";
+import { API_URL } from "../../../utils/constants.js";
 const Projects = () => {
   // Filter projects to show. only show required projects
   const [filteredProjects, setFilteredProjects] = useState([]);
   const handleFilterProjects = () => {
-    const filtered = projects.filter((project) => project.show === "true");
+    const filtered = projects?.filter((project) => project.show === "true");
     setFilteredProjects(filtered);
   };
   // TO SHOW ALL PROJECTS IF REQUIRED
@@ -23,26 +25,39 @@ const Projects = () => {
     setFilteredProjects(projects);
   };
   // Filter projects when dom mounts
-  React.useEffect(() => {
-    handleFilterProjects();
-  }, []);
+  // get projects from the backend
+  const {
+    data: projects,
+    isLoading,
+    isSuccess,
+  } = useQuery({
+    queryKey: ["projects"],
+    queryFn: async () => {
+      return await fetch(`${API_URL}/projects`).then((res) => res.json());
+    },
+    staleTime: Infinity,
+  });
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div id="projects" className="container-projects">
       <h2 style={{ textAlign: "center" }}>Projects</h2>
       <div className="projects">
-        {filteredProjects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            project={project}
-            title={project.title}
-            image={project.image}
-            description={project.description}
-            stacks={project.stacks}
-            projectlink={project.projectlink}
-            projectdemo={project?.projectdemo}
-          />
-        ))}
+        {isSuccess &&
+          projects?.map((project, index) => (
+            <ProjectCard
+              key={index}
+              project={project}
+              title={project.title}
+              image={project.image_url}
+              description={project.description}
+              stacks={project.technologies}
+              projectlink={project.live_url}
+              projectdemo={project?.projectdemo}
+            />
+          ))}
         {/* TO show more projects */}
         <button
           className="btn-secondary"

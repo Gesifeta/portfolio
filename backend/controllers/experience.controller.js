@@ -40,7 +40,7 @@ export const addNewExperience = async (req, res) => {
 // Get all experiences
 export const getAllExperiences = async (req, res) => {
   try {
-    const queryString = `SELECT * FROM experiences`;
+    const queryString = `SELECT * FROM experiences ORDER BY start_year`;
     const result = await ordinaryDatabaseQuery(queryString, []);
     return res.json(result.rows);
   } catch (error) {
@@ -172,5 +172,3 @@ export const getExperienceByUserId = async (req, res) => {
     });
   }
 };
-
-

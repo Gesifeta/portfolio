@@ -7,7 +7,7 @@ export const projects = [
     title: "Second-Hand Item Marketplace",
     description: `This project is a robust backend system for a second-hand item marketplace, designed to facilitate seamless user interactions and transactions. Built using a modern tech stack, it showcases my proficiency in backend development and container orchestration.`,
     category: "Backend",
-    image_url: "/assets/secondchance.png",
+    image_url: "uploads/images/secondchance.png",
     github_url: "",
     live_url: "https://secondchancewebsite.netlify.app/",
     technologies: [
@@ -25,7 +25,7 @@ export const projects = [
     description:
       "This project is a comprehensive e-commerce web application developed using the MERN stack (MongoDB, Express.js, React.js, Node.js) with responsive front end. The application is built to provide features such as product listings, a shopping cart, user authentication, and checkout functionality. The deployment leverages AWS ECS (Elastic Container Service) and Fargate for a scalable and containerized cloud solution.",
     category: "Fullstack",
-    image_url: "/assets/ecommerce.png",
+    image_url: "uploads/images/ecommerce.png",
     github_url: "",
     live_url: "https://yemez.netlify.app/",
     technologies: [
@@ -36,7 +36,7 @@ export const projects = [
       "Mongodb",
       "Node.js",
       "Redux.js",
-      "Express.js.js",
+      "Express.js",
       "Graphql",
     ],
   },
@@ -46,7 +46,7 @@ export const projects = [
     description:
       "This project is a photo gallery web application built using the MERN stack HTML,CSS,Javascript, and React.js with with Content Mangement Systems- Sanity. The application allows users to upload, view,comment,like and manage their photo collections, offering a sleek and responsive user interface with robust backend support for data handling. Here's an overview of the",
     category: "Fullstack",
-    image_url: "/assets/photogallery.png",
+    image_url: "uploads/images/photogallery.png",
     github_url: "",
     live_url: "https://mormorgallery.netlify.app/",
     technologies: ["HTML", "CSS", "JAVASCRIPT", "React.js", "Sanity"],
@@ -57,7 +57,7 @@ export const projects = [
     description:
       "This project is a mini-banking application built using the MERN stack (MongoDB, Express.js, React.js, Node.js) and styled with Material UI. It provides basic banking features such as user authentication, account creation, deposits, withdrawals, and balance inquiries. Here is a breakdown of the technologies used and their roles:",
     category: "Fullstack",
-    image_url: "/assets/minibanking.png",
+    image_url: "uploads/images/minibanking.png",
     github_url: "",
     live_url: "https://myminibanking.netlify.app",
     technologies: [
@@ -74,7 +74,7 @@ export const projects = [
     title: "Portfolio Project",
     description: `This project is a personal portfolio website developed using React.js for building a dynamic front end, with Sanity as a content management system (CMS). It showcases my skills, projects, and experience, with responsive styling achieved using HTML, CSS, and JavaScript. Here's a breakdown of the`,
     category: "Fullstack",
-    image_url: "/assets/portfolio1.png",
+    image_url: "uploads/images/portfolio1.png",
     github_url: "",
     live_url: "https://www.gemechuadam.com/",
     technologies: ["HTML", "CSS", "React.js", "JAVASCRIPT", "Sanit", "Netlify"],
@@ -85,7 +85,7 @@ export const projects = [
     title: "Health Booking System",
     description: `This project is a user-friendly frontend application for a health booking system, allowing users to easily schedule appointments with healthcare providers. The application leverages a clean and responsive design, ensuring an intuitive user experience.`,
     category: "Frontend",
-    image_url: "/assets/health.png,",
+    image_url: "uploads/images/health.png,",
     github_url: "",
     live_url: "https://myhealthinc.netlify.app/",
     technologies: [
@@ -104,7 +104,7 @@ export const projects = [
     title: "E-Plant Shopping",
     description: `This project a simple e-commerce front end for an online plant shop, developed using React.js for a dynamic user interface, along with CSS, HTML, and JavaScript for styling, layout, and interactivity. The application provides a smooth shopping experience with features such as browsing plants, adding items to a cart, and viewing product details.`,
     category: "Frontend",
-    image_url: "/assets/e-plant.png",
+    image_url: "uploads/images/e-plant.png",
     github_url: "",
     live_url: "https://gesifeta.github.io/e-plantShopping/",
     technologies: [
@@ -120,7 +120,7 @@ export const projects = [
     title: "Yelp.com Pixel-Perfect Clone",
     description: `This project is a pixel-perfect clone of the Yelp.com front end, created using HTML, CSS, and JavaScript. The objective is to replicate Yelp’s complex,responsive layout and interactive features, focusing on meticulous detail to match the original design as closely as possible.`,
     category: "Frontend",
-    image_url: "/assets/yelp.png",
+    image_url: "uploads/images/yelp.png",
     github_url: "",
     live_url: "https://yelp-pixel-perfect-clone.netlify.app",
     technologies: ["HTML", "CSS", "JAVASCRIPT"],
@@ -131,7 +131,7 @@ export const projects = [
     description:
       "  The app provides users with detailed information about various countries alongwith neighbors, including geographical data and location mapping. It integrates with a country API and Google Maps to deliver a comprehensive and interactive experience.",
     category: "Frontend",
-    image_url: "/assets/countryinfo.png",
+    image_url: "uploads/images/countryinfo.png",
     github_url: "",
     live_url: "https://gemechulocationsapp.netlify.app/",
     technologies: [
@@ -155,7 +155,7 @@ export const projects = [
         title: "Portfolio website",
         description:
           "This project is a portfolio website developed using React.js and AWS. It showcases my skills, projects, and experience, with responsive styling achieved using HTML, CSS, and JavaScript. Here's a breakdown of the technologies used",
-        image_url: "/assets/aws-consultant.jpeg",
+        image_url: "uploads/images/aws-consultant.jpeg",
         requirements: [
           {
             id: 32324234,
@@ -249,7 +249,7 @@ export const projects = [
         title: "Digital learning management",
         description:
           " This project is a digital learning management system developed using React.js and AWS. It provides an efficient and user-friendly interface for managing digital learning content, including courses, modules, and assignments. The system allows users to track progress, access materials, and participate in discussions.",
-        image_url: "/assets/dynamodb.png",
+        image_url: "uploads/images/dynamodb.png",
         requirements: [
           {
             id: 32324234,
@@ -343,7 +343,7 @@ export const projects = [
         title: "Health booking systems",
         description:
           "This project is a health booking system developed using React.js and AWS. It allows users to schedule appointments with healthcare providers, with features such as online scheduling, appointment management, and patient management. The system provides a user-friendly interface for managing appointments, patient records, and billing.",
-        image_url: "/assets/aws-240.png",
+        image_url: "uploads/images/aws-240.png",
         requirements: [
           {
             id: 32324234,
@@ -455,10 +455,10 @@ export const skills = [
       {
         id: 8.3,
         name: "SASS",
-        image_url: "/assets/sass-144.png",
+        image_url: "uploads/images/sass-144.png",
       },
     ],
-    image_url: "/assets/css-144.png",
+    image_url: "uploads/images/css-144.png",
   },
   {
     id: 3,
@@ -466,7 +466,7 @@ export const skills = [
     description:
       "HyperText Markup Language is the standard markup language for document?s designed to be displayed in a web browser. It defines the content and structure of web content. It is often assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScrip",
     skillSets: [""],
-    image_url: "/assets/html-5-144.png",
+    image_url: "uploads/images/html-5-144.png",
   },
   {
     id: 10,
@@ -474,7 +474,7 @@ export const skills = [
     description:
       "Node.js is a cross-platform, open-source JavaScript runtime environment that can run on Windows, Linux, Unix, macOS, and more. Node.js runs on the V8 JavaScript engine, and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting.",
     skillSets: [""],
-    image_url: "/assets/nodejs-144.png",
+    image_url: "uploads/images/nodejs-144.png",
   },
   {
     id: 3,
@@ -482,7 +482,7 @@ export const skills = [
     description:
       "GraphQL is an open-source data query and manipulation language for APIs and a query runtime engine. GraphQL enables declarative data fetching where a client can specify exactly what data it needs from an API.",
     skillSets: [""],
-    image_url: "/assets/graphql-144.png",
+    image_url: "uploads/images/graphql-144.png",
   },
   {
     id: 4,
@@ -490,7 +490,7 @@ export const skills = [
     description:
       "JavaScript, often abbreviated as JS, is a programming language and core technology of the Web, alongside HTML and CSS. 99% of websites use JavaScript on the client side for webpage behavior.",
     skillSets: [""],
-    image_url: "/assets/javascript-144.png",
+    image_url: "uploads/images/javascript-144.png",
   },
   {
     id: 5,
@@ -503,7 +503,7 @@ export const skills = [
         name: "Redux",
         description:
           "Redux is an open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React.js or Angular for building user interfaces. Similar to Facebook's Flux architecture, it was created by Dan Abramov and Andrew Clark",
-        image_url: "/assets/redux.png",
+        image_url: "uploads/images/redux.png",
       },
       {
         id: 8.5,
@@ -517,7 +517,7 @@ export const skills = [
         name: "NextJS",
         description:
           "Next.js is an open-source web development framework created by XXXXXX enabling React.js based web applications with server-side rendering and generating static websites.",
-        image_url: "/assets/nextjs.png",
+        image_url: "uploads/images/nextjs.png",
       },
       ,
       {
@@ -528,7 +528,7 @@ export const skills = [
         image_url: "",
       },
     ],
-    image_url: "/assets/react.js-160.png",
+    image_url: "uploads/images/react.js-160.png",
   },
   {
     id: 6,
@@ -554,21 +554,21 @@ export const skills = [
         name: "EC2",
         description:
           "Amazon EC2 provides secure, resizable compute in the cloud, offering the broadest choice of processor, storage, networking, OS, and purchase model.",
-        image_url: "/assets/ec2.png",
+        image_url: "uploads/images/ec2.png",
       },
       {
         id: 8.3,
         name: "Well-Architected Framework",
         description:
           "The AWS Well-Architected Framework describes key concepts, design principles, and architectural best practices for designing and running workloads in the cloud.",
-        image_url: "/assets/wafw.png",
+        image_url: "uploads/images/wafw.png",
       },
       {
         id: 8.3,
         name: "Networking",
         description:
           "Amazon Elastic Compute Cloud (EC2) Network Interfaces provide an isolated virtual network interface for instances launched in a VPC. They are allocated a private IP address from the IP address range of the VPC and serve as the primary network interface for associated instances.",
-        image_url: "/assets/vpc.png",
+        image_url: "uploads/images/vpc.png",
       },
       {
         id: 8.3,
@@ -581,7 +581,7 @@ export const skills = [
         image_url: "",
       },
     ],
-    image_url: "/assets/aws-144.png",
+    image_url: "uploads/images/aws-144.png",
   },
   {
     id: 7,
@@ -610,17 +610,17 @@ export const skills = [
         image_url: "",
       },
     ],
-    image_url: "/assets/ux-design.png",
+    image_url: "uploads/images/ux-design.png",
   },
   {
     id: 8.1,
     name: "MongoDB",
-    image_url: "/assets/mongodb-144.png",
+    image_url: "uploads/images/mongodb-144.png",
   },
   {
     id: 8.2,
     name: "SQL",
-    image_url: "/assets/mysql.png",
+    image_url: "uploads/images/mysql.png",
   },
 ];
 export const badges = [
@@ -712,7 +712,7 @@ export const badges = [
       "Progressive Web Development",
       "Responsive Web Design",
       "Strategy",
-      " UI Design",
+      "UI Design",
       "User Experience (UX)",
       "User Interface Design",
       "Website Wireframe",

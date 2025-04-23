@@ -8,6 +8,13 @@ CREATE TABLE users (
     first_name VARCHAR(100),
     last_name VARCHAR(100),
     profile_image TEXT,
+    github_url TEXT,
+    linkedin_url TEXT,
+    twitter_url TEXT,
+    instagram_url TEXT,
+    facebook_url TEXT,
+    website_url TEXT,
+    location VARCHAR(100),
     bio TEXT,
     role VARCHAR(50) DEFAULT 'user', -- e.g. 'user', 'admin', 'instructor'
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

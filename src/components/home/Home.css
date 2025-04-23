@@ -5,7 +5,8 @@
   grid-template-areas:
     "header header "
     "about about"
-    "sidebar-left task-area ";
+    "sidebar-left task-area"
+    "footer footer";
   position: relative;
 }
 .home > div {
@@ -13,8 +14,59 @@
 }
 /* For Home elements as per the grid structure */
 .header {
-  grid-area: header;
-  min-height: 100px;
+  width: 100%;
+  padding: 1rem 3rem;
+  background-color: var(--color-teal);
+  position: fixed;
+  display: flex;
+  left: 0;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+.nav-header .nav-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.nav-header .nav-list a {
+  color: #fff;
+}
+.profile-setting {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.setting-toggler {
+  cursor: pointer;
+}
+.profile-setting img {
+  width: 50px;
+  border-radius: 50%;
+}
+.setting-list {
+  position: absolute;
+  left: 0;
+  bottom: -10rem;
+  background-color: #fff;
+  list-style: none;
+  background-color: var(--color-teal);
+  border-radius: 5px;
+  padding: 1rem 0.35rem;
+  width: 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.setting-list li {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.4rem;
+}
+.setting-list li:hover {
+  background-color: var(--color-dark-gray);
 }
 .sidebar-left {
   position: fixed;
@@ -29,12 +81,12 @@
 .task-area {
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin-top: 2.75rem;
   width: 100%;
   grid-area: task-area;
   gap: 3rem;
 }
-.task-area h2{
+.task-area h2 {
   padding: 1rem;
 }
 
@@ -65,12 +117,14 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 0.25rem;
+  margin-top: 5.25rem;
 }
 .info-detail {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
+  padding: 0.75rem;
 }
 .info-detail p {
   display: flex;
@@ -79,7 +133,6 @@
   gap: 1rem;
   line-height: 0.5;
 }
-
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -89,7 +142,7 @@
   display: flex;
   flex-direction: column;
   width: 400px;
-  margin-left: 40%;
+  margin-left: 35%;
   transform: translate(-50%);
 }
 .sidebar-left-header h2 {
@@ -130,7 +183,7 @@
 .sidebar ul li span.icon {
   color: var(--color-teal);
 }
-.contanct{
+.contanct {
   grid-area: contact;
 }
 @keyframes slide-right {
@@ -150,7 +203,7 @@
     transform: translateX(2rem);
   }
 }
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 978px) {
   .home {
     display: flex;
     flex-direction: column;
