@@ -8,10 +8,10 @@ import {
   updateEducation,
 } from "../controllers/education.controller.js";
 
-export const educationRoutes = express.Router();
-educationRoutes.get("/educations", getAllEducations);
-educationRoutes.post("/educations/new", express.json(), addNewEducation);
-educationRoutes.get("/educations/:id", getEducationById);
-educationRoutes.delete("/educations/:id", deleteEducation);
-educationRoutes.put("/educations/:id", express.json(), updateEducation);
-educationRoutes.get("/educations/user/:id", getEducationById);
+export const educationRouter = express.Router();
+educationRouter.get("/educations", getAllEducations);
+educationRouter.post("/educations/new", express.json(), addNewEducation);
+educationRouter.get("/educations/:id", getEducationById);
+educationRouter.delete("/educations/:id", deleteEducation);
+educationRouter.put("/educations/:id", express.json(), updateEducation);
+educationRouter.get("/educations/user/:id", getEducationById);

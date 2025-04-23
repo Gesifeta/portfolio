@@ -1,3 +1,4 @@
+import { IMAGE_URL } from "../../utils/constants";
 import "./ProjectCard.css";
 
 const ProjectCard = ({
@@ -13,7 +14,7 @@ const ProjectCard = ({
       <div className="project-container">
         <div className="card">
           <div className="container-image">
-            <img src={`${image}`} alt={`${title}`} />
+            <img src={`${IMAGE_URL}/${image}`} alt={`${title}`} />
           </div>
           <div className="card-detail">
             <h3 className="card-title">{title}</h3>

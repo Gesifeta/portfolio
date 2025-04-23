@@ -13,19 +13,20 @@ import {
 } from "../controllers/project.controller.js";
 
 // project routes
-export const projectRoutes = express.Router();
+export const projectRouter = express.Router();
 
-projectRoutes.post("/projects/new", express.json(), addNewProject);
-projectRoutes.get("/projects", getAllProjects);
-projectRoutes.get("/projects/:id", getProjectById);
+projectRouter.post("/projects/new", express.json(), addNewProject);
+projectRouter.get("/projects", getAllProjects);
+projectRouter.get("/projects/:id", getProjectById);
 // upload images using multer
 
 const upload = multer({ storage: fileStorageEngine });
-projectRoutes.post(
-  "/projects/upload",express.json(), 
+projectRouter.post(
+  "/projects/upload",
+  express.json(),
   upload.single("file"),
   uploadProjectImage
 );
 
-projectRoutes.put("/projects/:id", express.json(), updateProject);
-projectRoutes.delete("/projects/:id", deleteProject);
+projectRouter.put("/projects/:id", express.json(), updateProject);
+projectRouter.delete("/project>.",deleteProject);;

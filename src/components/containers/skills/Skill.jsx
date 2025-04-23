@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
+import { API_URL } from "../../../utils/constants.js";
 import SkillCard from "../../card/SkillCard.jsx";
-import { skills } from "./../data.js";
+
 import "./Skill.css";
 const Skill = () => {
   const [filteredSkills, setFilteredSkills] = useState([]);
-  // Show all skills by default
-  useEffect(() => {
-    setFilteredSkills(skills);
-  }, []);
+
   // Filter skills
   const filterSkill = (e) => {
     e.preventDefault();
@@ -18,7 +17,7 @@ const Skill = () => {
       return;
     }
     const skillCategory = target.innerText.toLowerCase();
-    const filteredSkills = skills.filter((skill) => {
+    const filteredSkills = skills?.filter((skill) => {
       return skill.category.toLowerCase() === skillCategory;
     });
     setFilteredSkills(filteredSkills);
@@ -38,21 +37,50 @@ const Skill = () => {
     target.lastElementChild.classList.add("vertical-connector");
     filterSkill(e);
   };
+  const {
+    data: skills,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["skills"],
+    queryFn: async () => {
+      return await fetch(`${API_URL}/skills`).then((res) => res.json());
+    },
+    staleTime: Infinity,
+  });
+  useEffect(() => {
+    setFilteredSkills(skills);
+  }, [isSuccess]);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  isError && console.log(error);
   return (
     <div className="container-skills" id="skills">
       <h2 style={{ textAlign: "center" }}>Skills</h2>
       <div className="skill-category" onClick={showSkills}>
-        {["All", "Frontend", "Backend", "Cloud Computing", "UX Design"].map(
-          (category, index) => (
-            <span className="category" key={`${category}-${index}`}>
-              {category}
-              <span className="connector"></span>
-            </span>
-          )
-        )}
+        {[
+          "All",
+          "Frontend",
+          "Backend",
+          "Devops",
+          "UI/UX",
+          "Tools",
+          "Database",
+          "Testing",
+          "Soft Skills",
+          "Security",
+        ].map((category, index) => (
+          <span className="category" key={`${category}-${index}`}>
+            {category}
+            <span className="connector"></span>
+          </span>
+        ))}
       </div>
       <div className="skills">
-        {filteredSkills.map((skill, index) => (
+        {filteredSkills?.map((skill, index) => (
           <SkillCard
             key={`${skill.name}-${index}`}
             name={skill.name}

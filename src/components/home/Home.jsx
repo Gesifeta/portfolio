@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   BookOpenText,
   GraduationCap,
@@ -7,6 +7,8 @@ import {
   SquareCheck,
   Award,
   FileBadge,
+  ChevronDown,
+  ChevronRight,
 } from "lucide-react";
 
 import "./Home.css";
@@ -18,8 +20,13 @@ import Certifications from "../containers/certificates/Certifications.jsx";
 import Education from "../containers/educations/Education.jsx";
 import Experiences from "../containers/experiences/Experiences.jsx";
 import ContactMe from "../contact/ContactMe.jsx";
+import { IMAGE_URL } from "../../utils/constants.js";
 
 const Home = () => {
+  // get image from local storage
+  const [user] = useState(JSON.parse(localStorage.getItem("user")));
+  console.log(user.image_url);
+  const [showSetting, setShowSetting] = useState(false);
   // To make the list item slide right
   let sections = useRef([]);
   let lists = useRef([]);
@@ -80,8 +87,40 @@ const Home = () => {
   ];
   return (
     <main>
+      <div className="header">
+        <div className="logo">Logo</div>
+        <div className="nav-header">
+          <div className="profile-setting">
+            <img src={`${IMAGE_URL}/${user.image_url}`} alt="image missing" />
+            <div className="setting">
+              {showSetting ? (
+                <ChevronDown
+                  className="setting-toggler"
+                  color="white"
+                  onClick={() => setShowSetting(!showSetting)}
+                />
+              ) : (
+                <ChevronRight
+                  className="setting-toggler"
+                  color="white"
+                  onClick={() => setShowSetting(!showSetting)}
+                />
+              )}
+              {showSetting ? (
+                <ul
+                  className="setting-list"
+                  onMouseLeave={() => setShowSetting(false)}
+                >
+                  <li>Profile</li>
+                  <li>Settings</li>
+                  <li>Logout</li>
+                </ul>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="home">
-        <div className="header"></div>
         <div id="about" className="about">
           <MyInfo />
           <h2>About Me</h2>

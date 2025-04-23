@@ -10,9 +10,10 @@ const __dirname = path.dirname(__filename);
 import { getPool, closePool } from "./database/db.js";
 import { userRouter } from "./routes/user.routes.js";
 import { skillRouter } from "./routes/skill.routes.js";
-import { projectRoutes } from "./routes/project.routes.js";
-import { experienceRoutes } from "./routes/experience.route.js";
-import { educationRoutes } from "./routes/education.route.js";
+import { projectRouter } from "./routes/project.routes.js";
+import { experienceRouter } from "./routes/experience.route.js";
+import { educationRouter } from "./routes/education.route.js";
+import { certificationRouter } from "./routes/certification.route.js";
 
 // Load environment variables
 dotenv.config();
@@ -59,9 +60,10 @@ app.use("/images", express.static(path.join(__dirname, "uploads")));
 // user router
 app.use("/api", userRouter);
 app.use("/api", skillRouter);
-app.use("/api", projectRoutes);
-app.use("/api", experienceRoutes);
-app.use("/api", educationRoutes);
+app.use("/api", projectRouter);
+app.use("/api", experienceRouter);
+app.use("/api", educationRouter);
+app.use("/api", certificationRouter);
 // Basic route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the API" });

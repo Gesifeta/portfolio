@@ -29,3 +29,7 @@ userRouter.get(
   "/users/username/:username/email/:email/password/:password",
   getUserByUser_nameOrEmailOrPassword
 );
+userRouter.get(
+  "/users/username/:username/email/:email/password/:password/id/:id",
+  getUserByUser_nameOrEmailOrPasswordOrId
+);

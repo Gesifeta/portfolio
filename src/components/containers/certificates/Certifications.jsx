@@ -1,25 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 import { certifications } from "./../data.js";
 import CertificationCard from "../../card/CertificationCard";
+import { API_URL } from "../../../utils/constants.js";
+
 import "./Certifications.css";
 
 const Certifications = () => {
+  // success message
+  const [success, setSuccess] = useState(null);
+  // error message
+  const [errorMessage, setErrorMessage] = useState({
+    message: null,
+    error: null,
+  });
+
+  const { data: certifications, isLoading } = useQuery({
+    queryKey: ["certifications"],
+    queryFn: async () => {
+      return await fetch(`${API_URL}/certifications`).then((res) => res.json());
+    },
+    isError: (error) => {
+      setErrorMessage({
+        error,
+        message: "Error fetching certifications",
+      });
+      setSuccess(null);
+    },
+    isSuccess: (res) => {
+      setSuccess("Successfully fetched certifications");
+      setErrorMessage(null);
+    },
+    staleTime: Infinity,
+  });
+
   return (
     <div className="container-certifications" id="certifications">
       <h2 style={{ textAlign: "center" }}>Certifications</h2>
       <>
-        {certifications.map((certification, index) => (
+        {certifications?.map((certification, index) => (
           <CertificationCard
             key={`${certification.title}-${index}`}
             category={certification.category}
             title={certification.title}
-            issuedBy={certification.issuedBy}
-            issueDate={certification.issueDate}
-            expiryDate={certification.expiryDate}
-            certificationLink={certification.certificationLink}
-            certificationNumber={certification.certificationNumber}
-            icon={certification.icon}
+            awarded_by={certification.awarded_by}
+            awarded_date={certification.awarded_date}
+            expiry_date={certification.expiration_date}
+            certification_link={certification.certification_link}
+            certification_number={certification.certification_number}
+            image_url={certification.image_url}
+            icon_url={certification.icon_url}
           />
         ))}
       </>

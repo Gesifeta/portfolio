@@ -32,7 +32,7 @@ const Upload = ({ data, setData }) => {
     },
     onSuccess: (image_url) => {
       setData((prevState) => {
-        return { ...prevState, image_url };
+        return { ...prevState, image_url};
       });
     },
     onError: (error) => {
@@ -51,13 +51,15 @@ const Upload = ({ data, setData }) => {
         encType="multipart/form-data"
         method="post"
       >
-        <p>Image upload</p>
         <div className="upload">
           <label className="form-control-file" htmlFor="file">
             {isPending ? (
               <Loader />
             ) : isSuccess ? (
-              <img src={`${IMAGE_URL}/${data.image_url}`} alt="image missing" />
+              <img
+                src={`${IMAGE_URL}/${data.image_url}`}
+                alt="image missing"
+              />
             ) : (
               <CloudUpload size={150} color="lightgreen" />
             )}

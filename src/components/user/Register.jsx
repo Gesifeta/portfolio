@@ -145,6 +145,17 @@ const Register = () => {
               onChange={handleUserInput}
             />
           </div>
+          <div className="form-group image-url">
+            <label htmlFor="image_url">Image URL</label>
+            <input
+              type="text"
+              name="image_url"
+              id="image_url"
+              value={user.image_url}
+              disabled
+              onChange={handleUserInput}
+            />
+          </div>
           <div className="form-group">
             <p style={{ color: "green" }}>{success}</p>
             <p style={{ color: "red" }}>{error.error}</p>

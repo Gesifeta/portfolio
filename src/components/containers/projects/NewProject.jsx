@@ -18,7 +18,7 @@ const NewProjectRegister = () => {
 
   // To store query string
   const [queryString, setQuery] = useState("");
-  const [image, setImage] = React.useState("");
+
   // To store the selected skills
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [technologies, setTechnologies] = useState([]);
@@ -32,7 +32,7 @@ const NewProjectRegister = () => {
     technologies,
     github_url: "",
     live_url: "",
-    image_url: image,
+    image_url: "",
   });
   // query
   const { data: skills, isLoading } = useQuery({
@@ -79,7 +79,7 @@ const NewProjectRegister = () => {
           ...prev,
           user_id: JSON.parse(user).id,
         }));
-        return 
+        return;
       }
       return null;
     }
@@ -100,7 +100,7 @@ const NewProjectRegister = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
+  console.log("Project === >",project)
   return (
     <div className="container-form">
       <fieldset>
@@ -114,7 +114,17 @@ const NewProjectRegister = () => {
               await addProject(project)
                 .then((res) => res.json())
                 .then((data) => {
-                  console.log(data);
+                  setProject({
+                    id: uuidv4(),
+                    user_id: "",
+                    title: "",
+                    description: "",
+                    category: "",
+                    technologies,
+                    github_url: "",
+                    live_url: "",
+                    image_url: "",
+                  });
                 })
                 .catch((error) => {
                   console.log(error);
@@ -267,7 +277,7 @@ const NewProjectRegister = () => {
               disabled
               name="image_url"
               placeholder="Enter image link"
-              value={image}
+              value={project.image_url}
               onChange={handleProjectInput}
             />
           </div>
@@ -275,7 +285,7 @@ const NewProjectRegister = () => {
             Submit
           </button>
         </form>
-        <Upload project={project} setProject={setProject} />
+        <Upload data={project} setData={setProject} />
       </fieldset>
     </div>
   );
