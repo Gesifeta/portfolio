@@ -8,12 +8,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import { getPool, closePool } from "./database/db.js";
-import { userRouter } from "./routes/user.routes.js";
-import { skillRouter } from "./routes/skill.routes.js";
-import { projectRouter } from "./routes/project.routes.js";
-import { experienceRouter } from "./routes/experience.route.js";
-import { educationRouter } from "./routes/education.route.js";
-import { certificationRouter } from "./routes/certification.route.js";
+import { userRouter } from "./routes/user.router.js";
+import { skillRouter } from "./routes/skill.router.js";
+import { projectRouter } from "./routes/project.router.js";
+import { experienceRouter } from "./routes/experience.router.js";
+import { educationRouter } from "./routes/education.router.js";
+import { certificationRouter } from "./routes/certification.router.js";
+import { badgeRouter } from "./routes/badge.router.js";
 
 // Load environment variables
 dotenv.config();
@@ -64,6 +65,7 @@ app.use("/api", projectRouter);
 app.use("/api", experienceRouter);
 app.use("/api", educationRouter);
 app.use("/api", certificationRouter);
+app.use("/api", badgeRouter);
 // Basic route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the API" });
