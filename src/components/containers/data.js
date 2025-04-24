@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { images } from "../../assets/images";
+// import { images } from "../../assets/images";
 
 export const projects = [
   {
