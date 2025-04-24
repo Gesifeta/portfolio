@@ -52,6 +52,7 @@ app.use(
       `${process.env.FRONTEND_URL}`,
       "http://localhost:3000",
       "https://gemechuadam.com",
+      "https://680a56e3a2221100083b3f9f--gemechuadam.netlify.app/",
     ],
     credentials: true,
   })

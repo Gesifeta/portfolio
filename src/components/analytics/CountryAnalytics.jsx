@@ -1,6 +1,6 @@
 // components/CountryAnalytics.jsx
 import React, { useEffect, useState } from "react";
-import { Chart } from "react-chartjs-2";
+import { useQuery } from "@tanstack/react-query";
 
 import { API_URL } from "../../utils/constants";
 import BarChart from "../charts/Barchart.jsx";
@@ -8,23 +8,21 @@ import BarChart from "../charts/Barchart.jsx";
 import "./Analytics.css";
 
 const CountryAnalytics = () => {
-  const [data, setData] = useState(null);
+  // Set success message
+  const [successMessage, setSuccessMessage] = useState("");
+  // Set error message
+  const [errorMessage, setErrorMessage] = useState({
+    error: false,
+    message: "",
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${API_URL}/analytics/track/countries`);
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error("Error fetching country data:", error);
-      }
-    };
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["countryAnalytics"],
+    queryFn: () =>
+      fetch(`${API_URL}/analytics/track/countries`).then((res) => res.json()),
+  });
 
-    fetchData();
-  }, []);
-
-  if (!data) return <div>Loading...</div>;
+  if (!data) return;
 
   const chartData = {
     labels: data.countries?.map((c) => c.country),
@@ -37,7 +35,11 @@ const CountryAnalytics = () => {
     ],
   };
 
-  return (
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : isError ? (
+    <p>{error.message}</p>
+  ) : (
     <div className="container-analytics">
       <h2>Visitors by Country</h2>
       <BarChart
