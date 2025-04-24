@@ -181,3 +181,22 @@ CREATE TABLE experience_responsibilities (
     experience_id INTEGER REFERENCES experience(id) ON DELETE CASCADE,
     responsibility TEXT NOT NULL
 );
+
+
+-- migrations/visitor_logs.sql
+CREATE TABLE visitor_logs (
+  id SERIAL PRIMARY KEY,
+  session_id UUID NOT NULL,
+  ip_address VARCHAR(45),
+  path VARCHAR(255),
+  referrer TEXT,
+  user_agent TEXT,
+  language VARCHAR(10),
+  screen_resolution VARCHAR(20),
+  timestamp TIMESTAMP WITH TIME ZONE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Add indexes for better query performance
+CREATE INDEX idx_visitor_logs_session_id ON visitor_logs(session_id);
+CREATE INDEX idx_visitor_logs_timestamp ON visitor_logs(timestamp);

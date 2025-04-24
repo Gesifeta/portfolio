@@ -1,16 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Speech, Loader } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import Header from "./components/header/Header.jsx";
 import Footer from "./components/footer/Footer.jsx";
+import {
+  trackCountryPageView,
+  trackUserPageView,
+} from "./services/analyticsServices.js";
 
 import "./App.css";
-import { useNavigate } from "react-router-dom";
 
 export function App() {
   let navigate = useNavigate();
+  let location = useLocation();
   const [audioLoaded, setAudioLoaded] = useState(false);
-
+  // File path: /home/gesifeta/portfolio/src/App.jsx
+  // Content:
+  useEffect(() => {
+   // trackUserPageView();
+    trackCountryPageView();
+  }, [location]);
   // To play the audio when button clicked
   const sayName = () => {
     // To hold audio
@@ -21,6 +31,7 @@ export function App() {
       setAudioLoaded(false);
     });
   };
+
   return (
     <>
       <Header />

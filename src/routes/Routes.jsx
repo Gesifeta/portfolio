@@ -12,7 +12,7 @@ import NewExperience from "../components/containers/experiences/NewExperience.js
 import NewEducation from "../components/containers/educations/NewEducation.jsx";
 import NewCertification from "../components/containers/certificates/NewCertification.jsx";
 import NewBadge from "../components/containers/badges/NewBadge.jsx";
-
+import CountryAnalytics from "../components/analytics/CountryAnalytics.jsx";
 export const routes = createBrowserRouter([
   {
     path: "/",
@@ -127,5 +127,21 @@ export const routes = createBrowserRouter([
   {
     path: "/modal",
     element: <Modal />,
+  },
+  {
+    path: "/analytics/country",
+    element: <CountryAnalytics />,
+  },
+  {
+    path: "/analytics/country/:country",
+    element: <CountryAnalytics />,
+  },
+  {
+    path: "/analytics/country/:country/:city",
+    element: <CountryAnalytics />,
+  },
+  {
+    path: "/analytics/country/:country/:city/:region",
+    element: <CountryAnalytics />,
   },
 ]);

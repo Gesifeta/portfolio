@@ -1,0 +1,29 @@
+.container-analytics{
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.country-list {
+  margin-top: 20px;
+}
+
+.country-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.country-flag {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.country-name {
+  flex: 1;
+}
+
+.visitor-count {
+  font-weight: bold;
+}

@@ -15,6 +15,8 @@ import { experienceRouter } from "./routes/experience.router.js";
 import { educationRouter } from "./routes/education.router.js";
 import { certificationRouter } from "./routes/certification.router.js";
 import { badgeRouter } from "./routes/badge.router.js";
+import { analyticsRouter } from "./routes/analytics.router.js";
+import { serverRateLimit } from "./auth/middleware.js";
 
 // Load environment variables
 dotenv.config();
@@ -42,10 +44,11 @@ const app = express();
 const port = process.env.EXPRESS_SERVER_PORT || 5000;
 
 // Middleware
+app.use("/", serverRateLimit);
 app.use(cookieParser());
 app.use(
   cors({
-    origin: [`${process.env.FRONTEND_URL}`],
+    origin: [`${process.env.FRONTEND_URL}`, "http://localhost:3000"],
     credentials: true,
   })
 );
@@ -66,6 +69,7 @@ app.use("/api", experienceRouter);
 app.use("/api", educationRouter);
 app.use("/api", certificationRouter);
 app.use("/api", badgeRouter);
+app.use("/api", analyticsRouter);
 // Basic route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the API" });
