@@ -32,7 +32,6 @@ main {
 section {
   padding: 2rem;
   margin: 2.5rem;
-  min-height: 100vh;
 }
 /* Buttons */
 button {
@@ -89,7 +88,7 @@ fieldset {
   justify-content: space-between;
   gap: 1rem;
 }
-fieldset form{
+fieldset form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -121,7 +120,13 @@ a:hover {
   color: #00a0a8;
   text-decoration: underline;
 }
-
+img {
+  border-radius: 12px;
+}
+strong {
+  color: var(--color-teal);
+  font-size: 1.25rem;
+}
 a:active {
   color: var(--color-dark-gray);
 }
@@ -155,7 +160,7 @@ P.small {
   font-size: 0.85rem;
   line-height: 1.25rem;
 }
-form{
+form {
   min-width: 60%;
 }
 

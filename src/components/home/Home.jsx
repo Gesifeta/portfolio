@@ -13,6 +13,7 @@ import {
 
 import "./Home.css";
 import MyInfo from "../info/MyInfo.jsx";
+import About from "../containers/about/AboutSection.jsx";
 import Projects from "../containers/projects/Projects.jsx";
 import Skill from "../containers/skills/Skill.jsx";
 import Badge from "../containers/badges/Badge.jsx";
@@ -87,18 +88,17 @@ const Home = () => {
   return (
     <main>
       <div className="header">
-        <div className="logo">Logo</div>
+        <div className="logo">
+          <img src="logo.png" width={50} alt="" />
+        </div>
 
         <div className="nav-header">
           <ul className="nav-list">
             <li>
-              <a href="#about">About</a>
+              <a href="#aboutSection">About</a>
             </li>
             <li>
               <a href="#projects">Projects</a>
-            </li>
-            <li>
-              <a href="#skills">Skills</a>
             </li>
             <li>
               <a href="#badges">Badges</a>
@@ -106,12 +106,7 @@ const Home = () => {
             <li>
               <a href="#certifications">Certifications</a>
             </li>
-            <li>
-              <a href="#educations">Educations</a>
-            </li>
-            <li>
-              <a href="#experiences">Experiences</a>
-            </li>
+          
             <li>
               <a href="#contacts">Contacts</a>
             </li>
@@ -153,18 +148,18 @@ const Home = () => {
           <MyInfo />
           <h2>About Me</h2>
           <p>
-            I am a skilled freelance Full Stack Developer with expertise in
-            building dynamic, responsive web applications using modern
-            technologies. On the front end, I specialize in HTML5, CSS3,
+            I am a skilled freelance <strong>Full Stack Developer</strong> with
+            expertise in building dynamic, responsive web applications using
+            modern technologies. On the front end, I specialize in HTML5, CSS3,
             JavaScript, React.js, and responsive frameworks like Tailwind CSS.
             For back-end development, I am proficient in Node.js, Express.js,
-            RESTful APIs, and databases like MongoDB and PostgreSQL. As an AWS
-            Certified Solutions Architect, I bring cloud expertise to ensure
-            scalable, secure deployments and seamless integrations. My
-            end-to-end development skills include creating intuitive user
-            interfaces, managing databases, and optimizing performance. I focus
-            on delivering user-friendly, accessible, and high-performance
-            solutions tailored to your needs.
+            Next.js, RESTful APIs, and databases like MongoDB and PostgreSQL. As
+            an <strong>AWS Certified Solutions Architect</strong> , I bring
+            cloud expertise to ensure scalable, secure deployments and seamless
+            integrations. In general I am an end-to-end development skilled in
+            crafting and creating intuitive user interfaces, managing databases,
+            and optimizing performance by focusing on delivering user-friendly,
+            accessible, and high-performance solutions tailored to your needs.
           </p>
         </div>
         <div className="sidebar-left">
@@ -198,6 +193,7 @@ const Home = () => {
               );
           }}
         >
+          <About />
           <Projects />
           <Skill />
           <Badge />
