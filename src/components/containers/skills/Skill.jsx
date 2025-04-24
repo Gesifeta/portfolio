@@ -56,7 +56,7 @@ const Skill = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  isError && console.log(error);
+
   return (
     <div className="container-skills" id="skills">
       <h2 style={{ textAlign: "center" }}>Skills</h2>
@@ -85,7 +85,6 @@ const Skill = () => {
             key={`${skill.name}-${index}`}
             name={skill.name}
             skillSets={skill.skillSets?.length > 0 && skill.skillSets}
-            ic
             icon={skill.icon}
           />
         ))}

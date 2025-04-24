@@ -30,6 +30,8 @@ const Projects = () => {
     data: projects,
     isLoading,
     isSuccess,
+    isError,
+    error,
   } = useQuery({
     queryKey: ["projects"],
     queryFn: async () => {
@@ -37,11 +39,13 @@ const Projects = () => {
     },
     staleTime: Infinity,
   });
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
-  return (
+
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : isError ? (
+    <p>{error.message}</p>
+  ) : (
     <div id="projects" className="container-projects">
       <h2 style={{ textAlign: "center" }}>Projects</h2>
       <div className="projects">
@@ -64,6 +68,7 @@ const Projects = () => {
           style={{
             backgroundColor: "var(--color-charcoal-gray)",
             width: "50%",
+            display: "block",
             margin: "auto",
           }}
           onClick={handleShowAll}

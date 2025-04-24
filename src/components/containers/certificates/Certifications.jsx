@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { certifications } from "./../data.js";
 import CertificationCard from "../../card/CertificationCard";
 import { API_URL } from "../../../utils/constants.js";
 
@@ -9,14 +8,19 @@ import "./Certifications.css";
 
 const Certifications = () => {
   // success message
-  const [success, setSuccess] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
   // error message
   const [errorMessage, setErrorMessage] = useState({
     message: null,
     error: null,
   });
 
-  const { data: certifications, isLoading } = useQuery({
+  const {
+    data: certifications,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
     queryKey: ["certifications"],
     queryFn: async () => {
       return await fetch(`${API_URL}/certifications`).then((res) => res.json());
@@ -26,16 +30,20 @@ const Certifications = () => {
         error,
         message: "Error fetching certifications",
       });
-      setSuccess(null);
+      setSuccessMessage(null);
     },
     isSuccess: (res) => {
-      setSuccess("Successfully fetched certifications");
+      setSuccessMessage("Successfully fetched certifications");
       setErrorMessage(null);
     },
     staleTime: Infinity,
   });
 
-  return (
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : isError ? (
+    <p>{error.message}</p>
+  ) : (
     <div className="container-certifications" id="certifications">
       <h2 style={{ textAlign: "center" }}>Certifications</h2>
       <>

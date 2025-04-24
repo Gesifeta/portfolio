@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 
 import "./Badge.css";
 import BadgeCard from "../../card/BadgeCard.jsx";
-import { badges } from "./../data.js";
 import { API_URL } from "../../../utils/constants.js";
 import { Loader } from "lucide-react";
 
@@ -22,7 +21,9 @@ const Bagde = () => {
     staleTime: Infinity,
   });
   return isLoading ? (
-    <Loader />
+    <div className="container-badge" id="badges">
+      <p>Loading...</p>
+    </div>
   ) : isError ? (
     <p>{error.message}</p>
   ) : (

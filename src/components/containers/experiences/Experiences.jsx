@@ -10,7 +10,6 @@ function Experiences() {
   const {
     data: experiences,
     isLoading,
-    isSuccess,
     isError,
     error,
   } = useQuery({
@@ -19,9 +18,12 @@ function Experiences() {
       return await fetch(`${API_URL}/experiences`).then((res) => res.json());
     },
     staleTime: Infinity,
-    
   });
-  return (
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : isError ? (
+    <p>{error.message}</p>
+  ) : (
     <div className="experiences" id="experiences">
       <h2 style={{ textAlign: "center" }}>Experiences</h2>
       <div className="container-experiences">
