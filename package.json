@@ -7,9 +7,7 @@
     "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint .",
-    "vite:local": "vite preview --port 3000",
-    "serve": "serve -s build",
-    "build:serve": "npm run build && npm run serve"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

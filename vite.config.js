@@ -14,13 +14,6 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  server: {
-    port: 3000,
-    strictPort: true,
-    headers: {
-      "Content-Type": "application/javascript",
-    },
-  },
   base: process.env.NODE_ENV === "production" ? "/dist/" : "/",
   //
 });
