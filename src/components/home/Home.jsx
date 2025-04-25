@@ -21,7 +21,7 @@ import Certifications from "../containers/certificates/Certifications.jsx";
 import Education from "../containers/educations/Education.jsx";
 import Experiences from "../containers/experiences/Experiences.jsx";
 import ContactMe from "../contact/ContactMe.jsx";
-import { IMAGE_URL } from "../../utils/constants.js";
+import { API_URL } from "../../utils/constants.js";
 
 const Home = () => {
   // get image from local storage
@@ -106,14 +106,14 @@ const Home = () => {
             <li>
               <a href="#certifications">Certifications</a>
             </li>
-          
+
             <li>
               <a href="#contacts">Contacts</a>
             </li>
           </ul>
           {user && (
             <div className="profile-setting">
-              <img src={`${IMAGE_URL}/${user.image_url}`} alt="image missing" />
+              <img src={`${API_URL}/${user.image_url}`} alt="image missing" />
               <div className="setting">
                 {showSetting ? (
                   <ChevronDown

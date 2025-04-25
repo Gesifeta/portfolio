@@ -1,14 +1,14 @@
 import React from "react";
 
 import "./AboutSection.css";
-import { IMAGE_URL } from "../../../utils/constants";
+import { API_URL } from "../../../utils/constants";
 
 const About = () => {
   return (
     <div className="about-section" id="aboutSection">
       <p className="intro">
-        I'm a <strong>Full Stack Developer</strong> specializing in
-        creating scalable, secure, and efficient web applications powered by{" "}
+        I'm a <strong>Full Stack Developer</strong> specializing in creating
+        scalable, secure, and efficient web applications powered by{" "}
         <strong>AWS</strong>. With expertise in both frontend and backend
         development, I build solutions that blend robust engineering with a
         seamless user experience.
@@ -39,7 +39,7 @@ const About = () => {
       <div className="work-station">
         <img
           style={{ width: "100%", borderRadius: "12px" }}
-          src={`${IMAGE_URL}/uploads/images/wokstation.png`}
+          src={`${API_URL}/uploads/images/wokstation.png`}
           alt="work station"
         />
       </div>

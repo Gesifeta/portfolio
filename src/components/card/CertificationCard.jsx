@@ -1,6 +1,6 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
-import { IMAGE_URL } from "../../utils/constants";
+import { API_URL } from "../../utils/constants";
 
 import "./CertificationCard.css";
 
@@ -26,7 +26,7 @@ const CertificationCard = ({
           </div>
           <div className="certification-issued-by">
             <span>
-              <img src={`${IMAGE_URL}/${image_url}`} alt="" />
+              <img src={`${API_URL}/${image_url}`} alt="" />
             </span>
             <span>{awarded_by}</span>
           </div>
