@@ -3,6 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
+import ServerlessHttp from "serverless-http";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -82,7 +83,6 @@ app.get("/", (req, res) => {
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
   res.status(500).json({
     message: "Something went wrong!",
     error: process.env.NODE_ENV === "development" ? err.message : undefined,
@@ -143,3 +143,5 @@ process.on("unhandledRejection", (err) => {
   console.log(err.name, err.message);
   gracefulShutdown("UNHANDLED REJECTION");
 });
+
+export const handler = ServerlessHttp(app);
