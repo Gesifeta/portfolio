@@ -1,6 +1,6 @@
 import React from "react";
 import { useMutation } from "@tanstack/react-query";
-import { API_URL } from "../../utils/constants.js";
+import { API_URL, IMAGE_URL } from "../../utils/constants.js";
 import { CloudUpload, Loader } from "lucide-react";
 
 import "./upload.css";
@@ -56,7 +56,7 @@ const Upload = ({ data, setData }) => {
             {isPending ? (
               <Loader />
             ) : isSuccess ? (
-              <img src={`${API_URL}/${data.image_url}`} alt="image missing" />
+              <img src={`${IMAGE_URL}/${data.image_url}`} alt="image missing" />
             ) : (
               <CloudUpload size={150} color="lightgreen" />
             )}
