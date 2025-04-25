@@ -15,7 +15,7 @@
 /* For Home elements as per the grid structure */
 .header {
   width: 100%;
-  padding: 2rem;
+  padding: 1rem 2rem;
   background-color: var(--color-dark-gray);
   position: fixed;
   display: flex;
