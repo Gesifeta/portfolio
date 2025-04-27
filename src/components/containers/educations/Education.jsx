@@ -44,7 +44,6 @@ const Education = () => {
     },
     staleTime: Infinity,
   });
-  console.log("Data-education", educations);
   return isLoading ? (
     <p>Loading...</p>
   ) : isError ? (
@@ -53,20 +52,22 @@ const Education = () => {
     <div className="container-educations" id="educations">
       <h2 style={{ textAlign: "center" }}>Educations</h2>
       <div className="educations">
-        {educations?.map((education, index) => (
-          <EducationCard
-            key={`${education.name_of_award}-${index}`}
-            id={education.id}
-            field_of_study={education.field_of_study}
-            level={education.level}
-            nameOfAward={education.name_of_award}
-            institution={education.institution}
-            city={education.city}
-            country={education.country}
-            startDate={education.start_year}
-            endDate={education.end_year}
-          />
-        ))}
+        {educations
+          ?.sort((a, b) => (a > b ? 1 : 0))
+          .map((education, index) => (
+            <EducationCard
+              key={`${education.name_of_award}-${index}`}
+              id={education.id}
+              field_of_study={education.field_of_study}
+              level={education.level}
+              name_of_award={education.name_of_award}
+              institution={education.institution}
+              city={education.city}
+              country={education.country}
+              start_year={education.start_year}
+              end_year={education.end_year}
+            />
+          ))}
       </div>
     </div>
   );

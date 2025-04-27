@@ -12,9 +12,9 @@
   padding: 2rem;
   width: 100%;
 }
-.education-year{
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    color: gray;
+.education-year {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  color: gray;
 }
