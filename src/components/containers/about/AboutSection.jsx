@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./AboutSection.css";
-import { API_URL } from "../../../utils/constants";
+import { IMAGE_URL } from "../../../utils/constants";
 
 const About = () => {
   return (
@@ -39,7 +39,7 @@ const About = () => {
       <div className="work-station">
         <img
           style={{ width: "100%", borderRadius: "12px" }}
-          src={`/${API_URL}/uploads/images/wokstation.png`}
+          src={`${IMAGE_URL}/uploads/images/wokstation.png`}
           alt="work station"
         />
       </div>
