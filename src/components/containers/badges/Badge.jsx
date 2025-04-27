@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useQuery } from "@tanstack/react-query";
 
 import "./Badge.css";
@@ -6,9 +7,17 @@ import { API_URL } from "../../../utils/constants.js";
 import { Loader } from "lucide-react";
 
 const Bagde = () => {
+  // Success message
+  const [successMessage,setSuccessMessage]=useState(null);
+  // Error message
+  const [errorMessage,setErrorMessage]=useState({
+    message: null,
+    error: null
+  });
   const {
     data: badges,
     isLoading,
+    isSuccess,
     isError,
     error,
   } = useQuery({
@@ -18,7 +27,23 @@ const Bagde = () => {
         .then((res) => res.json())
         .then((data) => data);
     },
+    onSucccess: () => {
+      setSuccessMessage("Badges fetched successfully");
+      setTimeout(() => {
+        setSuccessMessage(null);
+      }, 3000);
+    },
+    onError: (error) => {
+      setErrorMessage({
+        message: "Error fetching badges",
+        error: error.message,
+      });
+      setTimeout(() => {
+        setErrorMessage(null);
+      }, 3000);
+    },
     staleTime: Infinity,
+  
   });
   return isLoading ? (
     <div className="container-badge" id="badges">

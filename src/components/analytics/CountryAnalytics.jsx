@@ -20,6 +20,15 @@ const CountryAnalytics = () => {
     queryKey: ["countryAnalytics"],
     queryFn: () =>
       fetch(`${API_URL}/analytics/track/countries`).then((res) => res.json()),
+    onSuccess: (data) => {
+      setSuccessMessage(data.message);
+    },
+    onError: (error) => {
+      setErrorMessage({
+        error: true,
+        message: error.message,
+      });
+    },
   });
 
   if (!data) return;

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Loader } from "lucide-react";
 import Upload from "../../upload/Upload";
 const NewCertification = () => {
+  
   const navigate = useNavigate();
   // Get user from local storage
   const user = JSON.parse(localStorage.getItem("user"));
