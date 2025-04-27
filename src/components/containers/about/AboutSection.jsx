@@ -39,7 +39,7 @@ const About = () => {
       <div className="work-station">
         <img
           style={{ width: "100%", borderRadius: "12px" }}
-          src={`${API_URL}/uploads/images/wokstation.png`}
+          src={`/${API_URL}/uploads/images/wokstation.png`}
           alt="work station"
         />
       </div>
