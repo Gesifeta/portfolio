@@ -19,6 +19,7 @@ function Experiences() {
     },
     staleTime: Infinity,
   });
+  console.log("experiences", experiences);
   return isLoading ? (
     <p>Loading...</p>
   ) : isError ? (
