@@ -1,27 +1,30 @@
 import "./EducationCard.css";
 
 const EducationCard = ({
-  nameOfAward,
+  name_of_award,
   institution,
-  address,
-  startDate,
-  endDate,
+  city,
+  country,
+  field_of_study,
+  level,
+  start_year,
+  end_year,
 }) => {
   return (
     <div className="education">
       <div className="education-year">
-        <span>{startDate}</span>
+        <span>{start_year}</span>
         <span>-</span>
-        <span>{endDate}</span>
+        <span>{end_year}</span>
       </div>
       <div className="education-details">
         <div className="education-title">
-          <h3>{nameOfAward}</h3>
+          <h3>{name_of_award}</h3>
+          <small>{field_of_study}</small>
           <h4 style={{ color: "gray" }}>{institution} </h4>
         </div>
-
         <p style={{ color: "white" }}>
-          {address.city}, {address.country}
+          {city}, {country}
         </p>
       </div>
     </div>
