@@ -17,7 +17,6 @@ const NewCertification = () => {
       <ErrorMessage message="You are not logged in" error="Unauthorized" />
     );
   }
-  console.log(user);
   // SUCCESS MESSAGE
   const [successMessage, setSuccessMessage] = useState(null);
   // ERROR MESSAGE
@@ -26,8 +25,7 @@ const NewCertification = () => {
     error: null,
   });
   const [certifications, setCertifications] = useState({
-    id: uuidv4(),
-    user_id: user.id,
+    user_id: user?.id,
     title: "",
     description: "",
     category: "",
@@ -74,7 +72,7 @@ const NewCertification = () => {
         setSuccessMessage("Certification added successfully");
         setTimeout(() => {
           setSuccessMessage(null);
-        }, 2000);
+        }, 5000);
         setCertifications({
           id: uuidv4(),
           user_id: user?.id,
@@ -93,7 +91,7 @@ const NewCertification = () => {
         setErrorMessage("Something went wrong");
         setTimeout(() => {
           setErrorMessage(null);
-        }, 2000);
+        }, 5000);
       }
     },
     onError: (error) => {
@@ -103,10 +101,9 @@ const NewCertification = () => {
       });
       setTimeout(() => {
         setErrorMessage(null);
-      }, 2000);
+      }, 5000);
     },
   });
-  console.log("Certification ==>", certifications);
   return isPending ? (
     <div className="container-form">
       <Loader />
@@ -123,7 +120,7 @@ const NewCertification = () => {
     <div className="container-form">
       <fieldset>
         <legend>New Certification</legend>
-        <form action="" onSubmit={handleCertificationSubmit}>
+        <form action="" method="post" onSubmit={handleCertificationSubmit}>
           {/* user id */}
           <div className="form-group">
             <label htmlFor="user_id">User ID</label>
