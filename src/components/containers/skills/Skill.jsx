@@ -8,7 +8,7 @@ import "./Skill.css";
 const Skill = () => {
   // get user id from local storage
   const user = JSON.parse(localStorage.getItem("user"));
-  const id = user?.id;
+  let id = user?.id;
   if (!id) {
     id = "462a9ad7-4ea1-4111-ba99-c7b4e3bd0359";
   }

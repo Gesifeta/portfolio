@@ -860,17 +860,17 @@ import { v4 as uuidv4 } from "uuid";
 //     certificationNumber: "G8BU55D19C2O",
 //     certificationLink:
 //       "https://www.coursera.org/account/accomplishments/specialization/certificate/G8BU55D19C2O",
-//     description: `In this Professional Certificate, learners developed the core skills
-// needed to design and develop web and front-end applications. The
-// Certificate holder has demonstrated the ability to build web pages
-// using HTML, CSS, and JavaScript; apply user interface and user
-// experience (UI/UX) best practices and principles; manage code using
-// GitHub repositories and branches; create applications using front-end
-// frameworks, such as React.js JS; test and debug applications; deploy
-// applications using automated build tools; and create a fully functional
-// front-ends for dynamic apps that interact with external/backend
-// services using RESTful APIs. The certificate holder should be ready to
-// take on the challenges of an entry-level front end developer role.`,
+    description: `In this Professional Certificate, learners developed the core skills
+needed to design and develop web and front-end applications. The
+Certificate holder has demonstrated the ability to build web pages
+using HTML, CSS, and JavaScript; apply user interface and user
+experience (UI/UX) best practices and principles; manage code using
+GitHub repositories and branches; create applications using front-end
+frameworks, such as React.js JS; test and debug applications; deploy
+applications using automated build tools; and create a fully functional
+front-ends for dynamic apps that interact with external/backend
+services using RESTful APIs. The certificate holder should be ready to
+take on the challenges of an entry-level front end developer role.`,
 //     date: "September, 2024",
 //     images: images.ibmfrontend,
 //     icon: images.ibm,
