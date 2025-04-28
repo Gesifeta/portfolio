@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./user.css";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "lucide-react";
 import { API_URL } from "../../utils/constants";
 import Upload from "../upload/Upload";
 
@@ -58,10 +59,22 @@ const Register = () => {
       }
       setTimeout(() => {
         navigate("/login");
-      }, 2000);
+      }, 5000);
     }
   };
-  return (
+  return loading ? (
+    <div className="container-form">
+      <Loader />
+    </div>
+  ) : error.error ? (
+    <div className="container-form">
+      <p>{error.message}</p>
+    </div>
+  ) : success ? (
+    <div className="container-form">
+      <p>{success}</p>
+    </div>
+  ) : (
     <div className="container-form">
       <h1>Register</h1>
       <p>Register to access the full features of the app</p>

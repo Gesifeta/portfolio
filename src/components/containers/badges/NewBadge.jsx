@@ -24,6 +24,7 @@ const NewBadge = () => {
     id: "",
     user_id: user.id,
     title: "",
+    category: "",
     awarded_by: "",
     awarded_date: "",
     badge_number: "",
@@ -51,7 +52,7 @@ const NewBadge = () => {
     onSuccess: (data) => {
       if (data.status === 200) {
         setSuccessMessage("Badge successfuly added.");
-        
+
         setTimeout(() => {
           setSuccessMessage(false);
         }, 3000);
@@ -120,6 +121,23 @@ const NewBadge = () => {
               onChange={handleSkillInput}
               id="title"
             />
+          </div>
+          <div className="form-group">
+            <label htmlFor="category">Category</label>
+            <select
+              name="category"
+              id="category"
+              onChange={handleSkillInput}
+              value={skill.category}
+            >
+              <option value="select">select</option>
+              <option value="frontend">Frontend</option>
+              <option value="backend">Backend</option>
+              <option value="devops">Devops</option>
+              <option value="ai">AI</option>
+              <option value="iot">Testing</option>
+              <option value="other">Other</option>
+            </select>
           </div>
           <div className="form-group">
             <label htmlFor="awarded_by">Awarded By</label>

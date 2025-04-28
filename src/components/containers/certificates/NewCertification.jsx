@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useMutation } from "@tanstack/react-query";
-
-import { API_URL } from "../../../utils/constants";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "lucide-react";
+
+import { API_URL } from "../../../utils/constants";
 import Upload from "../../upload/Upload";
+import ErrorMessage from "../../../components/error/ErrorMessage";
+
 const NewCertification = () => {
-  
   const navigate = useNavigate();
   // Get user from local storage
   const user = JSON.parse(localStorage.getItem("user"));
   if (!user) {
-    navigate("/login", { replace: true });
+    return (
+      <ErrorMessage message="You are not logged in" error="Unauthorized" />
+    );
   }
+  console.log(user);
   // SUCCESS MESSAGE
   const [successMessage, setSuccessMessage] = useState(null);
   // ERROR MESSAGE
@@ -26,6 +30,7 @@ const NewCertification = () => {
     user_id: user.id,
     title: "",
     description: "",
+    category: "",
     awarded_by: "",
     certification_number: "",
     certification_link: "",
@@ -100,8 +105,20 @@ const NewCertification = () => {
       }, 2000);
     },
   });
-
-  return (
+  console.log("Certification ==>", certifications);
+  return isPending ? (
+    <div className="container-form">
+      <Loader />
+    </div>
+  ) : isError ? (
+    <div className="container-form">
+      <p>{error.message}</p>
+    </div>
+  ) : isSuccess ? (
+    <div className="container-form">
+      <p>{successMessage}</p>
+    </div>
+  ) : (
     <div className="container-form">
       <fieldset>
         <legend>New Certification</legend>
@@ -144,14 +161,33 @@ const NewCertification = () => {
             />
           </div>
           <div className="form-group">
+            <label htmlFor="category">Category</label>
+            <select
+              name="category"
+              id="category"
+              onChange={handleCertificationInput}
+              value={certifications.category}
+            >
+              <option value="select">select</option>
+              <option value="frontend">Frontend</option>
+              <option value="backend">Backend</option>
+              <option value="devops">Devops</option>
+              <option value="ai">AI</option>
+              <option value="iot">Testing</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div className="form-group">
             <label htmlFor="awarded_by">Awarded by</label>
             <input
               type="text"
               name="awarded_by"
+              value={certifications.awarded_by}
+              onChange={handleCertificationInput}
               id="awarded_by"
               placeholder="Enter awarded_by"
             />
-          </div>{" "}
+          </div>
           <div className="form-group">
             <label htmlFor="certification_number">Certification number</label>
             <input
@@ -212,7 +248,7 @@ const NewCertification = () => {
             <input
               type="text"
               name="icon_url"
-              value={certifications.icon_url}
+              value=""
               disabled
               onChange={handleCertificationInput}
               id="icon_url"

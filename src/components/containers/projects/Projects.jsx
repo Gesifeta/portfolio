@@ -38,6 +38,12 @@ const Projects = () => {
       return await fetch(`${API_URL}/projects`).then((res) => res.json());
     },
     staleTime: Infinity,
+    onSuccess: (data) => {
+      handleFilterProjects();
+    },
+    onError: (error) => {
+      console.log(error);
+    },
   });
 
 

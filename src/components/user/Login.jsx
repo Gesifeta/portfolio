@@ -11,7 +11,7 @@ const Login = () => {
     data: "",
     message: "",
   });
-  const [error, setError] = useState({
+  const [errorMessage, setErrorMessage] = useState({
     error: "",
     message: "",
   });
@@ -35,7 +35,7 @@ const Login = () => {
     mutationKey: ["login"],
     onSuccess: (data) => {
       if (data.error) {
-        setError({
+        setErrorMessage({
           error: data.error,
           message: data.message,
         });
@@ -44,12 +44,12 @@ const Login = () => {
       } else {
         setSuccess(data);
         localStorage.setItem("user", JSON.stringify(data.user));
-        setError("");
+        setErrorMessage("");
         return navigate("/home", { replace: true });
       }
     },
     onError: (err) => {
-      setError({
+      setErrorMessage({
         error: err.error,
         message: err.message,
       });
@@ -108,7 +108,11 @@ const Login = () => {
               {success.message}
             </p>
           )}
-          {error.message && <p style={{ color: "red" }}>{error.message}</p>}
+          {errorMessage.message && (
+            <p style={{ color: "red" }}>
+              {errorMessage.message},{errorMessage.error}
+            </p>
+          )}
           <p>
             Forgot your password? <a href="/forgot-password">Forgot password</a>
           </p>

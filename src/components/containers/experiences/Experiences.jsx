@@ -6,6 +6,13 @@ import ExperienceCard from "../../card/ExperienceCard";
 import { API_URL } from "../../../utils/constants.js";
 
 function Experiences() {
+  // success message
+  const [successMessage, setSuccessMessage] = useState(null);
+  // error message
+  const [errorMessage, setErrorMessage] = useState({
+    message: null,
+    error: null,
+  });
   // query
   const {
     data: experiences,
@@ -18,8 +25,17 @@ function Experiences() {
       return await fetch(`${API_URL}/experiences`).then((res) => res.json());
     },
     staleTime: Infinity,
+    onSuccess: (data) => {
+      setSuccessMessage(data.message);
+    },
+    onError: (error) => {
+      setErrorMessage({
+        message: error.message,
+        error: error,
+      });
+    },
   });
-  console.log("experiences", experiences);
+  console.log("Experiences", experiences);
   return isLoading ? (
     <p>Loading...</p>
   ) : isError ? (
@@ -35,7 +51,6 @@ function Experiences() {
             city={experience.city}
             country={experience.country}
             position={experience.position}
-            responsibilities={experience.responsibilities}
             startDate={new Date(experience.start_year).getFullYear()}
             endDate={new Date(experience.end_year).getFullYear()}
           />
