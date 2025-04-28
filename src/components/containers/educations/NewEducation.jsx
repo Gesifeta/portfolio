@@ -55,10 +55,18 @@ function NewEducation() {
     },
     mutationKey: ["addEducation"],
     onSuccess: (res) => {
-      console.log(res);
+      if (res.status === 200) {
+        setSuccessMessage("Education successfuly added.");
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 3000);
+      }
     },
     onError: (error) => {
-      console.log(error);
+   return setErrorMessage({
+        message: "Error adding education",
+        error: error.message,
+      });
     },
   });
   const handleEducationInput = (e) => {

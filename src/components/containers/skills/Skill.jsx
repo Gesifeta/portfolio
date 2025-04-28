@@ -6,6 +6,13 @@ import SkillCard from "../../card/SkillCard.jsx";
 
 import "./Skill.css";
 const Skill = () => {
+  // get user id from local storage
+  const user = JSON.parse(localStorage.getItem("user"));
+  const id = user?.id;
+  if (!id) {
+    id = "462a9ad7-4ea1-4111-ba99-c7b4e3bd0359";
+  }
+
   const [filteredSkills, setFilteredSkills] = useState([]);
 
   // Filter skills
@@ -46,7 +53,9 @@ const Skill = () => {
   } = useQuery({
     queryKey: ["skills"],
     queryFn: async () => {
-      return await fetch(`${API_URL}/skills`).then((res) => res.json());
+      return await fetch(`${API_URL}/user-skill-sets/user/${id}`).then((res) =>
+        res.json()
+      );
     },
     staleTime: Infinity,
   });

@@ -90,7 +90,10 @@ const NewBadge = () => {
       .then((res) => res.json())
       .then((data) => data)
       .catch((error) => {
-        console.log(error);
+   return  setErrorMessage({
+          error: true,
+          message: error.message,
+        });
       });
   }
 

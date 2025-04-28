@@ -5,6 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import ProjectCard from "../../card/ProjectCard.jsx";
 import { API_URL } from "../../../utils/constants.js";
 const Projects = () => {
+  // success message
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState({
+    message: null,
+    error: null,
+  });
   // Filter projects to show. only show required projects
   const [filteredProjects, setFilteredProjects] = useState([]);
   const handleFilterProjects = () => {
@@ -40,13 +46,17 @@ const Projects = () => {
     staleTime: Infinity,
     onSuccess: (data) => {
       handleFilterProjects();
+      if (data?.message) {
+        setSuccessMessage(data?.message);
+      }
     },
     onError: (error) => {
-      console.log(error);
+      setErrorMessage({
+        message: error?.message,
+        error: error?.error,
+      });
     },
   });
-
-
   return isLoading ? (
     <p>Loading...</p>
   ) : isError ? (

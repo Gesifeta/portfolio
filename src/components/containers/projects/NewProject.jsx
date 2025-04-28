@@ -15,7 +15,12 @@ const NewProjectRegister = () => {
   if (!isAuthenticated()) {
     return navigate("/login");
   }
-
+  const [succussMessage, setSuccessMessage] = useState(null);
+  // error message
+  const [errorMessage, setErrorMessage] = useState({
+    message: null,
+    error: null,
+  });
   // To store query string
   const [queryString, setQuery] = useState("");
 
@@ -45,7 +50,6 @@ const NewProjectRegister = () => {
   // Mutation
   const { mutateAsync: addProject } = useMutation({
     mutationFn: async (data) => {
-      console.log(data);
       return await fetch(`${API_URL}/projects/new`, {
         method: "POST",
         headers: {
@@ -53,6 +57,24 @@ const NewProjectRegister = () => {
         },
         body: JSON.stringify(data),
       });
+    },
+    onSuccess: (data) => {
+      setSuccessMessage("Project added successfully");
+      setTimeout(() => {
+        setSuccessMessage(null);
+      }, 3000);
+    },
+    onError: (error) => {
+      setErrorMessage({
+        message: "Error adding project",
+        error: error,
+      });
+      setTimeout(() => {
+        setErrorMessage({
+          message: null,
+          error: null,
+        });
+      }, 3000);
     },
   });
   // A function to handle query inputs
@@ -100,7 +122,7 @@ const NewProjectRegister = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log("Project === >",project)
+  console.log("Project === >", project);
   return (
     <div className="container-form">
       <fieldset>
@@ -126,9 +148,7 @@ const NewProjectRegister = () => {
                     image_url: "",
                   });
                 })
-                .catch((error) => {
-                  console.log(error);
-                });
+                .catch((error) => {});
             } catch (error) {}
           }}
         >
