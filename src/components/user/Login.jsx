@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 
 import { API_URL } from "../../utils/constants.js";
 import { useNavigate } from "react-router-dom";

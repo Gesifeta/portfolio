@@ -39,6 +39,7 @@ const Upload = ({ data, setData }) => {
       console.log(error);
     },
   });
+  console.log("image_url", data.image_url);
   return isPending ? (
     <Loader />
   ) : (

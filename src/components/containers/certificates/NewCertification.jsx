@@ -79,6 +79,7 @@ const NewCertification = () => {
           id: uuidv4(),
           user_id: user?.id,
           title: "",
+          category: "",
           description: "",
           awarded_by: "",
           certification_number: "",
