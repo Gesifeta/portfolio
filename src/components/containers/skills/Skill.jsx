@@ -12,6 +12,13 @@ const Skill = () => {
   if (!id) {
     id = "462a9ad7-4ea1-4111-ba99-c7b4e3bd0359";
   }
+  // success message
+  const [successMessage, setSuccessMessage] = useState(null);
+  // error message
+  const [errorMessage, setErrorMessage] = useState({
+    error: "",
+    message: "",
+  });
 
   const [filteredSkills, setFilteredSkills] = useState([]);
 
@@ -58,15 +65,26 @@ const Skill = () => {
       );
     },
     staleTime: Infinity,
+    onSuccess: (data) => {
+      setFilteredSkills(data);
+      setSuccessMessage("Skills fetched successfully");
+    },
+    onError: (error) => {
+      setErrorMessage({
+        message: error.message,
+        error: error.error,
+      });
+    },
   });
-  useEffect(() => {
-    setFilteredSkills(skills);
-  }, [isSuccess]);
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
-  return (
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : isError ? (
+    <div>{error.message}</div>
+  ) : (
     <div className="container-skills" id="skills">
       <h2 style={{ textAlign: "center" }}>Skills</h2>
       <div className="skill-category" onClick={showSkills}>
