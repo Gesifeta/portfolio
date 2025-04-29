@@ -65,7 +65,7 @@ const Skill = () => {
     },
     staleTime: Infinity,
     onSuccess: (data) => {
-      setFilteredSkills(data);
+      const { skills } = data;
       setSuccessMessage("Skills fetched successfully");
     },
     onError: (error) => {
@@ -75,7 +75,12 @@ const Skill = () => {
       });
     },
   });
-  console.log("SKills ===>", skills);
+  useEffect(() => {
+    if (skills) {
+      setFilteredSkills(skills);
+    }
+  }, [skills]);
+
   return isLoading ? (
     <div>Loading...</div>
   ) : isError ? (
