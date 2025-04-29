@@ -23,6 +23,7 @@ const Upload = ({ data, setData }) => {
     isError,
   } = useMutation({
     mutationFn: async (data) => {
+      console.log("IMage data===>", data);
       return await fetch(`${API_URL}/projects/upload`, {
         method: "POST",
         headers: {
@@ -32,7 +33,7 @@ const Upload = ({ data, setData }) => {
       })
         .then((res) => res.json())
         .then((image_url) => {
-          console.log("IMage url===>", image_url);
+          
           return image_url;
         });
     },
