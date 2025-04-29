@@ -25,6 +25,9 @@ const Upload = ({ data, setData }) => {
     mutationFn: async (data) => {
       return await fetch(`${API_URL}/projects/upload`, {
         method: "POST",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
         body: data,
       })
         .then((res) => res.json())
