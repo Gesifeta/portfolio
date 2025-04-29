@@ -61,6 +61,8 @@ const Projects = () => {
     <p>Loading...</p>
   ) : isError ? (
     <p>{error.message}</p>
+  ) :projects?.length === 0 ? (
+    <p>No projects found</p>
   ) : (
     <div id="projects" className="container-projects">
       <h2 style={{ textAlign: "center" }}>Projects</h2>
