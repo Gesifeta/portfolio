@@ -46,14 +46,12 @@ const Projects = () => {
     staleTime: Infinity,
     onSuccess: (data) => {
       handleFilterProjects();
-      if (data?.message) {
-        setSuccessMessage(data?.message);
-      }
+      setSuccessMessage("Projects fetched successfully");
     },
     onError: (error) => {
       setErrorMessage({
-        message: error?.message,
-        error: error?.error,
+        message: error.message,
+        error: error.error,
       });
     },
   });
