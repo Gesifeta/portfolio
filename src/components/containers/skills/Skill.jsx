@@ -54,7 +54,6 @@ const Skill = () => {
   const {
     data: skills,
     isLoading,
-    isSuccess,
     isError,
     error,
   } = useQuery({
@@ -76,10 +75,7 @@ const Skill = () => {
       });
     },
   });
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
+  console.log("SKills ===>", skills);
   return isLoading ? (
     <div>Loading...</div>
   ) : isError ? (
