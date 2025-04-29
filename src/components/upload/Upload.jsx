@@ -29,7 +29,6 @@ const Upload = ({ data, setData }) => {
       })
         .then((res) => res.json())
         .then((image_url) => {
-
           return image_url;
         });
     },
