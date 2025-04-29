@@ -25,14 +25,11 @@ const Upload = ({ data, setData }) => {
     mutationFn: async (data) => {
       return await fetch(`${API_URL}/projects/upload`, {
         method: "POST",
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
         body: data,
       })
         .then((res) => res.json())
         .then((image_url) => {
-          console.log("multi part url===>", image_url);
+
           return image_url;
         });
     },
@@ -45,7 +42,6 @@ const Upload = ({ data, setData }) => {
       console.log(error);
     },
   });
-  console.log("image_url", data.image_url);
   return isPending ? (
     <Loader />
   ) : (
