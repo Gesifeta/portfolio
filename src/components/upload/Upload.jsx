@@ -32,7 +32,7 @@ const Upload = ({ data, setData }) => {
       })
         .then((res) => res.json())
         .then((image_url) => {
-            console.log("IMage url===>", data);
+          console.log("IMage url===>", image_url);
           return image_url;
         });
     },
