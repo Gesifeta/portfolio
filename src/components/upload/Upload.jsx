@@ -15,7 +15,6 @@ const Upload = ({ data, setData }) => {
     formData.append("file", file);
     setFile(formData);
   };
-  console.log("IMage url===>", data);
   // uploud image
   const {
     mutateAsync: uploadProjectImage,
@@ -24,7 +23,6 @@ const Upload = ({ data, setData }) => {
     isError,
   } = useMutation({
     mutationFn: async (data) => {
-      console.log("IMage data===>", data);
       return await fetch(`${API_URL}/projects/upload`, {
         method: "POST",
         headers: {
@@ -34,6 +32,7 @@ const Upload = ({ data, setData }) => {
       })
         .then((res) => res.json())
         .then((image_url) => {
+            console.log("IMage url===>", data);
           return image_url;
         });
     },
