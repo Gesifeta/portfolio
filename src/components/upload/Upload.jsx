@@ -15,6 +15,7 @@ const Upload = ({ data, setData }) => {
     formData.append("file", file);
     setFile(formData);
   };
+  console.log("IMage url===>", data);
   // uploud image
   const {
     mutateAsync: uploadProjectImage,
@@ -33,7 +34,6 @@ const Upload = ({ data, setData }) => {
       })
         .then((res) => res.json())
         .then((image_url) => {
-          
           return image_url;
         });
     },
