@@ -28,7 +28,10 @@ const Upload = ({ data, setData }) => {
         body: data,
       })
         .then((res) => res.json())
-        .then((image_url) => image_url);
+        .then((image_url) => {
+          console.log("IMage url===>", image_url);
+          return image_url;
+        });
     },
     onSuccess: (image_url) => {
       setData((prevState) => {

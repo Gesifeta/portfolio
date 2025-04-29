@@ -231,3 +231,94 @@ CREATE INDEX idx_visitor_logs_timestamp ON visitor_logs(timestamp);
 (uuid_generate_v4(),'462a9ad7-4ea1-4111-ba99-c7b4e3bd0359','c8948cde-249a-4dc7-b697-8dc174ae26b4'),
 (uuid_generate_v4(),'462a9ad7-4ea1-4111-ba99-c7b4e3bd0359','c8948cde-249a-4dc7-b697-8dc174ae26b5'),
 (uuid_generate_v4(),'462a9ad7-4ea1-4111-ba99-c7b4e3bd0359','c8948cde-249a-4dc7-b697-8dc174ae26b6')
+
+
+INSERT INTO certifications (
+    id,
+    user_id,
+    title,
+    description,
+    awarded_date,
+    awarded_by,
+    badge_link,
+    description,
+    image_url,
+    skills
+) VALUES
+(
+    'b4ebc12f-2946-4591-abc8-4c5104177adf',
+    '462a9ad7-4ea1-4111-ba99-c7b4e3bd0359',
+    'AWC Certified Cloud Practitioner',
+    '2024-02-01',
+    'Amazon Web Services Training and Certification',
+    'https://www.credly.com/badges/8baff95b-c9eb-44e4-a057-b53f06367686',
+    'Earners of this certification have a fundamental understanding of IT services and their uses in the AWS Cloud. They demonstrated cloud fluency and foundational AWS knowledge. Badge owners are able to identify essential AWS services necessary to set up AWS-focused projects.',
+    'uploads/images/aws-certified-cloud-practitioner.png-1745425028521.png',
+    ARRAY['Amazon Web Services (AWS)','AWS Cloud','AWS Compute','AWS Databases','AWS Networking','AWS Security','AWS storage']
+),
+(
+    '1d9a992d-4898-408d-bf68-b0b2409c4bde',
+    '462a9ad7-4ea1-4111-ba99-c7b4e3bd0359',
+    'Front-end Development with React.js V2',
+    '2024-01-01',
+    'Coursera, authorized by IBM',
+    'https://www.credly.com/earner/earned/badge/2d0f975b-a924-4027-afe2-55f9b3e32327',
+    'Demonstrated how to use the React.js web framework to create robust user interfaces for front-end applications. They can manage data in an application with props, states, and hooks. The earner has shown an understanding of Redux concepts, such as using the Redux store, actions, and reducers to manage application states. They know the applications of middleware such as Thunk and Saga to handle asynchronous operations and concepts such as side effects and custom hooks.',
+    'uploads/images/front-end-development-with-react-v2.1.png-1745425553309.png',
+    ARRAY['Application State','Class Components','Component Composition','Component Lifecycles','Component States','CRA','Custom Hooks','Data Binding','Fetch','Forms','Front-end Development','Front-end Frameworks','Function Components','Hooks','JavaScript','JSX','Props','React.js ToolKit','Redux','Side Effects','Thunk','UseEffect Hook','User Interfaces','UseState Hook','Virtual Dom','Vite']
+),
+(
+    '58a1dcdf-ad18-4bf4-9eca-0c0cbea6fe54',
+    '462a9ad7-4ea1-4111-ba99-c7b4e3bd0359',
+    'AWS Knowledge: Cloud Essentials',
+    '2024-12-01',
+    'Amazon Web Services Training and Certification',
+    'https://www.credly.com/badges/8baff95b-c9eb-44e4-a057-b53f06367686',
+    'Earners of this badge have developed knowledge of foundational AWS Cloud concepts with a focus on AWS Compute, Storage, Networking and Database services, security, architecture, pricing, and support.',
+    'uploads/images/aws-cloud-essentials.png-1745426069684.png',
+    ARRAY['Amazon Web Services (AWS)','AWS Cloud','AWS Compute','AWS Databases','AWS Networking','AWS Security','AWS storage']
+),
+(
+    '20f4117f-0781-4690-bea2-ef3029ff1a4b',
+    '462a9ad7-4ea1-4111-ba99-c7b4e3bd0359',
+    'AWS Certified Solutions Architect – Associate',
+    '2025-02-14',
+    'Amazon Web Services Training and Certification',
+    'https://www.credly.com/badges/d623e787-ae7f-44dc-85ec-a2435e726e3b/public_url',
+    'Earners of this certification have a comprehensive understanding of AWS services and technologies. They demonstrated the ability to build secure and robust solutions using architectural design principles based on customer requirements. Badge owners are able to strategically design well-architected distributed systems that are scalable, resilient, efficient, and fault-tolerant.',
+    'uploads/images/aws-sa.png-1745426921555.png',
+    ARRAY['Amazon Web Services','AWS','AWS Certification','AWS Cloud','Cloud Architecture','Cloud Certification','Cloud Data','Cloud Infrastructure','Cloud Services']
+),
+(
+    'ab330a47-d7f2-4f67-b3be-9295f5469513',
+    '462a9ad7-4ea1-4111-ba99-c7b4e3bd0359',
+    'AWS Knowledge: Cloud Essentials',
+    '2024-07-31',
+    'Amazon Web Services Training and Certification',
+    'https://www.credly.com/badges/8baff95b-c9eb-44e4-a057-b53f06367686/public_url',
+    'Earners of this badge have developed knowledge of foundational AWS Cloud concepts with a focus on AWS Compute, Storage, Networking and Database services, security, architecture, pricing, and support.',
+    'uploads/images/aws-cloud-essentials.png-1745427240323.png',
+    ARRAY['Amazon Web Services (AWS)','AWS','AWS Cloud','AWS Compute','AWS Databases','AWS Networking','AWS Security','AWS storage']
+),
+(
+    'cebfba80-a8ba-46f4-9c0a-af2575e875de',
+    '462a9ad7-4ea1-4111-ba99-c7b4e3bd0359',
+    'AWS Knowledge: Architecting',
+    '2025-01-15',
+    'Amazon Web Services Training and Certification',
+    'https://www.credly.com/badges/f2441ce6-a007-4503-9d7b-56c2c6ca9050/public_url',
+    'Earners of this badge have developed technical skills and knowledge of AWS concepts and services with a focus on designing solutions on AWS using best practices.',
+    'uploads/images/aws-knowledge-architecting.png-1745427420530.png',
+    ARRAY['Amazon Web Services (AWS)','AWS','AWS Cloud','AWS Compute','AWS Core Services','AWS database','AWS Networking','AWS storage']
+),
+(
+    '3d127d13-a8dc-4dda-b982-97531d0f7b4b',
+    '462a9ad7-4ea1-4111-ba99-c7b4e3bd0359',
+    'IBM Back-end JavaScript Developer Professional Certificate',
+    '2024-10-18',
+    'Coursera Authorized by IBM',
+    'https://www.credly.com/badges/1551c8bd-b82f-4de4-8118-6f724a6c744b/public_url',
+    'This badge earner understands many software engineering topics, such as SDLC and Python basics. They understand application architecture, web development, and IDEs, emphasizing version control using Git and GitHub. They also have a good grasp of server-side development with Node.js, asynchronous programming, and CI/CD methodologies. They have hands-on experience on various topics such as Docker, Kubernetes, microservices, and back-end development with Node.js, Express, and NoSQL databases.',
+    'uploads/images/ibm-back-end-javascript-developer-professional-cert.png-1745427609827.png',
+    ARRAY['Back-end Development','DevOps','Express','JavaScript','Node.js']
+);
