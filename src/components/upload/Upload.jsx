@@ -13,6 +13,7 @@ const Upload = ({ data, setData }) => {
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append("file", file);
+
     setFile(formData);
   };
   // uploud image
@@ -21,6 +22,8 @@ const Upload = ({ data, setData }) => {
     isPending,
     isSuccess,
     isError,
+    error,
+    data: image_url,
   } = useMutation({
     mutationFn: async (data) => {
       return await fetch(`${API_URL}/projects/upload`, {
@@ -29,6 +32,7 @@ const Upload = ({ data, setData }) => {
       })
         .then((res) => res.json())
         .then((image_url) => {
+          console.log(image_url);
           return image_url;
         });
     },
@@ -43,6 +47,10 @@ const Upload = ({ data, setData }) => {
   });
   return isPending ? (
     <Loader />
+  ) : isError ? (
+    <p>{error.message}</p>
+  ) : isSuccess ? (
+    <img src={`${IMAGE_URL}/${data.image_url}`} alt="image missing" />
   ) : (
     <div className="container-upload">
       <form
