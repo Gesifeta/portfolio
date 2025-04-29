@@ -5,6 +5,13 @@ import { useQuery } from "@tanstack/react-query";
 import ProjectCard from "../../card/ProjectCard.jsx";
 import { API_URL } from "../../../utils/constants.js";
 const Projects = () => {
+  // success message
+  const [successMessage, setSuccessMessage] = useState(null);
+  // error message
+  const [errorMessage, setErrorMessage] = useState({
+    error: "",
+    message: "",
+  });
   // Filter projects to show. only show required projects
   const [filteredProjects, setFilteredProjects] = useState([]);
   const handleFilterProjects = () => {
@@ -28,20 +35,36 @@ const Projects = () => {
   // get projects from the backend
   const {
     data: projects,
-    isLoading,
     isSuccess,
+    isError,
+    error,
+    isLoading,
   } = useQuery({
     queryKey: ["projects"],
     queryFn: async () => {
       return await fetch(`${API_URL}/projects`).then((res) => res.json());
     },
     staleTime: Infinity,
+    onSuccess: (data) => {
+      handleFilterProjects();
+      if (showAll) {
+        setFilteredProjects(data);
+      }
+      setSuccessMessage("Projects fetched successfully");
+    },
+    onError: (error) => {
+      setErrorMessage({
+        message: error.message,
+        error: error.error,
+      });
+    },
   });
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
-  return (
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : isError ? (
+    <div>Error: {error.message}</div>
+  ) : (
     <div id="projects" className="container-projects">
       <h2 style={{ textAlign: "center" }}>Projects</h2>
       <div className="projects">
