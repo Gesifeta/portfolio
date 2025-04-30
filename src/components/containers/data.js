@@ -629,7 +629,7 @@ export const badges = [
     title: "Front-end Development with React.js V2",
     awardedBy: "Coursera, authorized by IBM, 2024",
     badgeLink:
-      "https:www.credly.com/earner/earned/badge/2d0f975b-a924-4027-afe2-55f9b3e32327",
+      "https://www.credly.com/earner/earned/badge/2d0f975b-a924-4027-afe2-55f9b3e32327",
     description: `Demonstrated how to use the React.js web framework to create robust user interfaces for front-end applications. They can manage data in an application with props, states, and hooks. The earner has shown an understanding of Redux concepts, such as using the Redux store, actions, and reducers to manage application states. They know the applications of middleware such as Thunk and Saga to handle asynchronous operations and concepts such as side effects and custom hooks.`,
     skills: [
       "Application States",

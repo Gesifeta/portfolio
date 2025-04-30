@@ -29,10 +29,10 @@ const Upload = ({ data, setData }) => {
         method: "POST",
         body: data,
         credentials: "include",
-      });
+      }).then((res)=>res.json());
     },
     onSuccess: (image) => {
-      image = JSON.parse(image);
+    
       if (image.status === 200) {
         setData((prevState) => {
           return { ...prevState, image_url: image.image_url };
