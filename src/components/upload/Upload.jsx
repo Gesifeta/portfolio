@@ -7,6 +7,14 @@ import "./upload.css";
 
 const Upload = ({ data, setData }) => {
   const [file, setFile] = React.useState(null);
+  // SUCCESS MESSAGE
+  const [successMessage, setSuccessMessage] = React.useState(false);
+
+  // ERROR MESSAGE
+  const [errorMessage, setErrorMessage] = React.useState({
+    error: false,
+    message: "",
+  });
 
   //handle file change
   const handleFileChange = (e) => {
@@ -29,10 +37,21 @@ const Upload = ({ data, setData }) => {
         method: "POST",
         body: data,
         credentials: "include",
-      }).then((res)=>res.json());
+      }).then((res) => res.json());
     },
     onSuccess: (image) => {
-    
+      // set success message
+      setSuccessMessage(true);
+      // set error message
+      setErrorMessage({
+        error: false,
+        message: "",
+      });
+      // set timeout for success message
+      setTimeout(() => {
+        setSuccessMessage(false);
+      }, 3000);
+
       if (image.status === 200) {
         setData((prevState) => {
           return { ...prevState, image_url: image.image_url };
@@ -40,15 +59,26 @@ const Upload = ({ data, setData }) => {
       }
     },
     onError: (error) => {
-      throw new Error(error.message);
+      setErrorMessage({
+        error: true,
+        message: error.message,
+      });
+      setTimeout(() => {
+        setErrorMessage({
+          error: false,
+          message: "",
+        });
+      }, 3000);
     },
   });
   return isPending ? (
     <Loader />
   ) : isError ? (
     <p>{error.message}</p>
-  ) : isSuccess ? (
-    <img src={`${IMAGE_URL}/${data.image_url}`} alt="image missing" />
+  ) : successMessage ? (
+    <p>Image uploaded successfully</p>
+  ) : errorMessage.error ? (
+    <p>{errorMessage.message}</p>
   ) : (
     <div className="container-upload">
       <form
