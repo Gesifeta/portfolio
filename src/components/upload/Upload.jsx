@@ -18,7 +18,7 @@ const Upload = ({ data, setData }) => {
   };
   // uploud image
   const {
-    mutateAsync: uploadProjectImage,
+    mutateAsync: uploadFile,
     isPending,
     isSuccess,
     isError,
@@ -29,16 +29,18 @@ const Upload = ({ data, setData }) => {
         method: "POST",
         body: data,
         credentials: "include",
-      })
-    },
-    onSuccess: (image) => {
-      if (!image?.image_url) return;
-      setData((prevState) => {
-        return { ...prevState, image_url: image?.image_url };
       });
     },
+    onSuccess: (image) => {
+      image = JSON.parse(image);
+      if (image.status === 200) {
+        setData((prevState) => {
+          return { ...prevState, image_url: image.image_url };
+        });
+      }
+    },
     onError: (error) => {
-      console.log(error);
+      throw new Error(error.message);
     },
   });
   return isPending ? (
@@ -52,7 +54,7 @@ const Upload = ({ data, setData }) => {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          return await uploadProjectImage(file);
+          return await uploadFile(file);
         }}
         encType="multipart/form-data"
         method="post"
