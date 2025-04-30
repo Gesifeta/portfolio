@@ -810,7 +810,7 @@ export const badges = [
     title: "Git and GitHub Essentials",
     awardedBy: "Coursera, authorized by IBM, 2024",
     badgeLink:
-      "https:www.credly.com/earner/earned/badge/0db1f084-9817-4cb6-87c8-46a0849217f0",
+      "https://www.credly.com/earner/earned/badge/0db1f084-9817-4cb6-87c8-46a0849217f0",
     description: `This badge earner has demonstrated how to use Git and GitHub as code repositories for developing applications. They understand why version control is essential in creating open-source and commercial software. The badge earner can create repositories and branches, perform pull requests and merge operations, and use these repositories to collaborate with their teammates.`,
     skills: [
       "Code Repositories",

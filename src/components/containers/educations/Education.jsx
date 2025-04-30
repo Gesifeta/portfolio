@@ -48,6 +48,10 @@ const Education = () => {
     <p>Loading...</p>
   ) : isError ? (
     <p>{error.message}</p>
+  ) : educations?.length === 0 ? (
+    <div className="container-badge" id="badges">
+      <p>No educations found</p>
+    </div>
   ) : (
     <div className="container-educations" id="educations">
       <h2 style={{ textAlign: "center" }}>Educations</h2>

@@ -53,6 +53,7 @@
   padding: 0.5rem 0.25rem;
   color: transparent;
   font-size: 3rem;
+  margin-left: .25rem;
 }
 .speak {
   cursor: pointer;

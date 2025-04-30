@@ -40,6 +40,10 @@ function Experiences() {
     <p>Loading...</p>
   ) : isError ? (
     <p>{error.message}</p>
+  ) : experiences?.length === 0 ? (
+    <div className="container-badge" id="badges">
+      <p>No experiences found</p>
+    </div>
   ) : (
     <div className="experiences" id="experiences">
       <h2 style={{ textAlign: "center" }}>Experiences</h2>

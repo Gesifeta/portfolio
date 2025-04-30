@@ -51,6 +51,10 @@ const Bagde = () => {
     </div>
   ) : isError ? (
     <p>{error.message}</p>
+  ) : badges?.length === 0 ? (
+    <div className="container-badge" id="badges">
+      <p>No badges found</p>
+    </div>
   ) : (
     <div className="container-badge" id="badges">
       <h2 style={{ textAlign: "center" }}>Badges</h2>

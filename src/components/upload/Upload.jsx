@@ -23,22 +23,18 @@ const Upload = ({ data, setData }) => {
     isSuccess,
     isError,
     error,
-    data: image_url,
   } = useMutation({
     mutationFn: async (data) => {
-      return await fetch(`${API_URL}/projects/upload`, {
+      return await fetch(`${API_URL}/upload`, {
         method: "POST",
         body: data,
+        credentials: "include",
       })
-        .then((res) => res.json())
-        .then((image_url) => {
-          console.log(image_url);
-          return image_url;
-        });
     },
-    onSuccess: (image_url) => {
+    onSuccess: (image) => {
+      if (!image?.image_url) return;
       setData((prevState) => {
-        return { ...prevState, image_url };
+        return { ...prevState, image_url: image?.image_url };
       });
     },
     onError: (error) => {
@@ -54,9 +50,9 @@ const Upload = ({ data, setData }) => {
   ) : (
     <div className="container-upload">
       <form
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
-          uploadProjectImage(file);
+          return await uploadProjectImage(file);
         }}
         encType="multipart/form-data"
         method="post"
@@ -78,7 +74,6 @@ const Upload = ({ data, setData }) => {
             />
           </label>
         </div>
-        {isSuccess}
         <div className="btn-group">
           <button
             className="btn btn-primary"

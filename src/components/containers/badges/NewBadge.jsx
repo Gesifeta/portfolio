@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { API_URL } from "../../../utils/constants";
 import { v4 as uuidv4 } from "uuid";
-import { replace, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Upload from "../../upload/Upload";
 const NewBadge = () => {
@@ -20,7 +20,7 @@ const NewBadge = () => {
     return navigate("/login", { replace: true });
   }
   // To store the skill data
-  const [skill, setSkill] = useState({
+  const [badge, setBadge] = useState({
     id: "",
     user_id: user.id,
     title: "",
@@ -52,7 +52,19 @@ const NewBadge = () => {
     onSuccess: (data) => {
       if (data.status === 200) {
         setSuccessMessage("Badge successfuly added.");
-
+        setBadge({
+          id: "",
+          user_id: user.id,
+          title: "",
+          category: "",
+          awarded_by: "",
+          awarded_date: "",
+          badge_number: "",
+          badge_link: "",
+          description: "",
+          skills: [],
+          image_url: "",
+        });
         setTimeout(() => {
           setSuccessMessage(false);
         }, 3000);
@@ -72,13 +84,14 @@ const NewBadge = () => {
     },
   });
   // A function to handle skill inputs
-  function handleSkillInput(e) {
+  function handleBadgeInput(e) {
     const { name, value } = e.target;
-    setSkill((prev) => ({
+
+    setBadge((prev) => ({
       ...prev,
       [name]:
         name === "skills"
-          ? value.split(",").map((skill) => skill.trim())
+          ? value.split(",").map((badge) => badge.trim())
           : value,
       id: uuidv4(),
     }));
@@ -86,11 +99,11 @@ const NewBadge = () => {
   // A function to handle skill submit
   async function handleSkillSubmit(e) {
     e.preventDefault();
-    return await addBadge(skill)
+    return await addBadge(badge)
       .then((res) => res.json())
       .then((data) => data)
       .catch((error) => {
-   return  setErrorMessage({
+        return setErrorMessage({
           error: true,
           message: error.message,
         });
@@ -103,14 +116,19 @@ const NewBadge = () => {
 
       <fieldset>
         <legend>New Badge</legend>
-        <form action="" method="post" onSubmit={handleSkillSubmit}>
+        <form
+          action=""
+          method="post"
+          onSubmit={handleSkillSubmit}
+          encType="multipart/form-data"
+        >
           {/* user id */}
           <div className="form-group">
             <label htmlFor="user_id">User ID</label>
             <input
               type="text"
               name="user_id"
-              value={skill.user_id}
+              value={badge.user_id}
               disabled
               id="user_id"
             />
@@ -120,8 +138,8 @@ const NewBadge = () => {
             <input
               type="text"
               name="title"
-              value={skill.title}
-              onChange={handleSkillInput}
+              value={badge.title}
+              onChange={handleBadgeInput}
               id="title"
             />
           </div>
@@ -130,8 +148,8 @@ const NewBadge = () => {
             <select
               name="category"
               id="category"
-              onChange={handleSkillInput}
-              value={skill.category}
+              onChange={handleBadgeInput}
+              value={badge.category}
             >
               <option value="select">select</option>
               <option value="frontend">Frontend</option>
@@ -148,8 +166,8 @@ const NewBadge = () => {
               type="text"
               name="awarded_by"
               id="awarded_by"
-              value={skill.awarded_by}
-              onChange={handleSkillInput}
+              value={badge.awarded_by}
+              onChange={handleBadgeInput}
             />
           </div>
           {/* Awarded date */}
@@ -157,8 +175,8 @@ const NewBadge = () => {
             <label htmlFor="awarded_date">Awarded Date</label>
             <input
               type="date"
-              value={skill.awarded_date}
-              onChange={handleSkillInput}
+              value={badge.awarded_date}
+              onChange={handleBadgeInput}
               name="awarded_date"
               id="awarded_date"
             />
@@ -170,8 +188,8 @@ const NewBadge = () => {
               type="text"
               name="badge_number"
               id="badge_number"
-              value={skill.badge_number}
-              onChange={handleSkillInput}
+              value={badge.badge_number}
+              onChange={handleBadgeInput}
             />
           </div>
           <div className="form-group">
@@ -179,8 +197,8 @@ const NewBadge = () => {
             <input
               type="text"
               name="badge_link"
-              value={skill.badge_link}
-              onChange={handleSkillInput}
+              value={badge.badge_link}
+              onChange={handleBadgeInput}
               id="badge_link"
             />
           </div>{" "}
@@ -190,8 +208,8 @@ const NewBadge = () => {
               type="text"
               name="description"
               id="description"
-              value={skill.description}
-              onChange={handleSkillInput}
+              value={badge.description}
+              onChange={handleBadgeInput}
               cols="30"
               rows="5"
               placeholder="Enter description"
@@ -202,8 +220,8 @@ const NewBadge = () => {
             <textarea
               type="text"
               name="skills"
-              value={skill.skills}
-              onChange={handleSkillInput}
+              value={badge.skills}
+              onChange={handleBadgeInput}
               id="skills"
               placeholder="Enter skills comma separated"
               cols="30"
@@ -217,7 +235,8 @@ const NewBadge = () => {
               type="text"
               name="image_url"
               id="image_url"
-              value={skill.image_url}
+              value={badge.image_url}
+              onChange={handleBadgeInput}
               disabled
             />
           </div>
@@ -237,7 +256,7 @@ const NewBadge = () => {
             <button type="submit">Submit</button>
           </div>
         </form>
-        <Upload data={skill} setData={setSkill} />
+        <Upload data={badge} setData={setBadge} />
       </fieldset>
     </div>
   );

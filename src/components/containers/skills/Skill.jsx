@@ -85,6 +85,10 @@ const Skill = () => {
     <div>Loading...</div>
   ) : isError ? (
     <div>{error.message}</div>
+  ) : skills?.length === 0 ? (
+    <div className="container-badge" id="badges">
+      <p>No skills found</p>
+    </div>
   ) : (
     <div className="container-skills" id="skills">
       <h2 style={{ textAlign: "center" }}>Skills</h2>

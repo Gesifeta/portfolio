@@ -44,14 +44,14 @@ export function App() {
                 My name is
                 <b className="name">
                   Gemechu.
-                  <span className="speak">
+                  {/* <span className="speak">
                     {audioLoaded ? (
                       <Loader color="white" />
                     ) : (
                       <Speech className="play" onClick={sayName} />
                     )}
                     <p className="small">Say name</p>
-                  </span>
+                  </span> */}
                 </b>
               </h2>
               <h1
