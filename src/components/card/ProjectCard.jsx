@@ -2,7 +2,7 @@ import { IMAGE_URL } from "../../utils/constants";
 import "./ProjectCard.css";
 
 const ProjectCard = ({
-  image,
+  image_url,
   title,
   description,
   stacks,
@@ -15,11 +15,7 @@ const ProjectCard = ({
         <div className="card">
           <div className="container-image">
             <img
-              src={`${IMAGE_URL}/${image
-                .split("/")
-                .splice(2)
-                .join("/")
-                .trim()}`}
+              src={`${IMAGE_URL}/${image_url}`}
               alt={`${title}`}
             />
           </div>

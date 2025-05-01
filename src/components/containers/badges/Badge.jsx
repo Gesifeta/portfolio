@@ -1,18 +1,17 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import "./Badge.css";
 import BadgeCard from "../../card/BadgeCard.jsx";
 import { API_URL } from "../../../utils/constants.js";
 
-
 const Bagde = () => {
   // Success message
-  const [successMessage,setSuccessMessage]=useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
   // Error message
-  const [errorMessage,setErrorMessage]=useState({
+  const [errorMessage, setErrorMessage] = useState({
     message: null,
-    error: null
+    error: null,
   });
   const {
     data: badges,
@@ -43,7 +42,6 @@ const Bagde = () => {
       }, 3000);
     },
     staleTime: Infinity,
-  
   });
   return isLoading ? (
     <div className="container-badge" id="badges">
@@ -64,10 +62,10 @@ const Bagde = () => {
             key={`${badge.title}-${index}`}
             title={badge.title}
             description={badge.description}
-            badgeLink={badge.badge_link}
-            awardedBy={badge.awarded_by}
+            badge_link={badge.badge_link}
+            awarded_by={badge.awarded_by}
             skills={badge.skills}
-            image={badge.image_url}
+            image_url={badge.image_url}
           />
         ))}
       </div>

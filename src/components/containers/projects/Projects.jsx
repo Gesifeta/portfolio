@@ -71,7 +71,7 @@ const Projects = () => {
               key={index}
               project={project}
               title={project.title}
-              image={project.image_url}
+              image_url={project.image_url}
               description={project.description}
               stacks={project.technologies}
               projectlink={project.live_url}

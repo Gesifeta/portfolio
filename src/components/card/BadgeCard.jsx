@@ -7,20 +7,17 @@ import { IMAGE_URL } from "../../utils/constants";
 const BadgeCard = ({
   title,
   description,
-  badgeLink,
-  awardedBy,
+  badge_link,
+  awarded_by,
   skills,
-  image,
+  image_url,
 }) => {
   return (
     <div className="badge">
       <div className="container-badge-detail">
         <div className="badge-image">
-          <img
-            src={`${IMAGE_URL}/${image.split("/").splice(2).join("/").trim()}`}
-            alt={`${title}`}
-          />
-          <p className="awarded-by">Awarded by: {awardedBy}</p>
+          <img src={`${IMAGE_URL}/${image_url}`} alt={`${title}`} />
+          <p className="awarded-by">Awarded by: {awarded_by}</p>
         </div>
         <div className="badge-detail">
           <div className="detail">
@@ -38,7 +35,7 @@ const BadgeCard = ({
       <div className="badge-link">
         <span>
           <a
-            href={`${badgeLink}`}
+            href={`${badge_link}`}
             referrerPolicy=" no-referrer "
             target="_blank "
           >

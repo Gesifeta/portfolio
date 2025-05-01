@@ -27,11 +27,7 @@ const CertificationCard = ({
           <div className="certification-issued-by">
             <span>
               <img
-                src={`${IMAGE_URL}/${image_url
-                  .split("/")
-                  .splice(2)
-                  .join("/")
-                  .trim()}`}
+                src={`${IMAGE_URL}/${image_url                }`}
                 alt=""
               />
             </span>
