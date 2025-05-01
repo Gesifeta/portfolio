@@ -153,6 +153,7 @@ const NewBadge = () => {
             >
               <option value="select">select</option>
               <option value="frontend">Frontend</option>
+              <option value="ui/ux">UI/UX</option>
               <option value="backend">Backend</option>
               <option value="devops">Devops</option>
               <option value="ai">AI</option>
@@ -236,7 +237,6 @@ const NewBadge = () => {
               name="image_url"
               id="image_url"
               value={badge.image_url}
-              onChange={handleBadgeInput}
               disabled
             />
           </div>

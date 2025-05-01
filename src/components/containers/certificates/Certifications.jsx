@@ -8,7 +8,7 @@ import "./Certifications.css";
 
 const Certifications = () => {
   // success message
-  const [successMessage, setSuccessMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
   // error message
   const [errorMessage, setErrorMessage] = useState({
     message: null,

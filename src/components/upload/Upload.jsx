@@ -8,11 +8,11 @@ import "./upload.css";
 const Upload = ({ data, setData }) => {
   const [file, setFile] = React.useState(null);
   // SUCCESS MESSAGE
-  const [successMessage, setSuccessMessage] = React.useState(false);
+  const [successMessage, setSuccessMessage] = React.useState("");
 
   // ERROR MESSAGE
   const [errorMessage, setErrorMessage] = React.useState({
-    error: false,
+    error: "",
     message: "",
   });
 
@@ -41,36 +41,29 @@ const Upload = ({ data, setData }) => {
     },
     onSuccess: (image) => {
       // set success message
-      setSuccessMessage(true);
-      // set error message
-      setErrorMessage({
-        error: false,
-        message: "",
+      setSuccessMessage("File Uploaded");
+      setData((prevState) => {
+        return { ...prevState, image_url: image.image_url };
       });
       // set timeout for success message
       setTimeout(() => {
-        setSuccessMessage(false);
+        setSuccessMessage("");
       }, 3000);
-
-      if (image.status === 200) {
-        setData((prevState) => {
-          return { ...prevState, image_url: image.image_url };
-        });
-      }
     },
     onError: (error) => {
       setErrorMessage({
-        error: true,
+        error: error,
         message: error.message,
       });
       setTimeout(() => {
         setErrorMessage({
-          error: false,
+          error: "",
           message: "",
         });
       }, 3000);
     },
   });
+ 
   return isPending ? (
     <Loader />
   ) : isError ? (
@@ -93,8 +86,15 @@ const Upload = ({ data, setData }) => {
           <label className="form-control-file" htmlFor="file">
             {isPending ? (
               <Loader />
-            ) : isSuccess ? (
-              <img src={`${IMAGE_URL}/${data.image_url}`} alt="image missing" />
+            ) : // netlify/functions/uploads/images/aws-certified-cloud-practitioner.png-1746081181793.png
+            isSuccess ? (
+              <img
+                src={`${IMAGE_URL}/${data.image_url
+                  .split("/")
+                  .splice(2)
+                  .join("/").trim()}`}
+                alt="image missing"
+              />
             ) : (
               <CloudUpload size={150} color="lightgreen" />
             )}

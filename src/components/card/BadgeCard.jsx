@@ -16,7 +16,10 @@ const BadgeCard = ({
     <div className="badge">
       <div className="container-badge-detail">
         <div className="badge-image">
-          <img src={`${IMAGE_URL}/${image}`} alt={`${title}`} />
+          <img
+            src={`${IMAGE_URL}/${image.split("/").splice(2).join("/").trim()}`}
+            alt={`${title}`}
+          />
           <p className="awarded-by">Awarded by: {awardedBy}</p>
         </div>
         <div className="badge-detail">

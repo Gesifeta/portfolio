@@ -18,10 +18,7 @@ function NewEducation() {
     message: "",
     error: "",
   });
-  const [successMessage, setSuccessMessage] = React.useState({
-    message: "",
-    error: "",
-  });
+  const [successMessage, setSuccessMessage] = React.useState("");
 
   const [education, setEducation] = React.useState({
     user_id: user.id,
@@ -29,12 +26,13 @@ function NewEducation() {
     field_of_study: "",
     school_name: "",
     specialization: "",
+    name_of_award:"",
     level: "",
     city: "",
     country: "",
-    state:"",
-    start_year: null,
-    end_year: null,
+    state: "",
+    start_year: "",
+    end_year: "",
     image_url: "",
   });
   const {
@@ -50,11 +48,30 @@ function NewEducation() {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(data),
-      });
+      }).then((res) => res.json());
     },
     mutationKey: ["addEducation"],
     onSuccess: (res) => {
+      if (res.error) {
+        setErrorMessage({
+          message: res.error,
+          error: res.message,
+        });
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 3000);
+      }
+      if (res.status === 400) {
+        setErrorMessage({
+          message: "Error adding education",
+          error: res.error,
+        });
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 3000);
+      }
       if (res.status === 200) {
         setSuccessMessage("Education successfuly added.");
         setTimeout(() => {
@@ -63,10 +80,13 @@ function NewEducation() {
       }
     },
     onError: (error) => {
-   return setErrorMessage({
-        message: "Error adding education",
-        error: error.message,
+      setErrorMessage({
+        message: error.message,
+        error: error.error,
       });
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 3000);
     },
   });
   const handleEducationInput = (e) => {
@@ -79,6 +99,7 @@ function NewEducation() {
     setEducation((prevState) => {
       return { ...prevState, id: uuidv4() };
     });
+
     return await addEducation(education);
   };
   return (
@@ -202,22 +223,23 @@ function NewEducation() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="start_date">Start Date</label>
+              <label htmlFor="start_year">Start Date</label>
               <input
                 type="date"
-                name="start_date"
+                name="start_year"
+                value={education.start_year}
                 onChange={handleEducationInput}
-                id="start_date"
+                id="start_year"
                 placeholder="Enter start date"
               />
             </div>
             <div className="form-group">
-              <label htmlFor="end_date">End Date</label>
+              <label htmlFor="end_year">End Date</label>
               <input
                 type="date"
-                name="end_date"
+                name="end_year"
                 onChange={handleEducationInput}
-                id="end_date"
+                id="end_year"
                 placeholder="Enter end date"
               />
             </div>
@@ -257,7 +279,18 @@ function NewEducation() {
                 placeholder="Enter country"
               />
             </div>
-            <Upload />
+
+            {/* messages */}
+
+            <div className="message error">
+              <p>{errorMessage.message}</p>
+            </div>
+
+            {isSuccess && (
+              <div className="message success">
+                <p>{successMessage}</p>
+              </div>
+            )}
             <div className="btn-group">
               <button type="submit" className="btn btn-primary">
                 Add
@@ -268,6 +301,7 @@ function NewEducation() {
             </div>
           </div>
         </form>
+        <Upload data={education} setData={setEducation} />
       </fieldset>
     </div>
   );

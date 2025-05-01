@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import "./Badge.css";
 import BadgeCard from "../../card/BadgeCard.jsx";
 import { API_URL } from "../../../utils/constants.js";
-import { Loader } from "lucide-react";
+
 
 const Bagde = () => {
   // Success message

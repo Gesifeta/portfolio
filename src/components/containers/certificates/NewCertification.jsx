@@ -58,23 +58,21 @@ const NewCertification = () => {
     isPending,
   } = useMutation({
     mutationFn: async (data) => {
+  
       return await fetch(`${API_URL}/certifications/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      });
+      }).then((res) => res.json()).then(d=>console.log(d));
     },
     mutationKey: ["addCertification"],
-    onSuccess: (res) => {
-      if (res.ok) {
+    onSuccess: (data) => {
+      if (data.status === 200) {
         setSuccessMessage("Certification added successfully");
-        setTimeout(() => {
-          setSuccessMessage(null);
-        }, 5000);
         setCertifications({
-          id: uuidv4(),
+          id: "",
           user_id: user?.id,
           title: "",
           category: "",
@@ -82,15 +80,13 @@ const NewCertification = () => {
           awarded_by: "",
           certification_number: "",
           certification_link: "",
-          awarded_date: null,
-          expiration_date: null,
-          image_url: null,
-          icon_url: null,
+          awarded_date: "",
+          expiration_date: "",
+          image_url: "",
+          icon_url: "",
         });
-      } else {
-        setErrorMessage("Something went wrong");
         setTimeout(() => {
-          setErrorMessage(null);
+          setSuccessMessage(null);
         }, 5000);
       }
     },
@@ -104,20 +100,10 @@ const NewCertification = () => {
       }, 5000);
     },
   });
-  return isPending ? (
+
+  return (
     <div className="container-form">
-      <Loader />
-    </div>
-  ) : isError ? (
-    <div className="container-form">
-      <p>{error.message}</p>
-    </div>
-  ) : isSuccess ? (
-    <div className="container-form">
-      <p>{successMessage}</p>
-    </div>
-  ) : (
-    <div className="container-form">
+      {error && <ErrorMessage error={error} />}
       <fieldset>
         <legend>New Certification</legend>
         <form action="" method="post" onSubmit={handleCertificationSubmit}>
@@ -168,6 +154,7 @@ const NewCertification = () => {
             >
               <option value="select">select</option>
               <option value="frontend">Frontend</option>
+              <option value="ui/ux">UI/UX</option>
               <option value="backend">Backend</option>
               <option value="devops">Devops</option>
               <option value="ai">AI</option>
@@ -236,7 +223,6 @@ const NewCertification = () => {
               type="text"
               name="image_url"
               value={certifications.image_url}
-              onChange={handleCertificationInput}
               id="image_url"
               disabled
             />
@@ -252,7 +238,7 @@ const NewCertification = () => {
               id="icon_url"
             />
           </div>
-          {isError && (
+          {error && (
             <div className="error-message">
               <p style={{ color: "red" }}>{errorMessage?.message}</p>
               <p style={{ color: "red" }}>{errorMessage?.error}</p>
@@ -267,12 +253,7 @@ const NewCertification = () => {
             <button type="submit">Submit</button>
           </div>
         </form>
-        <label htmlFor="image">Certificate</label>
-        <Upload
-          name="image"
-          data={certifications}
-          setData={setCertifications}
-        />
+        <Upload data={certifications} setData={setCertifications} />
       </fieldset>
     </div>
   );

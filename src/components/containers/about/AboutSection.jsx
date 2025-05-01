@@ -39,7 +39,7 @@ const About = () => {
       <div className="work-station">
         <img
           style={{ width: "100%", borderRadius: "12px" }}
-          src={`${IMAGE_URL}/netlify/functions/uploads/images/wokstation.png`}
+          src={`${IMAGE_URL}/uploads/images/wokstation.png`}
           alt="work station"
         />
       </div>

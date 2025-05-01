@@ -17,7 +17,7 @@ const CertificationCard = ({
 }) => {
   return (
     <div className="certification">
-      <div className="certification-category">{category}</div>
+      <div className="certification-category">{category.toUpperCase()}</div>
 
       <div className="certification-details">
         <div>
@@ -26,7 +26,14 @@ const CertificationCard = ({
           </div>
           <div className="certification-issued-by">
             <span>
-              <img src={`${IMAGE_URL}/${image_url}`} alt="" />
+              <img
+                src={`${IMAGE_URL}/${image_url
+                  .split("/")
+                  .splice(2)
+                  .join("/")
+                  .trim()}`}
+                alt=""
+              />
             </span>
             <span>{awarded_by}</span>
           </div>

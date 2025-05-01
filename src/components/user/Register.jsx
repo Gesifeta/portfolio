@@ -3,7 +3,7 @@ import "./user.css";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "lucide-react";
 import { API_URL } from "../../utils/constants";
-import Upload from "../upload/Upload";
+import Upload from "../upload/Upload.jsx";
 
 const Register = () => {
   const navigate = useNavigate();
