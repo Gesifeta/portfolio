@@ -26,10 +26,7 @@ const CertificationCard = ({
           </div>
           <div className="certification-issued-by">
             <span>
-              <img
-                src={`${IMAGE_URL}/${image_url                }`}
-                alt=""
-              />
+              <img src={`${IMAGE_URL}/${image_url}`} alt="" />
             </span>
             <span>{awarded_by}</span>
           </div>
@@ -42,7 +39,7 @@ const CertificationCard = ({
             <span>{certification_number}</span>
           </p>
           <div className="certification-issue-date">
-            Issue Date: {awarded_date}
+            Issue Date: {awarded_date.slice(0, 10)}
           </div>
           <div className="certification-expiry-date">
             Expiry Date: {expiration_date}
