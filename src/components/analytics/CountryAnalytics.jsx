@@ -4,10 +4,18 @@ import { useQuery } from "@tanstack/react-query";
 
 import { API_URL } from "../../utils/constants";
 import BarChart from "../charts/Barchart.jsx";
+import ErrorMessage from "../error/ErrorMessage";
 
 import "./Analytics.css";
 
 const CountryAnalytics = () => {
+  // get user from local storage
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    return (
+      <ErrorMessage message="You are not logged in" error="Unauthorized" />
+    );
+  }
   // Set success message
   const [successMessage, setSuccessMessage] = useState("");
   // Set error message
@@ -25,7 +33,7 @@ const CountryAnalytics = () => {
     },
     onError: (error) => {
       setErrorMessage({
-        error: true,
+        error: error.error,
         message: error.message,
       });
     },
@@ -47,7 +55,7 @@ const CountryAnalytics = () => {
   return isLoading ? (
     <p>Loading...</p>
   ) : isError ? (
-    <p>{error.message}</p>
+    <p>{errorMessage.error}</p>
   ) : (
     <div className="container-analytics">
       <h2>Visitors by Country</h2>
