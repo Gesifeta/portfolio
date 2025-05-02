@@ -20,11 +20,11 @@ const NewProjectRegister = () => {
       <ErrorMessage message="You are not logged in" error="Unauthorized" />
     );
   }
-  const [succussMessage, setSuccessMessage] = useState(null);
+  const [succussMessage, setSuccessMessage] = useState("");
   // error message
   const [errorMessage, setErrorMessage] = useState({
-    message: null,
-    error: null,
+    message: "",
+    error: "",
   });
   // To store query string
   const [queryString, setQuery] = useState("");
@@ -65,10 +65,48 @@ const NewProjectRegister = () => {
       });
     },
     onSuccess: (data) => {
+      if (data.status === 401) {
+        setErrorMessage({
+          message: "Error adding project",
+          error: "Unauthorized",
+        });
+        setTimeout(() => {
+          setErrorMessage({
+            message: "",
+            error: "",
+          });
+        }, 3000);
+        return;
+      }
+      if (data.status === 500) {
+        console.log(data);
+        setErrorMessage({
+          message: data.message,
+          error: data.error,
+        });
+        setTimeout(() => {
+          setErrorMessage({
+            message: "",
+            error: "",
+          });
+        }, 3000);
+        return;
+      }
       setSuccessMessage("Project added successfully");
       setTimeout(() => {
         setSuccessMessage(null);
       }, 3000);
+      setProject({
+        id: uuidv4(),
+        user_id: "",
+        title: "",
+        description: "",
+        category: "",
+        technologies: [],
+        github_url: "",
+        live_url: "",
+        image_url: "",
+      });
     },
     onError: (error) => {
       setErrorMessage({

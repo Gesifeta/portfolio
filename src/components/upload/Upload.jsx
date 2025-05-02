@@ -89,7 +89,7 @@ const Upload = ({ data, setData }) => {
             ) : // netlify/functions/uploads/images/aws-certified-cloud-practitioner.png-1746081181793.png
             isSuccess ? (
               <img
-                src={`${IMAGE_URL}/${data.image_url
+                src={`${IMAGE_URL}/${data?.image_url
                   .split("/")
                   .splice(2)
                   .join("/").trim()}`}
