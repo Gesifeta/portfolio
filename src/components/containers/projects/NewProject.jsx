@@ -8,12 +8,17 @@ import { API_URL } from "../../../utils/constants.js";
 import { Minus, Plus } from "lucide-react";
 import Upload from "../../upload/Upload.jsx";
 import { isAuthenticated } from "../../../authentication/authentication.js";
+import ErrorMessage from "../../error/ErrorMessage";
 
 const NewProjectRegister = () => {
   // const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  if (!isAuthenticated()) {
-    return navigate("/login");
+  // get user from local storage
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    return (
+      <ErrorMessage message="You are not logged in" error="Unauthorized" />
+    );
   }
   const [succussMessage, setSuccessMessage] = useState(null);
   // error message
@@ -116,7 +121,6 @@ const NewProjectRegister = () => {
       ...prev,
       [name]: value,
       technologies: technologies,
-      image_url: image_url,
     }));
   }
   if (isLoading) {
@@ -125,6 +129,9 @@ const NewProjectRegister = () => {
   console.log("Project === >", project);
   return (
     <div className="container-form">
+      {errorMessage.message && (
+        <p style={{ color: "red" }}>{errorMessage.message}</p>
+      )}
       <fieldset>
         <legend>Add new project</legend>
         <form
