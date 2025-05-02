@@ -1,6 +1,7 @@
 // components/charts/BarChart.jsx
 import React from "react";
 import "./BarChart.css";
+import ErrorMessage from "../error/ErrorMessage";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,6 +23,14 @@ ChartJS.register(
 );
 
 const BarChart = ({ data, options }) => {
+  // check if the user is authorized
+  // get user from local storage
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    return (
+      <ErrorMessage message="You are not logged in" error="Unauthorized" />
+    );
+  }
   const defaultOptions = {
     responsive: true,
     maintainAspectRatio: false,
