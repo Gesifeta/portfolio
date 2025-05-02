@@ -116,7 +116,7 @@ const NewProjectRegister = () => {
       ...prev,
       [name]: value,
       technologies: technologies,
-      image_url: image,
+      image_url: image_url,
     }));
   }
   if (isLoading) {
