@@ -16,8 +16,17 @@
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  color: gray;
+    background-color: var(--color-charcoal-gray);
+    border-radius: 2rem;
+    padding: 1rem;
+
 }
 .education-year span{
   text-wrap: nowrap;
+}
+
+@media only screen and (max-width:950px){
+  .education{
+    flex-direction: column;
+  }
 }

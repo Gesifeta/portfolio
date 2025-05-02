@@ -6,13 +6,16 @@ import { v4 as uuidv4 } from "uuid";
 import { API_URL } from "../../../utils/constants";
 import Upload from "../../upload/Upload";
 import "./Education.css";
+import ErrorMessage from "../../error/ErrorMessage";
 
 function NewEducation() {
   const navigate = useNavigate();
   // Get user from local storage
   const user = JSON.parse(localStorage.getItem("user"));
-  if (user === null) {
-    return navigate("/login", { replace: true });
+  if (!user) {
+    return (
+      <ErrorMessage message="You are not logged in" error="Unauthorized" />
+    );
   }
   const [errorMessage, setErrorMessage] = React.useState({
     message: "",
@@ -26,7 +29,7 @@ function NewEducation() {
     field_of_study: "",
     school_name: "",
     specialization: "",
-    name_of_award:"",
+    name_of_award: "",
     level: "",
     city: "",
     country: "",

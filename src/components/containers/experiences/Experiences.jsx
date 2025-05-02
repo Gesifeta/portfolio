@@ -35,11 +35,10 @@ function Experiences() {
       });
     },
   });
-  console.log("Experiences", experiences);
   return isLoading ? (
     <p>Loading...</p>
   ) : isError ? (
-    <p>{error.message}</p>
+    <p>{errorMessage.error}</p>
   ) : experiences?.length === 0 ? (
     <div className="container-badge" id="badges">
       <p>No experiences found</p>
@@ -51,12 +50,12 @@ function Experiences() {
         {experiences?.map((experience, index) => (
           <ExperienceCard
             key={`${experience.company_name}-${index}`}
-            companyName={experience.company_name}
+            company_name={experience.company_name}
             city={experience.city}
             country={experience.country}
             position={experience.position}
-            startDate={new Date(experience.start_year).getFullYear()}
-            endDate={new Date(experience.end_year).getFullYear()}
+            start_year={new Date(experience.start_year).getFullYear()}
+            end_year={new Date(experience.end_year).getFullYear()}
           />
         ))}
       </div>

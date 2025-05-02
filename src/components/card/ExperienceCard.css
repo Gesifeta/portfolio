@@ -2,9 +2,11 @@
   display: flex;
   gap: 2rem;
   align-items: center;
+
   padding: 1.5rem;
 }
 .experience-details {
+  display: flex;
   border-left: 1px solid gray;
   padding: 1.5rem 1rem;
   border-top-left-radius: 5%;
@@ -14,12 +16,19 @@
   background-color: var(--color-charcoal-gray);
   border-radius: 1.5rem;
   display: flex;
+  justify-content: center;
   gap: 1.5rem;
   padding: 1rem;
+  align-items: center;
 }
 
 @media only screen and (max-width: 950px) {
   .experience {
     flex-direction: column;
+  }
+  .experience-details{
+    border-top: 1px solid gray;
+    border-left: none;
+    justify-content: center;
   }
 }

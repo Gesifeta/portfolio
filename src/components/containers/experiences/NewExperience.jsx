@@ -7,39 +7,39 @@ import "./Experiences.css";
 import Upload from "../../upload/Upload";
 import { API_URL } from "../../../utils/constants.js";
 import { Loader } from "lucide-react";
+import ErrorMessage from "../../error/ErrorMessage";
 
 const NewExperience = () => {
-  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   if (!user) {
-    return navigate("/login");
+    return (
+      <ErrorMessage message="You are not logged in" error="Unauthorized" />
+    );
   }
   const [errorMessage, setErrorMessage] = React.useState({
     message: "",
     error: "",
   });
-  const [succussMessage, setSuccessMessage] = React.useState({
-    message: "",
-    data: "",
-  });
+  const [succussMessage, setSuccessMessage] = React.useState("");
 
   const [experience, setExperience] = React.useState({
     id: uuidv4(),
     user_id: user.id,
     company_name: "",
     position: "",
+    responsibilities: [],
     city: "",
     state: "",
     country: "",
     start_year: "",
-    end_year: null,
+    end_year: "",
     image_url: "",
   });
   const handleExperienceInput = (e) => {
     const { name, value } = e.target;
     setExperience((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: name === "responsibilities" ? value.trim().split(",") : value,
     }));
   };
 
@@ -56,50 +56,123 @@ const NewExperience = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(data),
       });
     },
     mutationKey: ["addExperience"],
-    onSuccess: (res) => {
-      setSuccessMessage({
-        message: "Experience added successfully",
-        data: res,
+    onSuccess: (data) => {
+      setSuccessMessage("Experience added successfully");
+      setExperience({
+        id: "",
+        user_id: user.id,
+        company_name: "",
+        position: "",
+        responsibilities: [],
+        city: "",
+        state: "",
+        country: "",
+        start_year: "",
+        end_year: "",
+        image_url: "",
       });
-      console.log(experience);
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
     },
     onError: (error) => {
       setErrorMessage({
         message: "Error adding experience",
         error: error.message,
       });
+      setTimeout(() => {
+        setErrorMessage({
+          message: "",
+          error: "",
+        });
+      }, 3000);
     },
-    onSettled: () => {
-      setExperience({
-        id: uuidv4(),
-        user_id: user.id,
-        company_name: "",
-        position: "",
-        city: "",
-        state: "",
-        country: "",
-        start_year: "",
-        end_year: null,
-        image_url: "",
-      });
-    },
-
   });
+  // submit form
+  const handleExperienceSubmit = async (e) => {
+    e.preventDefault();
+    if (!experience.company_name) {
+      setErrorMessage({
+        message: "Error adding experience",
+        error: "Company name is required",
+      });
+      setTimeout(() => {
+        setErrorMessage({
+          message: "",
+          error: "",
+        });
+      }, 3000);
+      return;
+    }
+    if (!experience.position) {
+      setErrorMessage({
+        message: "Error adding experience",
+        error: "Position is required",
+      });
+      setTimeout(() => {
+        setErrorMessage({
+          message: "",
+          error: "",
+        });
+      }, 3000);
+      return;
+    }
+    if (!experience.city) {
+      setErrorMessage({
+        message: "Error adding experience",
+        error: "City is required",
+      });
+      setTimeout(() => {
+        setErrorMessage({
+          message: "",
+          error: "",
+        });
+      }, 3000);
+      return;
+    }
+    if (!experience.country) {
+      setErrorMessage({
+        message: "Error adding experience",
+        error: "Country is required",
+      });
+      setTimeout(() => {
+        setErrorMessage({
+          message: "",
+          error: "",
+        });
+      }, 3000);
+      return;
+    }
+    if (!experience.start_year) {
+      setErrorMessage({
+        message: "Error adding experience",
+        error: "Start year is required",
+      });
+      setTimeout(() => {
+        setErrorMessage({
+          message: "",
+          error: "",
+        });
+      }, 3000);
+      return;
+    }
+  
+    return await addExperience(experience);
+  };
+console.log(experience)
   return (
     <div className="container-form">
       <fieldset>
         <legend>New Experience</legend>
-        <form
-          method="post"
-          onSubmit={async (e) => {
-            e.preventDefault();
-            await addExperience(experience);
-          }}
-        >
+        {errorMessage.message && <p>{errorMessage.message}</p> && (
+          <p style={{ color: "red" }}>{errorMessage.error}</p>
+        )}
+        <form method="post" onSubmit={handleExperienceSubmit}>
           <div className="form-group">
             <label htmlFor="user_id">User ID</label>
             <input
@@ -134,6 +207,19 @@ const NewExperience = () => {
               onChange={handleExperienceInput}
               placeholder="Enter position"
             />
+          </div>
+          {/* responsibilities */}
+          <div className="form-group">
+            <label htmlFor="responsibilities">Responsibilities</label>
+            <textarea
+              name="responsibilities"
+              id="responsibilities"
+              cols="30"
+              rows="10"
+              onChange={handleExperienceInput}
+              value={experience.responsibilities.join(", ")}
+              placeholder="Enter comma (,) separated responsibilities "
+            ></textarea>
           </div>
           {/* company address */}
           <div className="form-gropu">
@@ -210,8 +296,8 @@ const NewExperience = () => {
           </div>
           {isError && (
             <div className="error-message">
-              <p style={{color:"red"}}>{errorMessage.message}</p>
-              <p style={{color:"red"}}>{errorMessage.error}</p>
+              <p style={{ color: "red" }}>{errorMessage.message}</p>
+              <p style={{ color: "red" }}>{errorMessage.error}</p>
             </div>
           )}
           {isSuccess && (

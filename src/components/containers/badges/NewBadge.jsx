@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { API_URL } from "../../../utils/constants";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
 import Upload from "../../upload/Upload";
+import ErrorMessage from "../../error/ErrorMessage";
+import { API_URL } from "../../../utils/constants";
+
 const NewBadge = () => {
   const navigate = useNavigate();
   // success message
@@ -17,7 +19,9 @@ const NewBadge = () => {
   // get user from local storage
   const user = JSON.parse(localStorage.getItem("user"));
   if (!user) {
-    return navigate("/login", { replace: true });
+    return (
+      <ErrorMessage message="You are not logged in" error="Unauthorized" />
+    );
   }
   // To store the skill data
   const [badge, setBadge] = useState({
