@@ -301,7 +301,6 @@ const NewProjectRegister = () => {
               type="text"
               className="form-control"
               id="image_url"
-              disabled
               name="image_url"
               placeholder="Enter image link"
               value={project.image_url}
