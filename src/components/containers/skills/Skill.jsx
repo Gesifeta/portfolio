@@ -27,13 +27,18 @@ const Skill = () => {
     e.preventDefault();
     let target = e.target;
     if (target.innerText.toLowerCase() === "all") {
+      target.classList.add("active");
       setFilteredSkills(skills);
-      return;
     }
     const skillCategory = target.innerText.toLowerCase();
     const filteredSkills = skills?.filter((skill) => {
       return skill.category.toLowerCase() === skillCategory;
     });
+    const activeSkills = document.querySelectorAll(".skill-category span");
+    activeSkills.forEach((activeSkill) => {
+      activeSkill.classList.remove("active");
+    });
+    target.classList.add("active");
     setFilteredSkills(filteredSkills);
   };
 
@@ -43,12 +48,6 @@ const Skill = () => {
     let target = e.target;
     e.preventDefault();
     const skillCategory = document.querySelectorAll(".category");
-    skillCategory.forEach((category) => {
-      category.lastElementChild.classList.remove("animate-connector");
-      category.lastElementChild.classList.remove("vertical-connector");
-    });
-    target.lastElementChild.classList.add("animate-connector");
-    target.lastElementChild.classList.add("vertical-connector");
     filterSkill(e);
   };
   const {
@@ -77,6 +76,12 @@ const Skill = () => {
   });
   useEffect(() => {
     if (skills) {
+       const activeSkills = document.querySelectorAll(".skill-category span");
+       activeSkills.forEach((activeSkill) => {
+         activeSkill.classList.remove("active");
+       });
+       activeSkills[0]?.classList.add("active");
+       setFilteredSkills;
       setFilteredSkills(skills);
     }
   }, [skills]);
@@ -107,7 +112,7 @@ const Skill = () => {
         ].map((category, index) => (
           <span className="category" key={`${category}-${index}`}>
             {category}
-            <span className="connector"></span>
+            {/* <span className="connector"></span> */}
           </span>
         ))}
       </div>

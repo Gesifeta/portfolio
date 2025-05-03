@@ -1,4 +1,4 @@
-.container-skills{
+.container-skills {
   padding: 2rem;
 }
 .skills {
@@ -8,6 +8,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 9rem;
+  margin-top: 4rem;
   padding: 1rem;
+}
+.category.active {
+  background-color: var(--color-dark-gray);
+  color: #fff;
+ ;
 }
