@@ -1,7 +1,6 @@
 // components/charts/BarChart.jsx
 import React from "react";
 import "./BarChart.css";
-import ErrorMessage from "../error/ErrorMessage";
 import {
   Chart as ChartJS,
   CategoryScale,

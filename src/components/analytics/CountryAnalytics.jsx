@@ -27,7 +27,9 @@ const CountryAnalytics = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["countryAnalytics"],
     queryFn: () =>
-      fetch(`${API_URL}/analytics/track/countries`).then((res) => res.json()),
+      fetch(`${API_URL}/analytics/track/countries`, {
+        credentials: "include",
+      }).then((res) => res.json()),
     onSuccess: (data) => {
       setSuccessMessage(data.message);
     },
