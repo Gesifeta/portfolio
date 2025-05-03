@@ -120,8 +120,7 @@ This portfolio is built using:
 Feel free to connect with me:
 
 - **Email:** adamgemechu@gmail.com
-- **LinkedIn:** [Your Profile](https://linkedin.com/in/yourprofile)
-- **GitHub:** [Your GitHub](https://github.com/yourusername)
+- **LinkedIn:** https://www.linkedin.com/in/gemechugesifeta/
 
 ---
 
