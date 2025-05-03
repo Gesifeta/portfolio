@@ -24,13 +24,6 @@ ChartJS.register(
 
 const BarChart = ({ data, options }) => {
   // check if the user is authorized
-  // get user from local storage
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    return (
-      <ErrorMessage message="You are not logged in" error="Unauthorized" />
-    );
-  }
   const defaultOptions = {
     responsive: true,
     maintainAspectRatio: false,
