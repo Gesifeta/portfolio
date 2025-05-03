@@ -40,7 +40,6 @@ const CountryAnalytics = () => {
   });
 
   if (!data) return;
-
   const chartData = {
     labels: data.countries?.map((c) => c.country),
     datasets: [
