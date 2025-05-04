@@ -11,14 +11,14 @@ import {
 
 import "./App.css";
 
-export function App() {
+export function LandingPage() {
   let navigate = useNavigate();
   let location = useLocation();
   const [audioLoaded, setAudioLoaded] = useState(false);
   // File path: /home/gesifeta/portfolio/src/App.jsx
   // Content:
   useEffect(() => {
-   // trackUserPageView();
+    // trackUserPageView();
     trackCountryPageView();
   }, [location]);
   // To play the audio when button clicked
@@ -105,4 +105,4 @@ export function App() {
   );
 }
 
-export default App;
+export default LandingPage;

@@ -1,5 +1,8 @@
 import React from 'react';
+
+
 import Header from './components/Header';
+import LandingPage from './LandingPage';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Features from './components/Features';
@@ -14,13 +17,14 @@ function App() {
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Header />
       <main>
-        <Hero />
+        <LandingPage />
+        {/* <Hero />
         <Services />
         <Features />
         <Pricing />
         <Testimonials />
         <About />
-        <Cta />
+        <Cta /> */}
       </main>
       <Footer />
     </div>
