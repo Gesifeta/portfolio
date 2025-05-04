@@ -1,3 +1,7 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   --color-dark-gray: #222831;
   --color-charcoal-gray: #393e46;
