@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { Speech, Loader } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import Header from "./components/header/Header.jsx";
-import Footer from "./components/footer/Footer.jsx";
 import {
   trackCountryPageView,
   trackUserPageView,
@@ -100,7 +98,6 @@ export function LandingPage() {
           </button>
         </div>
       </section>
-      <Footer />
     </>
   );
 }
