@@ -94,7 +94,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-          <p>© 2025 PortfolioPro. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} oromia.dev. All rights reserved.</p>
           <p className="mt-2">
             Designed with <span className="text-red-500">♥</span> for creative professionals worldwide.
           </p>
